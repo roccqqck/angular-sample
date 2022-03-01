@@ -1,0 +1,174 @@
+$imgUrl: '../img/iLEO/';
+$imgUrl2: '../img/';
+
+$subColor1: #4DB369;
+$subColor2: #F4372B;
+$subColor3: #D5DEDB;
+$subColor4: #009980;
+$subColor5: #13CB4D;
+$subColor6: #767676;
+$subColor7: #BBBBBB;
+$subColor8: #00000029;
+$subColor9: #DADADA;
+$subColor10: #F7F7F7;
+$subColor11: #707070;
+$subColor12: #E8E8E8;
+$subColor13: #00543E;
+$subColor14: #B1B1B1;
+$subColor15: #767676;
+$subColor16: #F49019;
+$subColor17: #6DA6E0;
+$subColor18: #F7B61C;
+$subColor19: #F44B3E;
+$subColor20: #00A1E3;
+$subColor21: #E46A97;
+$subColor22: #007A64;
+$subColor23: #0EA13D;
+$subColor24: #AFAFAF;
+$subColor25: #79CF95;
+$subColor26: #EAFFEE;
+$subColor27: #D8D8D8;
+$subColor28: #5BBD7C;
+$subColor29: #666666;
+$subColor30: #484848;
+$subColor31: #EAEAEA;
+$subColor32: #A9A9A9;
+$subColor33: #A5A5A5;
+$subColor34: #57C5FA;
+$subColor35: #027DFE;
+$subColor36: #9999b6;
+$subColor37: #F4F4F4;
+$subColor38: #BCBCBC;
+$subColor39: #C3C3C3;
+$subColor40: #2F2F2F;
+$subColor41: #69C984;
+$subColor42: #D3D1BD;
+$subColor43: #FFD54F;
+$subColor44: #FFBEAA;
+$subColor45: #C5C5C5;
+$subColor46: #90CAF9;
+$subColor47: #C5E1A5;
+$subColor48: #838383;
+$subColor49: #F6F7F6;
+$subColor50: transparent;
+$subColor51: #919191;
+$subColor52: #E8E8E9;
+$subColor53: #8C8C8C;
+$subColor54: #E4E1DE;
+$subColor55: #F8F8FA;
+$subColor56: #00000033;
+$subColor57: #4DB36A; 
+$subColor58: #E7E7E7;
+$subColor59: #31B3AB;
+
+$subColor60: #48CB61;
+$subColor61: #E4E4E5;
+$subColor62: #00987F;
+$subColor63: #E4E4E9;
+$subColor64: #BABABA;
+$subColor65: #404040;
+
+$common_White: #FFFFFF;
+$common_Light: #F1F1F1;
+$common_Gray: #9B9B9B;
+$common_Dark: #484848;
+$common_Black: #000000;
+
+// 單行文字溢出顯示省略號
+@mixin textOverFlow() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+// 多行文字溢出顯示省略號
+@mixin multipleTextOverFlow($num) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    white-space: normal;
+    -webkit-line-clamp: $num;
+    -webkit-box-orient: vertical;
+}
+// 控制選單的 li 跟 slider 的定位處理
+@mixin subTabPosition($subNum) {
+    width: calc(100%/#{$subNum});
+    @for $i from 1 through $subNum {
+        &.active:nth-of-type(#{$i}) ~ .slider {
+            width: calc(100%/#{$subNum} + 6px );
+            left: calc((#{$i} - 1)*(100%/#{$subNum}) - 3px ) !important;
+        }
+    }
+}
+// 控制選單的 li 跟 slider 的特殊定位處理
+@mixin subTabPositionSpecial {
+    width: calc((100% - 3.75rem)/3);
+    @for $i from 1 through 4 {
+        &.active:nth-of-type(#{$i}) ~ .slider {
+            width: calc((100% - 3.75rem)/3 + 6px );
+            left: calc(((#{$i} - 2)*((100% - 3.75rem)/3)) + 3.75rem - 1px - 3px) !important;
+        }
+    }
+}
+
+.flexVerCenter { align-items: center; }
+.w100 {
+    width: 100% !important;
+}
+.w50 { 
+    width: calc(50% - 4px) !important;
+    vertical-align: top;
+    @media screen and (max-width: 768px) {
+        width: 100% !important;
+    }
+}
+.w30 { width: 30% !important; }
+
+.webShow { display: initial !important; }
+.mobileShow { display: none !important; }
+
+@media screen and (max-width: 768px) {
+    .mw100 { width: 100% !important; }
+    .webShow { display: none !important; }
+    .mobileShow { display: initial !important; }
+}
+
+$mer_pad_num: (
+    0: 0,
+    2: 2px,
+    5: 5px,
+    8: 0.5rem,
+    10: 0.625rem,
+    20: 1.25rem,
+    30: 1.875rem,
+    40: 2.500rem,
+    50: 3.125rem,
+);
+@each $key, $value in map-remove($mer_pad_num) {
+    $i: index($mer_pad_num, $key $value);
+    .mar-all#{$key} { margin: nth(map-values($mer_pad_num), $i) !important; }
+    .mar-t#{$key} { margin-top: nth(map-values($mer_pad_num), $i) !important; }
+    .mar-b#{$key} { margin-bottom: nth(map-values($mer_pad_num), $i) !important; }
+    .mar-l#{$key} { margin-left: nth(map-values($mer_pad_num), $i) !important; }
+    .mar-r#{$key} { margin-right: nth(map-values($mer_pad_num), $i) !important; }
+    .mar-hor#{$key} {
+        margin-left: nth(map-values($mer_pad_num), $i) !important;
+        margin-right: nth(map-values($mer_pad_num), $i) !important;
+    }
+    .mar-ver#{$key} {
+        margin-top: nth(map-values($mer_pad_num), $i) !important;
+        margin-bottom: nth(map-values($mer_pad_num), $i) !important;
+    }
+    .pad-all#{$key} { padding: nth(map-values($mer_pad_num), $i) !important; }
+    .pad-t#{$key} { padding-top: nth(map-values($mer_pad_num), $i) !important; }
+    .pad-b#{$key} { padding-bottom: nth(map-values($mer_pad_num), $i) !important; }
+    .pad-l#{$key} { padding-left: nth(map-values($mer_pad_num), $i) !important; }
+    .pad-r#{$key} { padding-right: nth(map-values($mer_pad_num), $i) !important; }
+    .pad-hor#{$key} {
+        padding-left: nth(map-values($mer_pad_num), $i) !important;
+        padding-right: nth(map-values($mer_pad_num), $i) !important;
+    }
+    .pad-ver#{$key} {
+        padding-top: nth(map-values($mer_pad_num), $i) !important;
+        padding-bottom: nth(map-values($mer_pad_num), $i) !important;
+    }
+}

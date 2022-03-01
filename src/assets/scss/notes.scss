@@ -1,0 +1,294 @@
+// 網頁整體font-size設定
+@mixin font-size-map($font-size-map) {
+    @each $breakpoint, $font-size in $font-size-map {
+        @if $breakpoint == null {
+            font-size: $font-size;
+        } @else {
+	        @media (max-width: $breakpoint) {
+	            font-size: $font-size;
+	        }
+        }
+    }
+}
+$html-font-size: (null:16px, 768px:14px, 360px:12px);
+
+//字級設定，以1rem為單位，做2px字級的調整。（方便未來RWD文字變化時可以幾乎不寫字級設定）
+.fontsize-2 { font-size: 0.875rem; }
+.fontsize0 { font-size: 1rem; }
+.fontsize2 { font-size: 1.125rem; }
+.fontsize4 { font-size: 1.250rem; }
+
+.htmlColor { color: #ff8800 !important; }
+.cssColor { color: #3ba0ff !important; }
+.annotation { color: #539200 !important; }
+.textRed { color: #F4372B !important; }
+.textGreen { color: #0EA13D !important; }
+.textDeGreen { color: #1A7C77 !important; }
+.textGray { color: #4d4d4d !important; }
+.textWhite { color: #fff !important; }
+.blod { font-weight: bold !important; }
+.textRight { text-align: right; }
+
+* { user-select: auto !important; }
+body {
+	@include font-size-map($html-font-size);
+    font-family: Arial, Microsoft JhengHei;
+    overflow-x: hidden;
+    background: #F1F1F1;
+    max-width: 1366px;
+    margin: 0 auto;
+}
+main {
+    min-height: calc(100vh - 4rem);
+    background: #FFFFFF;
+    margin: 0;
+}
+.noteTitle {
+    @extend .fontsize4;
+    text-align: center;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1rem;
+    background: #4DB369;
+    padding: 1.5rem 0;
+}
+ul { margin: 0 0 0 1.5rem; }
+.subTitle {
+    @extend .fontsize0;
+    position: relative;
+    color: #484848;
+    border-bottom: 1px solid #ffffff;
+    background: #ececec;
+    padding: 0.5rem 2rem 0.5rem 3rem;
+    cursor:  pointer;
+    transition: all 0.2s;
+    &:hover { background: #EAFFEE; }
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        left: 1.5rem;
+        top: calc((100% - 1px)/2);
+        width: 0.8rem;
+        height: 1px;
+        background: #484848;
+        transition: transform 0.5s;
+    }
+    &:after { transform: rotate(90deg); }
+}
+.item {
+    &.open {
+        > .subTitle:after { transform: rotate(180deg); }
+        > div { display: block; }
+    }
+    > div {
+        display: none;
+        padding: 1rem 3rem;
+        > p {
+            @extend .fontsize0;
+            color: #4d4d4d;
+            margin-bottom: 1rem;
+        }
+        > ul {
+            color: #16974b;
+            list-style-type: decimal;
+            &.switch {
+                > div { display: none; }
+                + .codeStyle {
+                    display: none;
+                    margin: 1rem 0 1rem 1.5rem;
+                }
+                &.open {
+                    > div { display: block; }
+                    li { display: list-item; }
+                    + .codeStyle { display: block; }
+                }
+            }
+            &:not(:nth-last-of-type(1)) { margin-bottom: 1rem; }
+            p {
+                @extend .fontsize2;
+                font-weight: bold;
+                color: #30393f;
+                cursor: pointer;
+                margin: 0 0 0.5rem -1.5rem;
+                &:hover { color: #0EA13D; }
+                &:before {
+                    content: '➤';
+                    font-size: 12px;
+                    margin-right: 0.5rem;
+                }
+            }
+            span {
+                @extend .fontsize-2;
+                display: block;
+                margin: 0 0 0.5rem;
+            }
+            a {
+                color: #4DB369;
+                &:hover { color: #009980; }
+            }
+            li {
+                margin: 0.3rem 0;
+                ul {
+                    @extend .fontsize-2;
+                    list-style-type: disc;
+                    color: #8d8d8d;
+                    margin-top: 0.5rem;
+                }
+            }
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+table {
+    width: 100%;
+    tr {
+        th, td {
+            text-align: left;
+            vertical-align: middle;
+            color: #4d4d4d;
+            border-bottom: 1px solid #ECECEC;
+            background: transparent;
+            padding: 5px;
+        }
+        th {
+            font-weight: bold;
+            
+        }
+        &:nth-of-type(even) td { background: #f8f8f8; }
+    }
+}
+.codeStyle {
+    .language {
+        @extend .fontsize0;
+        font-weight: bold;
+        span {
+            @extend .fontsize-2;
+            display: block;
+            margin: 0.5rem 0 1rem;
+            span {
+                display: inline-block;
+                margin: 0 0.3rem;
+            }
+        }
+    }
+    pre {
+        @extend .fontsize-2;
+        overflow-x: scroll;
+        font-family: monospace !important;
+        font-weight: initial;
+    }
+}
+
+.demo-margin {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid rgba(0,0,0,.2);
+    background: #f4b460;
+    > div {
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left :0;
+        right: 0;
+        vertical-align: middle;
+        font-size: 0.875rem;
+        line-height: normal;
+        color: #2F2F2F;
+        background: #fff;
+        border: 1px solid rgba(20, 126, 255, 0.53);
+        &:before {
+            content: '';
+            width: 1px;
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+.demo-padding {
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid rgba(0,0,0,.2);
+    background: #bae1bd;
+    > div {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        font-size: 0.875rem;
+        line-height: normal;
+        color: #2F2F2F;
+        background: #fff;
+        border: 1px solid rgba(20, 126, 255, 0.53);
+        &:before {
+            content: '';
+            width: 1px;
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+$mer_pad_num: (
+    0: 0,
+    2: 2px,
+    5: 5px,
+    8: 0.5rem,
+    10: 0.625rem,
+    20: 1.25rem,
+    30: 1.875rem,
+    40: 2.500rem,
+    50: 3.125rem,
+);
+@each $key, $value in map-remove($mer_pad_num) {
+    $i: index($mer_pad_num, $key $value);
+    .mar-all#{$key} { margin: nth(map-values($mer_pad_num), $i); }
+    .mar-t#{$key} { margin-top: nth(map-values($mer_pad_num), $i); }
+    .mar-b#{$key} { margin-bottom: nth(map-values($mer_pad_num), $i); }
+    .mar-l#{$key} { margin-left: nth(map-values($mer_pad_num), $i); }
+    .mar-r#{$key} { margin-right: nth(map-values($mer_pad_num), $i); }
+    .mar-hor#{$key} {
+        margin-left: nth(map-values($mer_pad_num), $i);
+        margin-right: nth(map-values($mer_pad_num), $i);
+    }
+    .mar-ver#{$key} {
+        margin-top: nth(map-values($mer_pad_num), $i);
+        margin-bottom: nth(map-values($mer_pad_num), $i);
+    }
+    .pad-all#{$key} { padding: nth(map-values($mer_pad_num), $i); }
+    .pad-t#{$key} { padding-top: nth(map-values($mer_pad_num), $i); }
+    .pad-b#{$key} { padding-bottom: nth(map-values($mer_pad_num), $i); }
+    .pad-l#{$key} { padding-left: nth(map-values($mer_pad_num), $i); }
+    .pad-r#{$key} { padding-right: nth(map-values($mer_pad_num), $i); }
+    .pad-hor#{$key} {
+        padding-left: nth(map-values($mer_pad_num), $i);
+        padding-right: nth(map-values($mer_pad_num), $i);
+    }
+    .pad-ver#{$key} {
+        padding-top: nth(map-values($mer_pad_num), $i);
+        padding-bottom: nth(map-values($mer_pad_num), $i);
+    }
+}
+
+.fontSize24 { font-size: 1.5rem !important; }
+.fontSize22 { font-size: 1.375rem !important; }
+.fontSize20 { font-size: 1.25rem !important; }
+.fontSize18 { font-size: 1.125rem !important;}
+.fontSize16 { font-size: 1rem !important; }
+.fontSize15 { font-size: 0.938rem !important; }
+.fontSize14 { font-size: 0.875rem !important; }
+.fontSize13 { font-size: 0.813rem !important; }
+.fontSize12 { font-size: 0.75rem !important; }
+
+.fontNormal { font-weight: normal !important; }
+.fontBold { font-weight: bold !important; }
