@@ -11,8 +11,13 @@ COPY ./ /app
 
 # Install all the dependencies
 RUN npm config set strict-ssl false ; \
+
+    ## custom npm default registry
     # npm config set registry https://registry.npmjs.org/ ; \
-    # npm install --registry=<registry url> ; \
+
+    ## npm install custom registry
+    # npm install --registry=https://registry.npmjs.org/ ; \  
+
     npm install ; \
     npm run build
 
