@@ -10,7 +10,10 @@ WORKDIR /app
 COPY ./ /app
 
 # Install all the dependencies
-RUN npm install ; \
+RUN npm config set strict-ssl false ; \
+    # npm config set registry https://registry.npmjs.org/ ; \
+    # npm install --registry=<registry url> ; \
+    npm install ; \
     npm run build
 
 
