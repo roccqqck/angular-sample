@@ -7,25 +7,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <link rel="stylesheet" href="../css/fontawesome.min.css">
-  <link rel="stylesheet" href="../css/solid.min.css">
-  <link rel="stylesheet" href="../css/regular.min.css">
-  <!-- 樣式表預加載作法 -->
-  <link rel="preload" href="../css/bootstrap-grid.min.css" as="style">
-  <link rel="stylesheet" href="../css/bootstrap-grid.min.css" media="print" onload="this.media='all'">
-  <link rel="preload" href="../css/select2.min.css" as="style">
-  <link rel="stylesheet" href="../css/select2.min.css" media="print" onload="this.media='all'">
-  <link rel="preload" href="../css/reset.min.css" as="style">
-  <link rel="stylesheet" href="../css/reset.min.css" media="print" onload="this.media='all'">
-  <link rel="preload" href="../css/pikaday_iLEO.min.css" as="style">
-  <link rel="stylesheet" href="../css/pikaday_iLEO.min.css" media="print" onload="this.media='all'">
-  <!-- <link rel="preload" href="../css/pikaday_mBank.min.css" as="style">
-  <link rel="stylesheet" href="../css/pikaday_mBank.min.css" media="print" onload="this.media='all'"> -->
-  <link rel="preload" href="../css/css_iLEO.min.css" as="style">
-  <link rel="stylesheet" href="../css/css_iLEO.min.css" media="print" onload="this.media='all'">
-  <!-- <link rel="preload" href="../css/css_mBank.min.css" as="style">
-  <link rel="stylesheet" href="../css/css_mBank.min.css" media="print" onload="this.media='all'"> -->
 
+  <base href='/iLeoBank/'>
+  <style>
+    @media print{
+      body *{
+        -webkit-print-color-adjust: exact;
+        /* background-image: url('...'); */
+      }
+      main{
+        margin-top: 0;
+      }
+      .mainContent{
+        margin-left: 0;
+      }
+      main, .mainContent{
+        width: 100%;
+        max-width: 100%;
+      }
+      .notPrint{
+        display: none !important;
+      }
+      table{
+        page-break-inside: avoid;
+        page-break-before: avoid;
+        page-break-after: avoid;
+      }
+
+      @page{
+        size: A4 portrait;
+        margin: 1cm;
+        orphans: 4;
+        widows: 2;
+      }
+    }
+
+  </style>
 </head>
 <body>
   <app-root></app-root>

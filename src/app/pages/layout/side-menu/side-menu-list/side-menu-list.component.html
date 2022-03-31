@@ -1,0 +1,22 @@
+<div class="subMenu mt10">
+  <ul>
+    <ng-container *ngFor="let menu of menus;">
+      <ng-container *ngIf="menu.link == this.getCurrentMenu()">
+        <li class="menuToggle" routerLinkActive="active">
+          <a [routerLink]="menu.link">{{lang=="en"? menu.textEn:menu.text}}</a>
+          <ul>
+            <li *ngFor="let sub of menu.node" class="menuToggle" routerLinkActive="active">
+              <a [routerLink]="sub.link">{{lang=="en"? sub.textEn : sub.text}}</a>
+              <ul>
+                <li *ngFor="let fun of sub.node" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+                true}">
+                  <a routerLinkActive="fontGreen2" [routerLink]="fun.link" (click)="this.closeBtnMenu()">{{lang=="en"?fun.textEn:fun.text}}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ng-container>
+    </ng-container>
+  </ul>
+</div>

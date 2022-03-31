@@ -1,0 +1,11 @@
+<div class="selectFont" id="selectFont" (click)="this.selectFontSize()" [ngClass]="{'on':this.isOpen}">
+  <p class="font">
+    <span class="symbol">A</span>
+    <span class="text">標準</span>
+  </p>
+  <ul>
+    <li (click)="this.changeSize('18px')">大</li>
+    <li (click)="this.changeSize('16px')">標準</li>
+    <li (click)="this.changeSize('14px')">小</li>
+  </ul>
+</div>

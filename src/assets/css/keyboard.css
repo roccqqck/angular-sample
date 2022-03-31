@@ -1,0 +1,333 @@
+@import url("./reset.min.css");
+
+/* @group [General Gtyles] ----------------------------------------------------------------------------------------*/
+.keyboard_icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: no-repeat !important;
+  background-size:34px 18px !important;
+  cursor:pointer;
+  color:#444;
+}
+.keyboard_icon:hover {
+  background: no-repeat !important;
+  background-size:34px 18px !important;
+  color:#fff;
+}
+
+.keyboard_icon.keyboard_icon_dark {
+  background:  no-repeat !important;
+}
+.keyboard_icon.keyboard_icon_dark:hover {
+  background:  no-repeat !important;
+}
+
+.keyboard_icon img{
+  display:none;
+  width:34px;
+  height:18px;
+}
+.keybord_location_frame {
+  z-index: 999;
+  position: relative;
+  overflow: visible;
+  margin: 0;
+  width: 100%;
+  height: 0px;
+  top: 0px;
+  padding:0px;
+  background-color:red;
+}
+.keyboard_frame {
+  position: absolute;
+  width: 418px;
+  height: auto;
+  margin-left:-209px;
+  padding: 2px 0 2px 0;
+  border-radius: 5px;
+
+  border: 2px solid #C2BB08;
+  background: #fff;
+
+  font-family: "Noto Sans", sans-serif;
+  top: 100px;
+  left: 35%;
+}
+.keyboard_frame ul {
+  float: left;
+}
+.keyboard_frame ul li {
+  float: left;
+  height: 34px;
+  text-align: center;
+}
+.keyboard_frame ul li button {
+  font-size: 18px;
+  line-height: 28px;
+  position: relative;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  -webkit-transition: all .4s ease;
+     -moz-transition: all .4s ease;
+      -ms-transition: all .4s ease;
+       -o-transition: all .4s ease;
+          transition: all .4s ease;
+  letter-spacing: 1px;
+  color: #333;
+  border-radius: 5px;
+  border: 1px solid #C5E0B4;
+  /*-webkit-box-shadow: 0 3px 0 0 #82D891;
+     -moz-box-shadow: 0 3px 0 0 #82D891;
+          box-shadow: 0 3px 0 0 #82D891;*/
+
+ background: #BFE6A2;
+}
+.keyboard_frame ul li button:hover {
+
+  /*-webkit-box-shadow: 0 3px 0 0 #fff;
+     -moz-box-shadow: 0 3px 0 0 #fff;
+          box-shadow: 0 3px 0 0 #fff;*/
+
+   background: rgba(255, 255, 255, .8);
+  color: rgba(0, 0, 0, .7);
+}
+.keyboard_number {
+  width: 102px;
+}
+.keyboard_number li {
+  width: 32px;
+}
+.keyboard_word {
+  width: 238px;
+}
+.keyboard_word li {
+  width: 32px;
+}
+.keyboard_word li button {
+ /* -webkit-box-shadow: 0 3px 0 0 #39AA89 !important;
+     -moz-box-shadow: 0 3px 0 0 #39AA89 !important;
+          box-shadow: 0 3px 0 0 #39AA89 !important;*/
+  border: 1px solid #A9D18E !important;
+  background: #93D462 !important;
+}
+.keyboard_word li button:hover {
+ /* -webkit-box-shadow: 0 3px 0 0 #efab1a !important;
+     -moz-box-shadow: 0 3px 0 0 #efab1a !important;
+          box-shadow: 0 3px 0 0 #efab1a !important;*/
+
+  color: rgba(0, 0, 0, .7);
+  background: rgba(255, 255, 255, .8) !important;
+}
+.btn_space {
+  width: 62px !important;
+}
+.keyboard_word .btn_space button {
+  width: 58px !important;
+  font-size: 14px !important;
+
+  /*-webkit-box-shadow: 0 3px 0 0 #00CA6E !important;
+     -moz-box-shadow: 0 3px 0 0 #00CA6E !important;
+          box-shadow: 0 3px 0 0 #00CA6E !important;*/
+
+  border: 1px solid #C2BB08 !important;
+  color: #333 !important;
+  background: #C2BB08 !important;
+}
+.keyboard_word .btn_space button:hover {
+
+  /*-webkit-box-shadow: 0 3px 0 0 #a2a2a2 !important;
+     -moz-box-shadow: 0 3px 0 0 #a2a2a2 !important;
+          box-shadow: 0 3px 0 0 #a2a2a2 !important;*/
+  color: #000 !important;
+  background: #f4f4f4 !important;
+}
+.btn_maincheck {
+  width: 60px;
+  padding: 0 5px;
+}
+.btn_maincheck li {
+  width: 56px;
+  height: 34px !important;
+}
+.btn_maincheck li button {
+  line-height: 28px !important;
+  font-size: 16px !important;
+  width: 56px !important;
+  height: 28px !important;
+
+  /*-webkit-box-shadow: 0 3px 0 0 #37CAA5 !important;
+     -moz-box-shadow: 0 3px 0 0 #37CAA5 !important;
+          box-shadow: 0 3px 0 0 #37CAA5 !important;*/
+  border: 1px solid #C2BB08 !important;
+  background: #C2BB08 !important;
+  color: #333 !important;
+}
+.btn_maincheck li button:hover {
+
+  /*-webkit-box-shadow: 0 3px 0 0 #a7a7a7 !important;
+     -moz-box-shadow: 0 3px 0 0 #a7a7a7 !important;
+          box-shadow: 0 3px 0 0 #a7a7a7 !important;*/
+
+  background: rgba(255, 255, 255, .8) !important;
+}
+.left_padding {
+  padding: 0 5px 0 5px;
+}
+.right_padding {
+  padding: 0 5px 0 1px;
+}
+.keyboard_frame h3 {
+  font-size: 12px;
+  padding: 5px 0 10px 0;
+  float: left;
+
+  width: 100%;
+  padding: 0 0 4px 0;
+
+  text-align: center;
+  letter-spacing: 1px;
+
+  color: #333;
+}
+.keyboard_frame h3 input {
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #000;
+  height: 18px;
+  width: 127px;
+
+  background: white;
+  margin:0 5px;
+  padding: 0 5px;
+}
+.keyboard_frame h3 span {
+  padding: 0 5px 0 0;
+
+  color: #333;
+}
+.btn_delete i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+
+  width: 50px;
+  height: 50px;
+  margin: -24px 0 0 -25px;
+
+  text-indent: -999em;
+
+  /*background: url('../images/delete.png') !important;*/
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 25px 25px !important;
+}
+.btn_caplock i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 25px;
+  height: 25px;
+  margin: -11.5px 0 0 -12.5px;
+  text-indent: -999em;
+  /*background: url('../images/capslock.png') !important;*/
+  background-repeat: no-repeat !important;
+  background-position: top !important;
+  background-size: 25px 50px !important;
+}
+.btn_caplock.click i {
+  background-position: bottom !important;
+}
+
+.btn_close {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+
+  width: 16px;
+  height: 16px;
+
+  background: url('../img/keyboard_btn_close.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 16px 16px;
+}
+
+@media \0screen {
+  .btn_delete i {
+    /*background: url('../images/delete_ie8.png') no-repeat !important;*/
+    width:25px;
+    height:25px;
+    margin: -12px 0px 0px -13px;
+    top:0px;
+  }
+  .btn_caplock i {
+    /*background: url('../images/capslock_ie8.png') no-repeat !important;*/
+    width:25px;
+    height:25px;
+    margin: -12px 0px 0px -13px;
+    top:0px;
+  }
+  .keyboard_icon {
+    background-image: no-repeat !important;
+  }
+  .keyboard_icon:hover {
+    background-image: no-repeat !important;
+  }
+  .keyboard_icon img{
+    display:none;
+    width:34px;
+    height:18px;
+  }
+}
+/* @group [General Gtyles] End */
+
+/* 行動style */
+@media screen and (max-width:768px) {
+  .keyboard_frame {
+    position: absolute;
+    width: 209px;
+    height: auto;
+    margin-left:-209px;
+    padding: 2px 0 2px 0;
+    border-radius: 5px;
+
+    border: 2px solid #C2BB08;
+    background: #fff;
+
+    font-family: "Noto Sans", sans-serif;
+    top: 0px;
+    left: 35%;
+  }
+  .keyboard_word {
+    width: auto;
+  }
+  .right_padding {
+    padding: 0;
+  }
+  .btn_maincheck {
+    width: 60px;
+    padding: 0px;
+  }
+  .keyboard_number {
+    padding: 0 5px 0 5px;
+    width: 140px;
+  }
+  .keyboard_word .btn_space button {
+    width: 125px !important;
+    font-size: 14px !important;
+
+    /*-webkit-box-shadow: 0 3px 0 0 #00CA6E !important;
+       -moz-box-shadow: 0 3px 0 0 #00CA6E !important;
+            box-shadow: 0 3px 0 0 #00CA6E !important;*/
+
+    border: 1px solid #C2BB08 !important;
+    color: #333 !important;
+    background: #C2BB08 !important;
+  }
+
+}

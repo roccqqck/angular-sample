@@ -1,3 +1,4 @@
+import { PageMetaService } from './../service/shared/page-meta.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  public constructor(private PageMetaService: PageMetaService){}
 
   ngOnInit(): void {
+    this.PageMetaService.setTitle("找不到此頁面");
+    this.PageMetaService.addTag('第一銀行,FirstBank,iBank,iLeoBank,iLeo','', false);
   }
 
 }

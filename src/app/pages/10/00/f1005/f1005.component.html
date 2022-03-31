@@ -1,0 +1,18 @@
+<!-- title -->
+<app-fn-title title="SSL交易密碼變更" fnctId="F1005" i18n-title="@@nb_f1004_title"></app-fn-title>
+<!-- step -->
+<app-fn-step stepItem1="變更" i18n-stepItem1="@@nb_f1004_step1"
+             stepItem2="完成" i18n-stepItem2="@@nb_f1004_step2"
+             stepItem3=""
+             stepItem4=""
+             stepItem5=""
+             stepItem6=""
+  [currentStep]="getStep()" [txnError]="txnError">
+</app-fn-step>
+<!-- form -->
+<app-form1 *ngIf="1==getStep()"></app-form1>
+<app-form2 *ngIf="2==getStep()" ></app-form2>
+
+
+<div class="dynamicPad_temp" #dynamicPad>
+</div>

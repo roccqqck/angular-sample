@@ -1,0 +1,26 @@
+<!-- 步驟條 start -->
+<div class="progressCircle  progressFour mar-all20" [ngClass]="getProgressGreenClass()">
+  <ul class="" [style]="getStepPadding()">
+    <ng-container *ngFor="let item of stepItems; let itemIndex = index">
+      <li [ngClass]="{'active': (itemIndex+1)==currentStep}"></li>
+    </ng-container>
+  </ul>
+  <ul>
+    <ng-container *ngFor="let item of stepItems; let itemIndex = index">
+      <ol class="titleTxt fontGray3 fontBold"
+        [ngClass]="{'fontGreen2':  txnError? (itemIndex+2)==currentStep:(itemIndex+1)==currentStep}">
+        {{item}}
+      </ol>
+    </ng-container>
+  </ul>
+</div>
+
+<!-- test
+<ng-container *ngFor="let item of stepItems ;let itemIndx =index">
+  步驟index:{{(itemIndx+1)+item}}
+  步驟title:{{currentStep}}
+  txnError:{{txnError}}
+  <br>
+</ng-container> -->
+<!-- 步驟條 end -->
+

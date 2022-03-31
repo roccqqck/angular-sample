@@ -1,0 +1,348 @@
+/* ---------------------------------------------------------- */
+/*昱宏新增*/
+.stacticTable tr td:before {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 8rem;
+    flex: 0 0 8rem;
+}
+/*昱宏新增結束*/
+/* ---------------------------------------------------------- */
+/* 側邊選單 點擊換色 */
+.sideMenu>.subMenu>ul>li>ul>li>ul>li.active>a {  
+    color: #009980;
+}
+
+/* ---------------------------------------------------------- */
+/*字體大小選擇(smartphone brower) */
+@media screen and (max-width: 768px){
+    main .selectFont{
+    display: block;
+    }
+    body .on{
+        overflow: initial;
+    }
+}
+
+.mobileView>main .selectFont{
+    display: block;
+}
+body .on{
+    overflow: initial;
+}
+
+/* ---------------------------------------------------------- */
+/* 交易方式選擇 超過部分滾輪呈現 */
+/* @media screen and (max-width:768px) {
+    .subTabs>li{
+        overflow: scroll;
+        text-overflow: clip;
+        white-space: nowrap;
+        width: calc(100%/2);
+        position: relative;
+        z-index: 1;
+        width: calc(100%/2);
+        text-align: center;
+        cursor: pointer;
+        margin-top: 0 !important;
+    }
+
+} */
+
+/* ---------------------------------------------------------- */
+/* 安控元件 */
+@media screen and (max-width:768px) {
+    .areaTabs{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .areaTabs>button{        
+        width: 30vw;
+        line-height: unset;
+        color: #009980;
+        border-radius: 9px;
+        border: 1px solid #009980;
+        margin: 0 5px 0.5rem 5px;  
+        font-size: 1.125rem;   
+    }
+    .areaTabs>button:nth-of-type(1){
+        margin: 0 5px 0.5rem 5px;
+        font-size: 1.125rem;
+    }
+}
+
+/* 安控元件-對應內容 */
+.areaTabs+.tabContent>.tabPane.exampleStyle {
+    border-radius: 6px;
+    -webkit-box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
+    background: #fff;
+    padding: 10px 1rem;
+}
+.areaTabs+.tabContent>.tabPane{
+    display: none;
+}
+.areaTabs+.tabContent>.active{
+    display: block;
+}
+
+/* ---------------------------------------------------------- */
+/* mobile formTitle可塞6字  for偉康表單樣式 */
+@media screen and (max-width:768px) {
+    .formTitle {
+        text-align: right;
+        line-height: 23px;
+        color: #404040;
+        margin: 0.5rem auto;
+        padding-right: 0.5rem;
+    }
+    .block .content.bgWhite {
+        border-radius: 5px;
+        background: #fff;
+        -webkit-box-shadow: 0px 3px 6px #00000029;
+        box-shadow: 0px 3px 6px #00000029;
+        padding: 0.5rem;
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* 交易結果頁回首頁按鈕(for行動)，暫時以畫面寬度判斷 */
+.backHomeBtn{
+    display: none;
+}
+@media screen and (max-width:768px) {
+    .backHomeBtn {
+        display: block;
+    }
+}
+.webViewBtn{
+    display: initial;
+}
+@media screen and (max-width:768px) {
+    .webViewBtn {
+        display: none;
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* 兩步驟進度條 */
+/* 兩步驟進度條1 ( 綠圓圈+灰色線) */
+.progressTwo{
+    padding-left: 20%; padding-right: 20%;
+}
+.progressGreen1 li:before {
+    background: #009980;    
+}
+.progressGreen1 li:not(:last-child):after {
+    background: #E8E8E8;
+}
+/* 兩步驟進度條2 ( 綠圓圈+綠色線)*/
+.progressGreen2 li:before {
+    background: #009980;    
+}
+.progressGreen2 li:not(:last-child):after {
+    background: #009980;
+}
+.progressGreen2 li:nth-child(2):after {
+    background: #E8E8E8;
+}
+.ulTwoText{
+    padding-left: 10px; padding-right: 10px;
+}
+.ulFourText{
+    padding-left: 24px; padding-right: 24px;
+}
+
+/* ---------------------------------------------------------- */
+/* 四步驟進度條 */
+/* 四步驟進度條3 */
+.progressFour{
+    padding-left: 20%; padding-right: 20%;
+}
+.progressGreen3 li:before {
+    background: #009980;    
+}
+.progressGreen3 li:not(:last-child):after {
+    background: #009980;
+}
+.progressGreen3 li:nth-child(3):after {
+    background: #E8E8E8;
+}
+/* 四步驟進度條4  */
+.progressGreen4 li:before {
+    background: #009980;    
+}
+.progressGreen4 li:not(:last-child):after {
+    background: #009980;
+}
+.progressGreen4 li:nth-child(4):after {
+    background: #E8E8E8;
+}
+@media screen and (max-width:768px){
+    .progressFour{
+        padding-left: 0%; padding-right: 0%;
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* Error步驟進度條，交易失敗(進度條往後前進，交易失敗以灰色圈圈顯示，綠色字停留在上個步驟) */
+/* 步驟二error */
+.progressGreen2Error li:before {
+    background: #009980;    
+}
+.progressGreen2Error li:nth-child(2):before {
+    background: #E8E8E8;    
+}
+.progressGreen2Error li:nth-child(-n+1):after {
+    background: #009980;
+}
+.progressGreen2Error li:nth-child(2):after {
+    background: #E8E8E8;
+}
+/* 步驟三error */
+.progressGreen3Error li:before {
+    background: #009980;    
+}
+.progressGreen3Error li:nth-child(3):before {
+    background: #E8E8E8;    
+}
+.progressGreen3Error li:nth-child(-n+2):after {
+    background: #009980;
+}
+.progressGreen3Error li:nth-child(3):after {
+    background: #E8E8E8;
+}
+/* 步驟四error */
+.progressGreen4Error li:before {
+    background: #009980;    
+}
+.progressGreen4Error li:nth-child(4):before {
+    background: #E8E8E8;    
+}
+.progressGreen4Error li:nth-child(-n+3):after {
+    background: #009980;
+}
+.progressGreen4Error li:nth-child(4):after {
+    background: #E8E8E8;
+}
+
+/* ---------------------------------------------------------- */
+/* 綠底標題 */
+.handGreen{
+    width: 100%;
+    display: inline-block;
+    color: #fff;
+    border: 0;
+    background-color: #009980;
+    padding: 0.5rem 5px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+/* ---------------------------------------------------------- */
+/* 綠色卡片邊線(上) */
+.cardGreen{
+    border-top: 5px solid #009980; 
+    border-radius: 0px; 
+}
+
+/* ---------------------------------------------------------- */
+/* 灰色分隔線 */
+.dividerGray{
+    margin-top: 1.25rem !important;
+    border-top: 1px solid #D8D8D8;
+}
+
+/* ---------------------------------------------------------- */
+/* 注意事項清單(圓點) */
+.listDisc{
+    list-style: disc;
+    padding-left: 1.2rem;
+}
+
+/* ---------------------------------------------------------- */
+/* 動態鍵盤位置 */
+.verifyKeyboardIcon{
+    right: 2rem !important; 
+    background-size: 34px 18px ;
+}
+
+
+/* ---------------------------------------------------------- */
+/* 取消圓角 */
+.noRadius{
+    border-radius: 0px !important;
+}
+
+/* ---------------------------------------------------------- */
+/* 兩欄式表單 mobile分隔線  */
+@media screen and (max-width:768px) {
+    .colBorder1 {
+        padding-bottom: 1rem;
+    }
+    .colBorder2 {
+        border-top: solid 1px #e8e8e8;
+        padding-top: 0.5rem;
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* 行動版單一按鈕時放大  */
+@media screen and (max-width: 768px){
+    .btnOne {
+        min-width: 208px !important;
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* 行動版-可用餘額換行顯示  */
+@media screen and (max-width: 768px) {
+    .availableBalance {
+       display: block;
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* 交易結果 文字樣式 */
+.listTitle{
+    word-wrap: break-word;
+    word-break: normal;
+}
+.listContent{
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+/* ---------------------------------------------------------- */
+/* stacticTable for mobile Title  */
+@media screen and (max-width: 768px) {
+    .grayBgMobile{
+        background: #EAEAEA;
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* tableAllLine for mobile  */
+@media screen and (max-width: 768px) {
+    .mobileTableAllLine th, .mobileTableAllLine .th {
+        border: 1px solid #FFFFFF !important;
+    }    
+    .mobileTableAllLine td, .mobileTableAllLine .td {
+        border: 1px solid #E7E7E7 !important;
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* 因偉康元件mBank樣式無法塞下6個字，經與數銀UI確認，
+    覆寫偉康元件flex:0 0 7rem =>flex:0 0 8rem  */
+/* .stacticTable tr td:before {
+    content: attr(data-title);
+    display: none;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 8rem;
+    flex: 0 0 8rem;
+    color: #A0A1A2;
+    text-align: right;
+    padding-right: 2rem;
+    display:block;
+} */

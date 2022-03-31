@@ -1,21 +1,21 @@
-<header class="header">
+<header class="header notPrint">
   <div class="headerContent">
       <div class="outerLink">
           <ul>
               <li>
-                  <a href="http://www.firstholding.com.tw/" target="_blank" data-i18n="nb_header_outerLink01">第一金控</a>
+                  <a href="http://www.firstholding.com.tw/" target="_blank" i18n="@@nb_header_outerLink01">第一金控</a>
               </li>
               <li>
-                  <a href="https://www.firstbank.com.tw/servlet/fbweb/ServiceLocation" target="_blank" data-i18n="nb_header_outerLink02">服務據點</a>
+                  <a href="https://www.firstbank.com.tw/servlet/fbweb/ServiceLocation" target="_blank" i18n="@@nb_header_outerLink02">服務據點</a>
               </li>
               <li>
-                  <a href="https://eatm.firstbank.com.tw/" target="_blank" data-i18n="nb_header_outerLink03">eATM</a>
+                  <a href="https://eatm.firstbank.com.tw/" target="_blank" i18n="@@nb_header_outerLink03">eATM</a>
               </li>
               <li>
-                  <a href="https://ebank.firstbank.com.tw/" target="_blank" data-i18n="nb_header_outerLink04">第e金網</a>
+                  <a href="https://ebank.firstbank.com.tw/" target="_blank" i18n="@@nb_header_outerLink04">第e金網</a>
               </li>
               <li>
-                  <a href="javascript:;" onclick="switchLang()" data-i18n="nb_header_language">English</a>
+                  <a  (click)="changeLanguage()" >{{lang=="en"?"中文":"English"}}</a>
               </li>
           </ul>
       </div>

@@ -1,0 +1,59 @@
+<form #dynamicPad name="formPad" method="post">
+  <input type="hidden" name="clickflag" value="">
+  <!-- ImageReady Slices (home.psd - Slices: 05, 06) -->
+
+  <table width="165" border="0" align="left" cellpadding="3" cellspacing="0">
+    <tr>
+      <td>
+        <div align="center">
+          <div class="dynamic-pad-e" style="display:none">
+            <!-- <div class="dynamic-pad-e" > -->
+            <h5 class="dynaPadTitle">請輸入密碼</h5>
+            <div class="input ">
+              <input class="key-hint" name="PIN" type="password" size="13" maxlength="12" readonly>
+            </div>
+            <p class="key-hint">(已輸入密碼:<span id="pwdLen" style="font-size: 9pt;">0</span>位)</p>
+            <div class="key">
+              <!-- for loop   -->
+              <table cellpadding="0" cellspacing="0">
+                <tbody>
+                  <ng-container *ngFor="let item of list; let idx = index">
+                    <tr *ngIf="idx%3==0;">
+                      <td>
+                        <div class="num" (click)="this.dynamicPadService.enter_Num(list[idx])">
+                          <p>{{list[idx]}}</p>
+                        </div>
+                      </td>
+                      <td  *ngIf="list[idx+1] !=null">
+                        <div class="num" (click)="this.dynamicPadService.enter_Num(list[idx+1])">
+                          <p>{{list[idx+1]}}</p>
+                        </div>
+                      </td>
+                      <td *ngIf="list[idx+2] !=null">
+                        <div class="num" (click)="this.dynamicPadService.enter_Num(list[idx+2])">
+                          <p>{{list[idx+2]}}</p>
+                        </div>
+                      </td>
+                      <td *ngIf="idx/3==3">
+                        <div class="num num11" (click)="this.dynamicPadService.processReturn()">
+                          <p>確認</p>
+                        </div>
+                      </td>
+                      <td  *ngIf="idx/3==3">
+                        <div class="num num12" (click)="this.dynamicPadService.enter_Num('clear')">
+                          <p>清除</p>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- End ImageReady Slices -->
+</form>

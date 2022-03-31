@@ -1,0 +1,137 @@
+<div class="block mar-ver10">
+  <!-- formTitle -->
+  <form-title formTitle="SSL交易密碼變更" i18n-formTitle="@@nb_f1003_title"></form-title>
+  <div class="content bgWhite" [formGroup]="f1005Form">
+    <!-- formContent -->
+    <form-row-readonly rowName="戶名" i18n-rowName="@@nb_f1003_accountName" [rowValue]="form1Data.custName">
+    </form-row-readonly>
+
+    <hr class="dividerGray">
+    <form-row-readonly rowName="上次變更時間" i18n-rowName="@@nb_f1003_lastModifyDttm" [rowValue]="form1Data.lastModifyDttm">
+    </form-row-readonly>
+
+    <hr class="dividerGray">
+    <form-row-ssl rowName="原SSL交易密碼" i18n-rowName="@@nb_f1003_newUsrId" id="oldSSL" [isRequired]="true" [form]="f1005Form" [hasKeyboard]="true" [hasSwitch]="true"
+      [isError]="(oldSSLCtrl.invalid && (oldSSLCtrl.dirty || oldSSLCtrl.touched || this.isSubmit))">
+    </form-row-ssl>
+    <div *ngIf="oldSSLCtrl.invalid && ((oldSSLCtrl.dirty || oldSSLCtrl.touched) || this.isSubmit)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="oldSSLCtrl.errors?.['required']">
+        ※請輸入此欄位
+      </div>
+      <div *ngIf="oldSSLCtrl.errors?.['minlength']">
+        ※請輸入8-12位，已輸入{{oldSSLCtrl.value.length}}位
+      </div>
+      <div *ngIf="oldSSLCtrl.errors?.['maxlength']">
+        ※請輸入8-12位，已輸入{{oldSSLCtrl.value.length}}位
+      </div>
+      <div *ngIf="oldSSLCtrl.errors?.['pattern']">
+        ※請勿使用特殊符號(例如#,*,?,!,%...等)
+      </div>
+      <div *ngIf="oldSSLCtrl.errors?.['continuous4Validator']">
+        ※不可連續四個重複
+      </div>
+      <div *ngIf="oldSSLCtrl.errors?.['increment4Validator']">
+        ※不能為遞增連號
+      </div>
+      <div *ngIf="oldSSLCtrl.errors?.['decrease4Validator']">
+        ※不能為遞減連號
+      </div>
+    </div>
+
+    <hr class="dividerGray">
+    <form-row-ssl rowName="新SSL交易密碼" i18n-rowName="@@nb_f1003_newUsrId" id="newSSL" [isRequired]="true" [form]="f1005Form" [hasKeyboard]="true" [hasSwitch]="true"
+      [isError]="(newSSLCtrl.invalid && (newSSLCtrl.dirty || newSSLCtrl.touched || this.isSubmit))">
+    </form-row-ssl>
+    <div *ngIf="newSSLCtrl.invalid && ((newSSLCtrl.dirty || newSSLCtrl.touched) || this.isSubmit)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="newSSLCtrl.errors?.['required']">
+        ※請輸入此欄位
+      </div>
+      <div *ngIf="newSSLCtrl.errors?.['minlength']">
+        ※請輸入8-12位，已輸入{{newSSLCtrl.value.length}}位
+      </div>
+      <div *ngIf="newSSLCtrl.errors?.['maxlength']">
+        ※請輸入8-12位，已輸入{{newSSLCtrl.value.length}}位
+      </div>
+      <div *ngIf="newSSLCtrl.errors?.['pattern']">
+        ※請勿使用特殊符號(例如#,*,?,!,%...等)
+      </div>
+      <div *ngIf="newSSLCtrl.errors?.['continuous4Validator']">
+        ※不可連續四個重複
+      </div>
+      <div *ngIf="newSSLCtrl.errors?.['increment4Validator']">
+        ※不能為遞增連號
+      </div>
+      <div *ngIf="newSSLCtrl.errors?.['decrease4Validator']">
+        ※不能為遞減連號
+      </div>
+    </div>
+    <div *ngIf="f1005Form.invalid && (f1005Form.dirty || f1005Form.touched)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="f1005Form.errors?.['isIdCompare'] ">
+        ※不能與原登入代號相同
+      </div>
+    </div>
+
+    <hr class="dividerGray">
+    <form-row-ssl rowName="確認新SSL交易密碼" i18n-rowName="@@nb_f1003_usrTip" id="checkSSL" [isRequired]="true" [hasKeyboard]="true" [hasSwitch]="true"
+      [form]="f1005Form" [isError]="checkSSLCtrl.invalid && (f1005Form.dirty || f1005Form.touched)">
+    </form-row-ssl>
+    <div *ngIf="checkSSLCtrl.invalid && ((checkSSLCtrl.dirty || checkSSLCtrl.touched) || this.isSubmit)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="checkSSLCtrl.errors?.['required']">
+        ※請輸入此欄位
+      </div>
+      <div *ngIf="checkSSLCtrl.errors?.['minlength']">
+        ※請輸入8-12位，已輸入{{checkSSLCtrl.value.length}}位
+      </div>
+      <div *ngIf="checkSSLCtrl.errors?.['maxlength']">
+        ※請輸入8-12位，已輸入{{checkSSLCtrl.value.length}}位
+      </div>
+      <div *ngIf="checkSSLCtrl.errors?.['pattern']">
+        ※請勿使用特殊符號(例如#,*,?,!,%...等)
+      </div>
+      <div *ngIf="checkSSLCtrl.errors?.['continuous4Validator']">
+        ※不可連續四個重複
+      </div>
+      <div *ngIf="checkSSLCtrl.errors?.['increment4Validator']">
+        ※不能為遞增連號
+      </div>
+      <div *ngIf="checkSSLCtrl.errors?.['decrease4Validator']">
+        ※不能為遞減連號
+      </div>
+    </div>
+
+    <!-- 分隔線 -->
+    <hr class="dividerGray">
+    <div class=" row bgWhite">
+        <div class=" mar-all10  textLeft">
+            <span class="promptTitle fontBold fontRed">注意事項</span>
+            <ul class="listDisc fontSize14">
+                <li class="fontRed mar-t0">請勿使用身份證號碼,電話號碼或生日等易被他人得知的號碼作為密碼</li>
+                <li class="fontRed mar-t0">用戶密碼最好包含英文及數字.(勿設定為1111等諸如此類易被猜出的密碼).</li>
+                <li class="fontRed mar-t0">最好定期使用"SSL交易密碼變更"的功能來變更您的密碼.</li>
+                <li class="fontRed mar-t0">設定密碼時僅限使用阿拉伯數字(密碼長度為8~12位數字).</li>
+            </ul>
+        </div>
+    </div>
+  </div>
+</div>
+<div>
+  <button class="btn btnOne mar-all10 mar-t20 fontSize16" (click)="goNext()"
+    i18n="@@nb_f1003_excuteChange">執行變更</button>
+</div>
+
+<!-- loading -->
+<form-loading *ngIf="isLoading"></form-loading>
+
+
+
+
+
+
+
+  <dynamic-pad [numList]="this.dynamicPadService.keyboardList" ></dynamic-pad>
+
+

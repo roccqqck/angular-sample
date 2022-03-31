@@ -1,0 +1,71 @@
+<div class="block mar-ver10">
+  <div class="content bgWhite" [formGroup]="loginForm" style="display: flex;
+  align-content: center;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: column;
+  flex-wrap: wrap;">
+    <!-- input&check start -->
+
+    <!-- title -->
+    <h2 class="unitName mar-all10" i18n="@@nb_login_title">登入網路銀行</h2>
+    <form-row-input rowName="身分證/統一編號" i18n-rowName="@@nb_login_custId" id="custId" [isRequired]="true" [hasKeyboard]="true" [hasSwitch]="true"
+      [form]="loginForm" [isError]="custId.invalid && (custId.dirty || custId.touched)">
+    </form-row-input>
+    <div *ngIf="custId.invalid && (custId.dirty || custId.touched)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="custId.errors?.['required']">
+        ※請輸入此欄位
+      </div>
+    </div>
+    <!-- input&check end -->
+    <!-- input&check start -->
+    <form-row-input rowName="登入代號" i18n-rowName="@@nb_login_usrId" id="usrId" [isRequired]="true" [form]="loginForm" [hasKeyboard]="true" [hasSwitch]="true"
+      [isError]="usrId.invalid && (usrId.dirty || usrId.touched)">
+    </form-row-input>
+    <div *ngIf="usrId.invalid && (usrId.dirty || usrId.touched)" class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="usrId.errors?.['required']">
+        ※請輸入此欄位
+      </div>
+    </div>
+    <!-- input&check end -->
+    <!-- input&check start -->
+    <form-row-input rowName="登入密碼" i18n-rowName="@@nb_login_usrPwd" id="usrPwd" [isRequired]="true" [form]="loginForm" [hasKeyboard]="true" [hasSwitch]="true"
+      [isError]="usrPwd.invalid && (usrPwd.dirty || usrPwd.touched)">
+    </form-row-input>
+    <div *ngIf="usrPwd.invalid && (usrPwd.dirty || usrPwd.touched)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="usrPwd.errors?.['required']">
+        ※請輸入此欄位
+      </div>
+    </div>
+    <!-- input&check end -->
+    <!-- input&check start -->
+    <form-row-input rowName="圖形驗證碼" i18n-rowName="@@nb_login_verifyCode" id="verifyCode" [isRequired]="true"
+      [form]="loginForm" [isError]="verifyCode.invalid && (verifyCode.dirty || verifyCode.touched)">
+      <span class="mar-l10" rowName>
+        <ng-container *ngIf="this.captchaImage  ;else  loaderror">
+          <img style="vertical-align: middle;"  [src]="this.captchaImage" height="30" width="60">
+        </ng-container>
+        <ng-template #loaderror>
+          <img style="vertical-align: middle;" [src]="" height="30" width="60">
+        </ng-template>
+        <button class="btnMdborder mar-l10" (click)="this.getCaptchImage()">重新產生</button>
+      </span>
+    </form-row-input>
+    <div *ngIf="verifyCode.invalid && (verifyCode.dirty || verifyCode.touched)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="verifyCode.errors?.['required']">
+        ※請輸入此欄位
+      </div>
+    </div>
+
+
+
+    <!-- input&check end -->
+    <div>
+      <button class="btn btnOne mar-all10 mar-t20 fontSize16" onClick="go()" i18n="@@nb_login_btn">登入</button>
+    </div>
+
+  </div>
+</div>

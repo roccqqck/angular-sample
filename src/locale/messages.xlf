@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+  <file source-language="zh-Hant" datatype="plaintext" original="ng2.template">
     <body>
       <trans-unit id="7056611011057226936" datatype="html">
         <source>main works!</source>
@@ -10,6 +10,291 @@
         </context-group>
         <note priority="1" from="description">main works</note>
         <note priority="1" from="meaning">main</note>
+      </trans-unit>
+      <trans-unit id="nb_f1003_title" datatype="html">
+        <source>登入代號變更</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/f1003.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/component/form-success/form-success.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_step1" datatype="html">
+        <source>變更</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/f1003.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_step2" datatype="html">
+        <source>完成</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/f1003.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_accountName" datatype="html">
+        <source>戶名</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_lastModifyDttm" datatype="html">
+        <source>上次變更時間</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_oldUsrId" datatype="html">
+        <source>原登入代號</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_newUsrId" datatype="html">
+        <source>新登入代號</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_usrTip" datatype="html">
+        <source>登入代號提示</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
+          <context context-type="linenumber">54</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_attention" datatype="html">
+        <source>注意事項</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_attentionText1" datatype="html">
+        <source>請勿使用身份證字號、電話號碼或生日等易被他人得知的號碼作為登入代號。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_attentionText2" datatype="html">
+        <source> 設定登入代號時僅限使用阿拉伯數字及英文字母(登入代號長度為8~12位數),並請勿使用特殊字元或符號(例如#,*,?,!,% ...等)。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">72,73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_attentionText3" datatype="html">
+        <source>登入代號最好包含英文字及數字(勿設定與密碼相同)。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_attentionText4" datatype="html">
+        <source>請定期使用&quot;登入代號變更&quot;的功能來變更您的登入代號。</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_attentionText5" datatype="html">
+        <source>請妥善保管您的密碼及電子憑證載具並儘量不要使用公用電腦進入網路銀行。 </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">76,77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_excuteChange" datatype="html">
+        <source>執行變更</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
+          <context context-type="linenumber">85</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1004_title" datatype="html">
+        <source>登入密碼變更</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/f1004.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1004_step1" datatype="html">
+        <source>變更</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/f1004.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1004_step2" datatype="html">
+        <source>完成</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/10/00/f1004/f1004.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_header_outerLink01" datatype="html">
+        <source>第一金控</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/header/header.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_header_outerLink02" datatype="html">
+        <source>服務據點</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/header/header.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_header_outerLink03" datatype="html">
+        <source>eATM</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/header/header.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_header_outerLink04" datatype="html">
+        <source>第e金網</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/header/header.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_signInfo_welcome" datatype="html">
+        <source>歡迎</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/side-menu/sign-info/sign-info.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_signInfo_logOut" datatype="html">
+        <source>登出</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/side-menu/sign-info/sign-info.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_signInfo_lastLogin" datatype="html">
+        <source>上次登入</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/side-menu/sign-info/sign-info.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_signInfo_timeOut" datatype="html">
+        <source>自動登出</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/side-menu/sign-info/sign-info.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_signInfo_resetCounter" datatype="html">
+        <source>重新計時</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/side-menu/sign-info/sign-info.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/layout/side-menu/sign-info/sign-info.component.html</context>
+          <context context-type="linenumber">19,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_login_title" datatype="html">
+        <source>登入網路銀行</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_login_custId" datatype="html">
+        <source>身分證/統一編號</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_login_usrId" datatype="html">
+        <source>登入代號</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_login_usrPwd" datatype="html">
+        <source>登入密碼</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_login_verifyCode" datatype="html">
+        <source>圖形驗證碼</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_login_btn" datatype="html">
+        <source>登入</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/login/login.component.html</context>
+          <context context-type="linenumber">66,69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_input" datatype="html">
+        <source>請輸入</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/component/form-row-input/form-row-input.component.html</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nb_f1003_dykeybord" datatype="html">
+        <source>動態鍵盤</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/shared/component/form-row-input/form-row-input.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
       </trans-unit>
     </body>
   </file>

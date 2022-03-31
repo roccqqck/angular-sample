@@ -1,0 +1,20 @@
+<div class="breadCrumb">
+  <ul>
+    <li *ngFor="let breadcrumb of breadcrumbs$ | async; last as isLast" [ngClass]="{'on':isLast}">
+      <a [routerLink]="breadcrumb?.url" *ngIf="!isLast; else last">
+        {{ lang =="en"? breadcrumb.labelEN : breadcrumb.labelTW}}
+        <ng-container *ngIf="breadcrumb?.params.name">
+          - {{ breadcrumb?.params.name }}
+        </ng-container>
+      </a>
+      <ng-template #last>
+        <a>
+          {{ lang =="en"? breadcrumb.labelEN : breadcrumb.labelTW }}
+          <ng-container *ngIf="breadcrumb?.params.name">
+            - {{ breadcrumb?.params.name }}
+          </ng-container>
+        </a>
+      </ng-template>
+    </li>
+  </ul>
+</div>

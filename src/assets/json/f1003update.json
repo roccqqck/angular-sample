@@ -1,0 +1,10 @@
+{
+	"success": true,
+	"clientResponse": {
+		"custName": "小粉獅測試帳戶",
+		"usrId": "USER0001",
+    "lastModifyDttm":"20220313175959"
+	},
+	"responseId": "apply-platform-common",
+	"statusCode": "0000"
+}

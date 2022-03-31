@@ -1,1 +1,47 @@
-<p>menu works!</p>
+<nav class="notPrint">
+  <a class="btnMenu" href="javascript:;" (click)="this.changeBtnMenu()"></a>
+  <div class="mainbav">
+    <ul>
+      <ng-container *ngFor="let menu of menus;">
+        <li routerLinkActive="active">
+          <a [routerLink]="menu.link" (click)="this.openBtnMenu()">{{lang=="en"? menu.textEn:menu.text}}</a>
+        </li>
+      </ng-container>
+    </ul>
+    <!-- <ul>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">帳戶總覽</a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">臺幣服務</a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">外幣服務</a>
+      </li>
+      <li class="active">
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">基金/信託</a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">員工儲蓄信託</a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">黃金存摺</a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">繳費繳稅</a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">信用卡</a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">保險專區</a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">貸款專區</a>
+      </li>
+      <li>
+        <a href="javascript:void(0);" onclick="event.stopPropagation()">個人化服務</a>
+      </li>
+    </ul> -->
+  </div>
+</nav>

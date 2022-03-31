@@ -6,13 +6,13 @@
     "iLeoBank": {
       "projectType": "application",
       "i18n": {
-        "sourceLocale":"zh-Hant",
+        "sourceLocale": "zh-Hant",
         "locales": {
-          "en":{
+          "en": {
             "translation": "src/locale/messages.en.xlf",
             "baseHref": "/en/"
           },
-          "tw":{
+          "zh": {
             "translation": "src/locale/messages.zh.hant.xlf",
             "baseHref": "/tw/"
           }
@@ -30,9 +30,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            // "localize":true,
-            // "aot": true,
-            "outputPath": "dist/i-leo-bank",
+            "localize":true,
+            "aot": true,
+            "outputPath": "dist/i-leo-bank/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -42,20 +42,36 @@
               {
                 "glob": "**/*",
                 "input": "src/assets/",
-                "output":"/"
+                "output": "/"
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/fontawesome.min.css",
+              "src/assets/css/solid.min.css",
+              "src/assets/css/bootstrap-grid.min.css",
+              "src/assets/css/regular.min.css",
+              "src/assets/css/reset.min.css",
+              "src/assets/css/pikaday_iLEO.css",
+              "src/assets/css/css_iLEO.min.css",
+              "src/assets/css/fcb_iLEO.css",
+              "src/assets/css/keyboard.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/keyboard.js"
+            ]
           },
           "configurations": {
-            "en":{
-              "localize":["en"]
+            "en": {
+              "localize": [
+                "en"
+              ]
             },
-            "tw":{
-              "localize":["tw"]
+            "zh": {
+              "localize": [
+                "zh"
+              ]
             },
             "production": {
               "budgets": [
@@ -78,6 +94,27 @@
               ],
               "outputHashing": "all"
             },
+            "demo": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.demo.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -95,11 +132,11 @@
             "production": {
               "browserTarget": "iLeoBank:build:production"
             },
-            "en":{
+            "en": {
               "browserTarget": "iLeoBank:build:en"
             },
-            "tw":{
-              "browserTarget": "iLeoBank:build:tw"
+            "zh": {
+              "browserTarget": "iLeoBank:build:zh"
             },
             "development": {
               "browserTarget": "iLeoBank:build:development"

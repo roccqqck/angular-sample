@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "starttw":"ng serve -o --configuration=tw",
-    "starten":"ng serve -o --configuration=en",
-    "i18n":"ng extract-i18n --output-path src/locale",
+    "starttw": "ng serve -o --configuration=zh",
+    "starten": "ng serve -o --configuration=en",
+    "i18n": "ng extract-i18n --output-path src/locale",
     "build": "ng build",
+    "demo": "ng build --configuration=demo",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -21,6 +22,10 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@types/crypto-js": "^4.1.1",
+    "axios": "^0.26.1",
+    "crypto-js": "^4.1.1",
+    "nginx": "^1.0.3",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -31,6 +36,7 @@
     "@angular/compiler-cli": "~13.2.0",
     "@angular/localize": "^13.2.3",
     "@types/jasmine": "~3.10.0",
+    "@types/jquery": "^3.5.14",
     "@types/node": "^12.11.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
