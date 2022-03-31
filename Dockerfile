@@ -1,7 +1,7 @@
 # Stage 1: Compile and Build angular codebase
 
 # Use official node image as the base image
-FROM node:16-alpine as build
+FROM node:16-bullseye-slim as build
 
 # Set the working directory
 WORKDIR /app
@@ -10,7 +10,8 @@ WORKDIR /app
 COPY ./ /app
 
 # Install all the dependencies
-RUN npm config set strict-ssl false ; \
+RUN ls -alF /app ; \
+    npm config set strict-ssl false ; \
 
     ## custom npm default registry
     # npm config set registry https://registry.npmjs.org/ ; \
@@ -18,19 +19,22 @@ RUN npm config set strict-ssl false ; \
     ## npm install custom registry
     # npm install --registry=https://registry.npmjs.org/ ; \  
 
-    npm install ; \
-    npm run build
+    npm install --verbose ; \
+    npm run build ; \
+    ls -alF /app
 
 
 # Stage 2: Serve app with nginx server
 
-# Use official nginx image as the base image
-FROM nginx:latest
+FROM bitnami/nginx:1.20
+
+USER root
+ENV TZ=Asia/Taipei
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Copy the build output to replace the default nginx contents.
-COPY --from=build /app/dist/sample-angular-app /usr/share/nginx/html
+COPY --from=build /app/dist/i-leo-bank /usr/share/nginx/html/
 
-COPY ./nginx-angular.conf /etc/nginx/conf.d/nginx-angular.conf
+COPY ./frontend-docker-default-8080.conf /opt/bitnami/nginx/conf/server_blocks/my_server_block.conf
 
-# Expose port 80
-EXPOSE 80
+USER 1001
