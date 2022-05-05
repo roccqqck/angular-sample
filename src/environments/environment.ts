@@ -10,7 +10,7 @@ export const environment = {
   APIURL_CAPTCHA:"https://common-platform-apply.apps.devocp.firstbank.com.tw/common/createcaptcha",
   APIURL_FAVORITE:"https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/personal/getusrfnct",
   APIURL_LOGIN:"http://localhost:4200/json/login.json",
-  APIURL_F10003:"http://localhost:4200/json/f1003query.json",
+  APIURL_F10003:"https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/security/getusrid",
   APIURL_F10004:"http://localhost:4200/json/f1004query.json",
 
 };

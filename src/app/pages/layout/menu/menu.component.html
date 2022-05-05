@@ -1,10 +1,10 @@
-<nav class="notPrint">
-  <a class="btnMenu" href="javascript:;" (click)="this.changeBtnMenu()"></a>
+<nav class="notPrint" >
+  <a class="btnMenu" href="javascript:void(0);" appToggleMenu></a>
   <div class="mainbav">
     <ul>
       <ng-container *ngFor="let menu of menus;">
         <li routerLinkActive="active">
-          <a [routerLink]="menu.link" (click)="this.openBtnMenu()">{{lang=="en"? menu.textEn:menu.text}}</a>
+          <a [routerLink]="menu.link"  appMenu>{{lang=="en"? menu.textEn:menu.text}}</a>
         </li>
       </ng-container>
     </ul>

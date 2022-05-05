@@ -1,0 +1,36 @@
+<!-- 偉康元件庫/按鈕型頁籤 -->
+
+<!-- button -->
+<ul class="subTabs areaTabs mar-t10" [ngClass]="getTabClass()">
+  <ng-container *ngFor="let item of tabItems; let itemindex=index">
+    <button class="fontSize16" [ngClass]="{'active':(itemindex+1)==this.currentTab}"
+      (click)="handleChangeTab(itemindex+1)">
+      {{item}}
+    </button>
+  </ng-container>
+  <span class="slider"></span>
+</ul>
+<!-- content -->
+<div class="tabContent mar-t10">
+  <div class="tabPane exampleStyle active">
+    
+    <div [hidden]="this.currentTab!=1">
+      <ng-content select="[tab1]">
+      </ng-content>
+    </div>
+    <div [hidden]="this.currentTab!=2">
+      <ng-content select="[tab2]">
+      </ng-content>
+    </div>
+    <div [hidden]="this.currentTab!=3">
+      <ng-content select="[tab3]">
+      </ng-content>
+    </div>
+    <div [hidden]="this.currentTab!=4">
+      <ng-content select="[tab4]">
+      </ng-content>
+    </div>
+  </div>
+</div>
+
+

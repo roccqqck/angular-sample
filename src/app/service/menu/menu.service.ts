@@ -8,6 +8,7 @@ import { menus } from 'src/app/conf/menu/side-menu';
 export class MenuService {
    menus: any[] = menus;
    currentMenu="";
+   isOpen:boolean=false;
 
   constructor() {
 
@@ -40,6 +41,13 @@ export class MenuService {
     return  this.currentMenu;
   }
 
+  setIsOpen(value:boolean){
+    this.isOpen=value;
+  }
+
+  getIsOpen(){
+    return this.isOpen;
+  }
 
 
 }

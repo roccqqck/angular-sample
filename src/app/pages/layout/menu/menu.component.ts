@@ -45,20 +45,20 @@ export class MenuComponent implements OnInit {
   }
 
   //漢堡選單展開/收合
-  changeBtnMenu(){
-    if(this.settingService.hasClass("body","on")){
-      this.settingService.removeClass("body","on");
-    }else{
-      this.settingService.addClass("body","on");
-    }
-  }
+  // changeBtnMenu(){
+  //   if(this.settingService.hasClass("body","on")){
+  //     this.settingService.removeClass("body","on");
+  //   }else{
+  //     this.settingService.addClass("body","on");
+  //   }
+  // }
 
   //moblie open
-  openBtnMenu(){
-    if( !this.settingService.hasClass("body","on")){
-      this.settingService.addClass("body","on");
-    }
-  }
+  // openBtnMenu(){
+  //   if( !this.settingService.hasClass("body","on")){
+  //     this.settingService.addClass("body","on");
+  //   }
+  // }
 
 
   getMenus() {

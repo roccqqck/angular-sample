@@ -1,0 +1,29 @@
+<div class="cardBusiness shadowStyle mar-t10 col-12">
+  <div class="businessTitle">
+    <p class="fontSize18 fontGreen2">
+      <i class="fas fa-exclamation-circle fontSize24 "></i>
+      <span style="position: relative; left: 5px; top:3px;">{{title}}</span>
+    </p>
+  </div>
+  <div class="businessList">
+
+    <div class="row">
+      <span class="listTitle fontSize16 fontGray2 col-6">回應代碼</span>
+      <p class="listContent fontSize16 fontGray1 textCenter col-6">
+        {{code}}
+      </p>
+    </div>
+    <div class="row">
+      <span class="firstTitle fontGray2 col-12">       
+        {{message}}
+        <ng-content>
+          
+        </ng-content>
+      </span>
+    </div>
+    <div class="promptNote1   fontSize14" *ngIf="this.code!='404'">
+      <span class="promptTitle textLeft">提醒您：</span><p></p>
+      <p class="textLeft pad-l30">如為轉帳或扣款類交易，請先查詢餘額或交易明細確認交易是否成功，以免重複轉帳！ 或先洽詢本行客服人員確認，謝謝。</p>
+    </div>
+  </div>
+</div>

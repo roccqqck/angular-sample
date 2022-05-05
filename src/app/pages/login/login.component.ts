@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
       (data)=>{
         console.log("取得圖形驗證碼資料:",data)
         this.isLoading=false;
-        this.captchaImage="data:image/jpg;base64," + data.clientResponse.captchaImage;
+        this.captchaImage= data.clientResponse.captchaImage;
 
         //變化檢測>刷新畫面
         this.changeDectorRef.markForCheck();

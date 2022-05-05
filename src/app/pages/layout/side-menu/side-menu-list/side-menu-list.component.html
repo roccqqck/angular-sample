@@ -10,7 +10,7 @@
               <ul>
                 <li *ngFor="let fun of sub.node" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
                 true}">
-                  <a routerLinkActive="fontGreen2" [routerLink]="fun.link" (click)="this.closeBtnMenu()">{{lang=="en"?fun.textEn:fun.text}}</a>
+                  <a routerLinkActive="fontGreen2" [routerLink]="fun.link" appSideMenu >{{lang=="en"?fun.textEn:fun.text}}</a>
                 </li>
               </ul>
             </li>

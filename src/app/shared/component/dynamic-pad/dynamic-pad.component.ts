@@ -1,5 +1,5 @@
 import { map } from 'rxjs';
-import { DynamicPadService } from './../../../service/dynamicPad/dynamic-pad.service';
+import { DynamicPadService } from './service/dynamic-pad.service';
 import { Component, ElementRef, OnInit, ViewChild, ChangeDetectorRef, Input } from '@angular/core';
 
 @Component({

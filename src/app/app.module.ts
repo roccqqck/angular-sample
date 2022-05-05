@@ -16,7 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './service/login/login.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { F1003Module } from './pages/10/00/f1003/f1003.module';
-import { F1004Module } from './pages/10/00/f1004/f1004.module';
+import { F1004Module } from "./pages/10/00/f1004/f1004.module";
 import { MainComponent } from './main/main.component';
 import { c10Component } from './pages/10/c10.component';
 import { ErrorInterceptor } from './shared/util/interceptor/error-interceptor';
@@ -26,8 +26,17 @@ import { C1000Component } from './pages/10/00/c1000.component';
 import { MenuService } from './service/menu/menu.service';
 import { SettingService } from './service/setting/setting.service';
 import { F1005Module } from './pages/10/00/f1005/f1005.module';
-import { DynamicPadService } from './service/dynamicPad/dynamic-pad.service';
+import { DynamicPadService } from './shared/component/dynamic-pad/service/dynamic-pad.service';
 import { FavoriteService } from './service/favorite/favorite.service';
+import { DownloadCSVService } from './shared/component/download-csv/service/download-csv.service';
+import { MenuDirective, ToggleMenuDirective } from './pages/layout/menu/menu.directive';
+import { SelectfontDirective } from './pages/layout/selectfont/selectfont.directive';
+import { SideMenuDirective } from './pages/layout/side-menu/side-menu.directive';
+import { SecurityControlService } from './shared/component/securityControl/security-control.service';
+import { SecurityControlModule } from './shared/component/securityControl/security-control.module';
+import { F1002Component } from './pages/10/f1002/f1002.component';
+import { F1021Module } from './pages/10/00/f1021/f1021.module';
+import { ScriptService } from './service/script/script.service';
 
 @NgModule({
   declarations: [
@@ -45,6 +54,11 @@ import { FavoriteService } from './service/favorite/favorite.service';
     BreadcrumbComponent,
     SelectfontComponent,
     C1000Component,
+    MenuDirective,
+    ToggleMenuDirective,
+    SelectfontDirective,
+    SideMenuDirective,
+    F1002Component,
   ],
   imports: [
     BrowserModule,
@@ -55,8 +69,10 @@ import { FavoriteService } from './service/favorite/favorite.service';
     F1003Module,
     F1004Module,
     F1005Module,
+    F1021Module,
     LoginModule,
-    ComponentModule
+    ComponentModule,
+    SecurityControlModule,
   ],
   providers: [
     Title,
@@ -64,7 +80,10 @@ import { FavoriteService } from './service/favorite/favorite.service';
     MenuService,
     SettingService,
     DynamicPadService,
-    FavoriteService
+    FavoriteService,
+    DownloadCSVService,
+    SecurityControlService,
+    ScriptService
 
     ,{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

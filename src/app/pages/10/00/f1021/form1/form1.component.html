@@ -1,0 +1,133 @@
+<div class="block mar-ver10">
+  <!-- formTitle -->
+  <form-title formTitle="存摺通提(取款)密碼變更" i18n-formTitle="@@nb_f1021_title"></form-title>
+  <div class="content bgWhite" [formGroup]="f1021Form">
+   
+    <app-btn-tabs tab1="使用SSL或OTP動態密碼或憑證交易" i18n-tab1="@@nb_fxxxx_tab1" tab2="使用晶片金融卡交易(需插入讀卡機)" i18n-tab2="@@nb_fxxxx_tab2" 
+    (tabChangeEvent)="handleTabChange($event)">
+      <!-- tab1 -->
+      <div tab1 i18n="@@tab1">
+        <div class="row col-12 inputItem1 textLeft">
+          <span class="fontSize16 fontGray2">存摺通提(取款)密碼帳號</span>
+          <div class="promptFrame ">
+            <i class="fas fa-lock fontGreen2 fontSize24 mar-l10"></i>
+            <div class="frame">
+              <div class="frameTitile fontSize16 fontOrange"> 使用SSL或OTP動態密碼或憑證交易 </div>
+            </div>
+          </div>
+          <!-- select2下拉選單 start-->
+          <div class="selectBtn1  mar-t10 fontSize16">
+            <ng-select2 class="select2 choose" [data]="form1Data.accountList" formControlName="selectAccountTab1" [options]="{language:'zh-TW'}" [placeholder]="'請選擇'" >
+            </ng-select2>          
+          </div>
+          <!-- select2下拉選單 end-->
+        </div>
+      </div>
+      <!-- tab2 -->
+      
+      <div tab2 i18n="@@tab2" >
+       <!-- 晶片金融卡 -->
+       <div class="row col-12 inputItem1 textLeft ">
+        <span class="fontSize16 fontGray2">我的讀卡機</span>
+        <div class="promptFrame ">
+          <i class="far fa-credit-card fontGreen2 fontSize24 mar-l10 "></i>
+          <div class="frame">
+            <div class="frameTitile fontSize16 fontOrange"> 使用晶片金融卡交易(需插入讀卡機) </div>
+          </div>
+        </div>
+        <!-- select2下拉選單 start-->
+        <div class="selectBtn1  mar-t10 fontSize16">
+          <ng-select2 name="readerSelect" class="select2 choose" [options]="{language:'zh-TW'}"  >
+          </ng-select2>          
+        </div>
+        <!-- select2下拉選單 end-->
+      </div>
+
+      <!-- 分隔線 -->
+      <hr class="dividerGray">
+      <div class="row col-12 inputItem1 textLeft">
+        <span class="fontSize16 fontGray2">存摺通提(取款)密碼帳號</span>
+        <!-- select2下拉選單 start-->
+        <div class="selectBtn1  mar-t10 fontSize16">
+          <ng-select2 class="select2 choose"  [data]="accountList" formControlName="selectAccountTab2"  [options]="{language:'zh-TW'}" [placeholder]="'請選擇'" >
+          </ng-select2>          
+        </div>
+        <!-- select2下拉選單 end-->
+      </div>
+      </div>
+    </app-btn-tabs>
+
+ 
+
+
+    <!-- formContent -->
+    <hr class="dividerGray">
+    <form-row-ssl rowName="新存摺通提(取款)密碼" i18n-rowName="@@nb_f1021_newWithdraw" id="newWithdraw" [isRequired]="true" [form]="f1021Form"
+      [hasKeyboard]="true" [hasSwitch]="true"
+      [isError]="(newWithdrawCtrl.invalid && (newWithdrawCtrl.dirty || newWithdrawCtrl.touched || this.isSubmit)) || (f1021Form.errors?.['is0000'] || f1021Form.errors?.['is9999'] )">
+    </form-row-ssl>
+    <div *ngIf="newWithdrawCtrl.invalid && ((newWithdrawCtrl.dirty || newWithdrawCtrl.touched) || this.isSubmit)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="newWithdrawCtrl.errors?.['required']" i18n="@@nb_f1021_newWithdraw_error1">
+        ※請輸入此欄位
+      </div>
+      <div *ngIf="newWithdrawCtrl.errors?.['minlength']" i18n="@@nb_f1021_newWithdraw_error2">
+        ※請輸入4位，已輸入{{newWithdrawCtrl.value.length}}位
+      </div>
+      <div *ngIf="newWithdrawCtrl.errors?.['maxlength']" i18n="@@nb_f1021_newWithdraw_error3">
+        ※可輸入長度為4位，已輸入{{newWithdrawCtrl.value.length}}位
+      </div>
+      <div *ngIf="newWithdrawCtrl.errors?.['pattern']" i18n="@@nb_f1021_newWithdraw_error4">
+        ※請輸入數字
+      </div>
+    </div>
+    <div *ngIf="f1021Form.invalid && (f1021Form.dirty || f1021Form.touched)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="f1021Form.errors?.['is0000'] " i18n="@@nb_f1021_newWithdraw_error8">
+        ※不可為0000
+      </div>
+      <div *ngIf="f1021Form.errors?.['is9999'] " i18n="@@nb_f1021_newWithdraw_error8">
+        ※不可為9999
+      </div>
+    </div>
+
+    <hr class="dividerGray">
+    <form-row-ssl rowName="確認新存摺通提(取款)密碼" i18n-rowName="@@nb_f1021_checkWithdraw" id="checkWithdraw" [isRequired]="true"
+      [hasKeyboard]="true" [hasSwitch]="true" [form]="f1021Form"
+      [isError]="(checkWithdrawCtrl.invalid && (checkWithdrawCtrl.dirty || checkWithdrawCtrl.touched || this.isSubmit)) || (f1021Form.errors?.['isNotCompareNew'] )">
+    </form-row-ssl>
+    <div *ngIf="checkWithdrawCtrl.invalid && ((checkWithdrawCtrl.dirty || checkWithdrawCtrl.touched) || this.isSubmit)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="checkWithdrawCtrl.errors?.['required']" i18n="@@nb_f1021_checkWithdraw_error1">
+        ※請輸入此欄位
+      </div>
+      <div *ngIf="checkWithdrawCtrl.errors?.['minlength']" i18n="@@nb_f1021_checkWithdraw_error2">
+        ※請輸入4位，已輸入{{checkWithdrawCtrl.value.length}}位
+      </div>
+      <div *ngIf="checkWithdrawCtrl.errors?.['maxlength']" i18n="@@nb_f1021_checkWithdraw_error3">
+        ※可輸入長度為4位，已輸入{{checkWithdrawCtrl.value.length}}位
+      </div>
+      <div *ngIf="checkWithdrawCtrl.errors?.['pattern']" i18n="@@nb_f1021_checkWithdraw_error4">
+        ※請輸入數字
+      </div>
+  
+    </div>
+    <div *ngIf="f1021Form.invalid && (f1021Form.dirty || f1021Form.touched)"
+      class="fontRed fontSize14 errorMsg textLeft mar-l10">
+      <div *ngIf="f1021Form.errors?.['isNotCompareNew'] " i18n="@@nb_f1021_checkWithdraw_error8">
+        ※需與新存摺通提(取款)密碼相同
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<div>
+  <button class="btn btnOne mar-all10 mar-t20 fontSize16" (click)="goNext()"
+    i18n="@@nb_f1021_excuteChange">繼續</button>
+</div>
+
+
+
+<dynamic-pad [numList]="this.dynamicPadService.keyboardList"></dynamic-pad>
+

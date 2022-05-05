@@ -1,4 +1,7 @@
-
+/**
+ * 2022/4/26
+ * current functionId source：FNCT(table)
+ */
 export const menus = [
   {
       "text": "帳戶總覽",
@@ -305,20 +308,20 @@ export const menus = [
                   {
                       "text": "電腦裝置認證安全服務",
                       "textEn":"Computer Device Authentication Security Services",
-                      "link": "/10/00/f1018",
+                      "link": "/10/00/f1019",
                       "target": "_self",
                       "menuShow": true,
                       "sideMenuShow": true,
-                      "functionId": "F1018"
+                      "functionId": "F1019"
                   },
                   {
                       "text": "存摺通提(取款)密碼變更",
                       "textEn":"Passbook universal withdrawal(withdrawal) password change",
-                      "link": "/10/00/1803_1",
+                      "link": "/10/00/f1021",
                       "target": "_self",
                       "menuShow": true,
                       "sideMenuShow": true,
-                      "functionId": "F1803_1"
+                      "functionId": "F1021"
                   }
               ]
           },

@@ -28,8 +28,9 @@ export class SettingService {
   }
 
   //設定文字大小
-  setFontSize(size:string){
-    this.fontSize=size;
+  setSelectFontText(text:string){
+    console.log("設定文字大小 bbbb")
+    this.document.getElementById('selectFont').firstChild.childNodes[1].textContent=text;
   }
   getFontSize(){
     return this.fontSize;

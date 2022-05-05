@@ -1,0 +1,13 @@
+{
+	"success": true,
+  "error":{
+    "code":"code",
+    "message":"錯誤訊息",
+    "details":[]
+  },
+	"clientResponse": {
+    "transDttm":"20220313175959"
+	},
+	"responseId": "apply-platform-common",
+	"statusCode": "0000"
+}

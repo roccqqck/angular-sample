@@ -1,0 +1,15 @@
+{
+	"success": true,
+  "error":{
+    "code":"M1L0",
+    "message":"M1L0 未申請取款碼",
+    "details":[]
+  },
+	"clientResponse": {
+    "account":"09368123456",
+    "transDttm":"20220313175959",
+    "channel":"第e個網"
+	},
+	"responseId": "apply-platform-common",
+	"statusCode": "0000"
+}

@@ -1,0 +1,38 @@
+<div class="block mar-ver10">
+  <form-success *ngIf="this.getTxnStatus()=='success'">
+    <!-- 交易內容 start -->
+        <div class="row">
+          <span class="listTitle fontSize16 fontGray1 col-12 textLeft">您的交易內容如下：</span>
+        </div>
+        <div class="row ">
+          <span class="listTitle fontSize16 fontGray2 col-4 textLeft">交易時間</span>
+          <span class="listTitle fontSize16 fontGray2 col-6 textLeft"></span>
+          <p class="listContent col-12 textLeft fontBold fontBlack mar-t10">{{this.form2Data.transDttm}}</p>
+        </div>
+        <div class="row">
+          <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder1">
+            <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">變更存摺(取款)密碼帳號</span>
+            <p class="listContent textLeft fontRed fontBlack mar-t10">{{this.form2Data.countInt}}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder1">
+            <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">交易變更通路</span>
+            <p class="listContent textLeft fontRed fontBlack mar-t10">{{this.form2Data.countInt}}</p>
+          </div>
+        </div> 
+    <!-- 交易內容 end -->
+  </form-success>
+  <form-error *ngIf="this.getTxnStatus()=='error'">
+    <div class="row ">
+        <span class="listTitle fontSize16 fontGray2 col-12 textLeft">交易狀態</span>
+        <p class="listContent col-12 textLeft fontBold fontRed mar-t10">{{errorMessage.message}}</p>
+    </div>
+    <div class="row ">
+        <span class="listTitle fontSize16 fontGray2 col-12 textLeft">交易時間</span>
+        <p class="listContent col-12 textLeft fontBold fontBlack mar-t10">2022/04/07 11:54:06</p>
+    </div>
+  </form-error>
+
+
+</div>

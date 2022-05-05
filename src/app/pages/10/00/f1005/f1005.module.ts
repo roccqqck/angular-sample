@@ -5,7 +5,7 @@ import { ComponentModule } from 'src/app/shared/component/component.module';
 import { F1005Component } from './f1005.component';
 import { Form1Component } from './form1/form1.component';
 import { Form2Component } from './form2/form2.component';
-import { F1004Service } from 'src/app/service/10/f1004.service';
+import { F1005Service } from 'src/app/service/10/f1005.service';
 
 
 
@@ -23,6 +23,6 @@ import { F1004Service } from 'src/app/service/10/f1004.service';
   exports:[
     F1005Component
   ],
-  providers:[F1004Service]
+  providers:[F1005Service]
 })
 export class F1005Module { }

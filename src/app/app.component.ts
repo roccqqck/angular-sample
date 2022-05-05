@@ -1,9 +1,10 @@
 import { MenuService } from 'src/app/service/menu/menu.service';
 import { PageMetaService } from './service/shared/page-meta.service';
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { WebStorageService } from './service/shared/web-storage.service';
 import axios from 'axios';
 import { SettingService } from './service/setting/setting.service';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,6 +13,7 @@ import { SettingService } from './service/setting/setting.service';
 export class AppComponent {
 
   public constructor(
+    @Inject(DOCUMENT) private document: Document,
     private PageMetaService: PageMetaService,
     private WebStorageService: WebStorageService){}
 
@@ -19,8 +21,15 @@ export class AppComponent {
     this.PageMetaService.setTitle("iLeoBank");
     this.PageMetaService.addTag('第一銀行,FirstBank,iBank,iLeoBank,iLeo','', false);
     this.WebStorageService.setCookie("authToken","Test_Auth_Token");
-    this.WebStorageService.setSessionStorage("test","https://www.firstbank.com.tw/~!@#$");
-    console.log("Decrypto test", this.WebStorageService.getSessionStorage("test"));
+
+    if(this.WebStorageService.getLocalStorage("channel") === "M" || this.WebStorageService.getLocalStorage("channel") === "L"){
+      this.document.body.classList.add("mobileView");
+      console.log('add mobileView')
+    }else{
+      this.document.body.classList.remove("mobileView");
+      console.log('remove mobileView')
+    }
+
     this.run();
   }
   run(){
@@ -31,5 +40,9 @@ export class AppComponent {
     // })
   }
   title = "iLeoBank"
+
+  print(){
+    window.print();
+  }
 
 }

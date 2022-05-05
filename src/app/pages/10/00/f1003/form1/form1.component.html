@@ -14,7 +14,8 @@
 
     <hr class="dividerGray">
     <!-- input&check start -->
-    <form-row-input rowName="新登入代號" i18n-rowName="@@nb_f1003_newUsrId" id="usrId" [isRequired]="true" [form]="f1003Form" [hasKeyboard]="true" [hasSwitch]="true"
+    <form-row-input rowName="新登入代號" i18n-rowName="@@nb_f1003_newUsrId" id="usrId" [isRequired]="true" [form]="f1003Form"
+      [hasKeyboard]="true" [hasSwitch]="true"
       [isError]="(usrIdCtrl.invalid && (usrIdCtrl.dirty || usrIdCtrl.touched || this.isSubmit))|| f1003Form.errors?.['isIdCompare']">
     </form-row-input>
     <div *ngIf="usrIdCtrl.invalid && ((usrIdCtrl.dirty || usrIdCtrl.touched) || this.isSubmit)"
@@ -51,8 +52,9 @@
 
     <hr class="dividerGray">
     <!-- input&check start -->
-    <form-row-input rowName="登入代號提示" i18n-rowName="@@nb_f1003_usrTip" id="usrIdTip" [isRequired]="false" [hasKeyboard]="true" [hasSwitch]="true"
-      [form]="f1003Form" [isError]="f1003Form.errors?.['isCompare']  && (f1003Form.dirty || f1003Form.touched)">
+    <form-row-input rowName="登入代號提示" i18n-rowName="@@nb_f1003_usrTip" id="usrIdTip" [isRequired]="false"
+      [hasKeyboard]="true" [hasSwitch]="true" [form]="f1003Form"
+      [isError]="f1003Form.errors?.['isCompare']  && (f1003Form.dirty || f1003Form.touched)">
     </form-row-input>
     <div *ngIf="f1003Form.invalid && (f1003Form.dirty || f1003Form.touched)"
       class="fontRed fontSize14 errorMsg textLeft mar-l10">
@@ -63,21 +65,17 @@
     <!-- input&check end -->
 
     <!-- 分隔線 -->
+
     <hr class="dividerGray">
-    <div class=" row bgWhite">
-      <div class=" mar-all10  textLeft">
-        <span class="promptTitle fontBold fontRed" i18n="@@nb_f1003_attention">注意事項</span>
-        <ul class="listDisc fontSize14">
-          <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText1">請勿使用身份證字號、電話號碼或生日等易被他人得知的號碼作為登入代號。</li>
-          <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText2">
-            設定登入代號時僅限使用阿拉伯數字及英文字母(登入代號長度為8~12位數),並請勿使用特殊字元或符號(例如#,*,?,!,% ...等)。</li>
-          <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText3">登入代號最好包含英文字及數字(勿設定與密碼相同)。</li>
-          <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText4">請定期使用"登入代號變更"的功能來變更您的登入代號。</li>
-          <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText5">請妥善保管您的密碼及電子憑證載具並儘量不要使用公用電腦進入網路銀行。
-          </li>
-        </ul>
-      </div>
-    </div>
+    <!-- 注意事項 -->
+    <form-attention>
+      <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText1">請勿使用身份證字號、電話號碼或生日等易被他人得知的號碼作為登入代號。</li>
+      <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText2">設定登入代號時僅限使用阿拉伯數字及英文字母(登入代號長度為8~12位數),並請勿使用特殊字元或符號(例如#,*,?,!,% ...等)。</li>
+      <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText3">登入代號最好包含英文字及數字(勿設定與密碼相同)。</li>
+      <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText4">請定期使用"登入代號變更"的功能來變更您的登入代號。</li>
+      <li class="fontRed mar-t0" i18n="@@nb_f1003_attentionText5">請妥善保管您的密碼及電子憑證載具並儘量不要使用公用電腦進入網路銀行。</li>
+    </form-attention>
+
   </div>
 </div>
 <div>
@@ -85,5 +83,3 @@
     i18n="@@nb_f1003_excuteChange">執行變更</button>
 </div>
 
-<!-- loading -->
-<form-loading *ngIf="isLoading"></form-loading>

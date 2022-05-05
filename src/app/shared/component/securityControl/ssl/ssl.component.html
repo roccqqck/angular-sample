@@ -1,0 +1,29 @@
+<div class="tabPane exampleStyle active">
+  <div class="row">
+    <div class="col-12 textLeft fontGray2">
+
+      <form [formGroup]="sslForm">
+        <span class="fontSize16 ">請輸入SSL密碼</span>
+        <div class="inputVerify inputPwd mar-t10" [ngClass]="{'error': false}">
+            <input class="inputBox pwd fontSize16" type="{{this.inputType}}" id="sslSecurity" name="sslSecurity" formControlName="sslSecurity"
+            (click)="this.dynamicPadService.dynamicPad('sslSecurity',12)" required placeholder="請輸入" size="22" maxlength="12"
+            autocomplete="off" readonly i18n-placeholder="@@nb_f1003_input">
+          <ng-container>
+            <a #inpiutKeyboard>
+              <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@nb_f1003_dykeybord"
+                title="動態鍵盤"></i>
+            </a>
+          </ng-container>
+          <span class="iconSwitch " [ngClass]="{'active':this.inputType=='password'}" (click)="onChange()"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="promptNote1 mar-ver10">
+    <ul class="listDecimal textLeft">
+      <li>為維護您的使用安全，請定期變更密碼，可至個人化服務>安全設定>SSL交易密碼變更進行更改您的SSL交易密碼。</li>
+      <li>請勿使用身份證號碼,電話號碼或生日等易被他人得知的號碼作為密碼。</li>
+    </ul>
+  </div>
+</div>
+<dynamic-pad [numList]="this.dynamicPadService.keyboardList" ></dynamic-pad>

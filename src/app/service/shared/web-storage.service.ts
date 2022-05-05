@@ -7,6 +7,12 @@ export class WebStorageService {
 
   constructor(private CryptoService: CryptoService) { }
 
+  /**
+   * 設定cookie
+   * @param cookieName
+   * @param cookieValue
+   * @param cookieDeadTime
+   */
   public setCookie(cookieName: string, cookieValue: string, cookieDeadTime?: string){
     let cookieString = "";
     if(cookieDeadTime){
@@ -25,11 +31,16 @@ export class WebStorageService {
       var expires = "; expires="+date.toUTCString();
       cookieString = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
     }
-    console.log("cookieString", cookieString);
+    // console.log("cookieString", cookieString);
     document.cookie = cookieString;
 
   }
 
+  /**
+   * 取得cookie資料
+   * @param key
+   * @returns
+   */
   public getCookie(key: string){
     let name = key + "=";
     let decodeCookie = decodeURIComponent(document.cookie);
@@ -46,13 +57,23 @@ export class WebStorageService {
     return "";
   }
 
+  /**
+   * 存資料進localStorage
+   * @param lsKey
+   * @param lsValue
+   */
   public setLocalStorage(lsKey: string, lsValue: string){
-    console.log("setLocalStorage [" + lsKey + "] ==> " + lsValue)
+    // console.log("setLocalStorage [" + lsKey + "] ==> " + lsValue)
     let _aesValue = this.CryptoService.aesEncrypt(lsValue);
     localStorage.setItem(lsKey, _aesValue);
 
   }
 
+  /**
+   * 取得localStorage
+   * @param lsKey
+   * @returns
+   */
   public getLocalStorage(lsKey: string){
     let _aesValue =  localStorage.getItem(lsKey);
     if(_aesValue){
@@ -63,19 +84,45 @@ export class WebStorageService {
 
   }
 
+  /**
+   * 移除localStorage
+   * @param lsKey
+   */
+  public removeLocalStorage(lsKey: string){
+    localStorage.removeItem(lsKey);
+  }
+
+  /**
+   * 存資料進sessionStorage
+   * @param ssKey
+   * @param ssValue
+   */
   public setSessionStorage(ssKey: string, ssValue: string){
-    console.log("setSessionStorage [" + ssKey + "] ==> " + ssValue)
+    // console.log("setSessionStorage [" + ssKey + "] ==> " + ssValue)
     let _aesValue = this.CryptoService.aesEncrypt(ssValue);
     sessionStorage.setItem(ssKey, _aesValue);
   }
 
+  /**
+   * 取得sessionStorage
+   * @param ssKey
+   * @returns
+   */
   public getSessionStorage(ssKey: string){
     let _aesValue =  sessionStorage.getItem(ssKey);
-    console.log("_aesValue ==> " , _aesValue)
+    // console.log("_aesValue ==> " , _aesValue)
     if(_aesValue){
       return this.CryptoService.aesDecrypt(_aesValue);
     }else{
       return "";
     }
+  }
+
+  /**
+   * 移除sessionStorage
+   * @param ssKey
+   */
+  public removeSessionStorage(ssKey: string){
+    sessionStorage.removeItem(ssKey);
   }
 }

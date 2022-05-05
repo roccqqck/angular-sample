@@ -337,3 +337,17 @@ body .on{
 .fontBlack {
     color: #000000 !important;
   }
+
+/* ---------------------------------------------------------- */
+/* angular mobileView  */
+.mobileView app-root > app-header, .mobileView  app-root > app-menu, .mobileView  app-root> app-footer {
+display: none;
+}
+  
+.mobileView app-root > main {
+    margin-top: 0;
+}
+  
+.mobileView app-root > main .banneImg, .mobileView app-root > main .breadCrumb, .mobileView app-root > main .selectFont {
+    display: none;
+}

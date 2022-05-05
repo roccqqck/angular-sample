@@ -1,0 +1,70 @@
+<div class="modal" [ngClass]="{'active':this.isOpen}">
+    <div class="modalDialog search wm50">
+        <div class="modalTitle fontSize18 fontGreen2">
+            {{title == '' ? '提醒' : title}}
+        </div>
+        <div class="modalContent">
+            <div class="searchBar">
+                <input type="text">
+                <div class="iconSearch"></div>
+            </div>
+            <div class="expend">
+                <p class="expendTitle fontGreen2 fontBold textLeft" appToggleActive>服務支出</p>
+                <div class="expendContent">
+                    <div class="raidoBlock">
+                        <input type="radio" id="item1" name="item1" checked>
+                        <label for="item1">
+                            <p class="fontGray1 fontBold">海運貨運費支出</p>
+                            <span class="fontSize14 fontGray3">支付海上貨物運輸費用</span>
+                        </label>
+                    </div>
+                    <div class="raidoBlock mar-t10">
+                        <input type="radio" id="item2" name="item1">
+                        <label for="item2">
+                            <p class="fontGray1 fontBold">海運貨運費支出</p>
+                            <span class="fontSize14 fontGray3">支付海上貨物運輸費用</span>
+                        </label>
+                    </div>
+                    <div class="raidoBlock mar-t10">
+                        <input type="radio" id="item3" name="item1">
+                        <label for="item3">
+                            <p class="fontGray1 fontBold">海運貨運費支出</p>
+                            <span class="fontSize14 fontGray3">支付海上貨物運輸費用</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="expend">
+                <p class="expendTitle fontGreen2 fontBold textLeft" appToggleActive>本國資金流出</p>
+                <div class="expendContent">
+                    <div class="raidoBlock">
+                        <input type="radio" id="item4" name="item1" checked>
+                        <label for="item4">
+                            <p class="fontGray1 fontBold">海運貨運費支出</p>
+                            <span class="fontSize14 fontGray3">支付海上貨物運輸費用</span>
+                        </label>
+                    </div>
+                    <div class="raidoBlock mar-t10">
+                        <input type="radio" id="item5" name="item1">
+                        <label for="item5">
+                            <p class="fontGray1 fontBold">海運貨運費支出</p>
+                            <span class="fontSize14 fontGray3">支付海上貨物運輸費用</span>
+                        </label>
+                    </div>
+                    <div class="raidoBlock mar-t10">
+                        <input type="radio" id="item6" name="item1">
+                        <label for="item6">
+                            <p class="fontGray1 fontBold">海運貨運費支出</p>
+                            <span class="fontSize14 fontGray3">支付海上貨物運輸費用</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modalBtns btnCheck">
+            <button class="btnClose btnBorder mar-all10" (click)="handleCancel()">{{btnCancel == '' ? '取消': btnCancel}}</button>
+            <button class="btnClose btnLight mar-all10" (click)="handleOk()">{{btnOk == '' ? '確定' : btnOk}}</button>
+        </div>
+    </div>
+</div>

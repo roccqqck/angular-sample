@@ -1,3 +1,4 @@
+import { F1002Component } from './pages/10/f1002/f1002.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './main/main.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -12,6 +13,7 @@ import { C1000Component } from './pages/10/00/c1000.component';
 import { c10ViewComponent } from './pages/10/c10-view.component';
 import { c1000ViewComponent } from './pages/10/00/c1000-view.component';
 import { F1005Component } from './pages/10/00/f1005/f1005.component';
+import { F1021Component } from './pages/10/00/f1021/f1021.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -80,9 +82,15 @@ const routes: Routes = [
           { path: 'f1003', component: F1003Component, canActivate: [AuthGuard] },//個人化服務>安全設定>登入代號變更
           { path: 'f1004', component: F1004Component },//個人化服務>安全設定>登入密碼變更
           { path: 'f1005', component: F1005Component },//個人化服務>安全設定>SSL交易密碼變更
+          { path: 'f1021', component: F1021Component },//個人化服務>安全設定>存摺通提(取款)密碼變更
 
         ],
       },
+      { path: 'f1002', component: F1002Component, pathMatch: 'full', canActivate: [AuthGuard],
+        children: [
+          { path: '00', component: F1002Component },//個人化服務>變更基本資料
+        ]
+      }
     ],
   },
   { path: 'PageNotFound', component: NotFoundComponent },
@@ -90,7 +98,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
+  imports: [RouterModule.forRoot(routes, {useHash:true, scrollPositionRestoration: 'enabled',onSameUrlNavigation:'reload' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

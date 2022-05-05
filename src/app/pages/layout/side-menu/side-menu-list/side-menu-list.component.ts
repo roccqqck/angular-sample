@@ -42,10 +42,10 @@ export class SideMenuListComponent implements OnInit {
 
 
   //漢堡選單展開/收合
-  closeBtnMenu() {
-    if (this.settingService.hasClass("body", "on")) {
-      this.settingService.removeClass("body", "on");
-    }
-  }
+  // closeBtnMenu() {
+  //   if (this.settingService.hasClass("body", "on")) {
+  //     this.settingService.removeClass("body", "on");
+  //   }
+  // }
 
 }

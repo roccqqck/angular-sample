@@ -1,0 +1,44 @@
+<!-- title -->
+<app-fn-title title="存摺通提(取款)密碼變更" fnctId="F1021" i18n-title="@@nb_f1021_title"></app-fn-title>
+<!-- step -->
+<app-fn-step *ngIf="getStep()!=0" 
+    stepItem1="變更" i18n-stepItem1="@@nb_f1021_step1" 
+    stepItem2="確認" i18n-stepItem2="@@nb_f1021_step2" 
+    stepItem3="完成" i18n-stepItem2="@@nb_f1021_step3" 
+    stepItem4="" 
+    stepItem5=""
+    stepItem6="" 
+    [currentStep]="getStep()" [txnError]="txnError">
+</app-fn-step>
+<!-- 引導頁 -->
+<app-fn-guide-page *ngIf="0==getStep() && !txnError" 
+    title="您無法執行此交易" i18n-title="@@nb_f1021_guidepage_title" content="">
+</app-fn-guide-page>
+<!-- 錯誤頁(交易結果之外的錯誤) -->
+<app-fn-error-page  *ngIf="0==getStep() && txnError" 
+  >
+</app-fn-error-page>
+<!-- 變更頁 -->
+<app-form1 *ngIf="this.getStep()==1" (nextEvent)="goStep2($event)"></app-form1>
+<!-- 確認頁(安控) -->
+<app-form2 *ngIf="this.getStep()==2" (nextEvent)="goStep3($event)"></app-form2>
+<!-- 完成頁 -->
+<app-form3 *ngIf="this.getStep()==3"></app-form3>
+
+<!-- loading -->
+<form-loading *ngIf="getIsLoading()"></form-loading>
+
+
+<!-- card info -->
+<form name="formCard">
+<div id="MSGBody" name="MSGBody"></div>
+<input name="txTrnsSeq" type="hidden" value="1234">
+<input name="chipCardTxSeqNo" type="hidden">
+<input name="chipCardMemo" type="hidden">
+<input name="tac" type="hidden">
+<input name="payerAcctNo" type="hidden">
+<input name="seqNo" type="hidden" value="1234">
+<input name="transDT" type="hidden">
+<input name="terminalCheckSum" type="hidden">
+<input name="TxnName" type="hidden" value="please input data">
+</form>

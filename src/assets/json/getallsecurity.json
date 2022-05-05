@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "error": {
+    "code": "code",
+    "message": "錯誤訊息",
+    "details": []
+  },
+  "clientResponse": {
+    "custId": "string",
+    "sslStatus": "4",
+    "otpStatus": "4",
+    "fxmlStatus": "1",
+    "efingerStatus": "4"
+  },
+  "responseId": "apply-platform-common",
+  "statusCode": "0000"
+}

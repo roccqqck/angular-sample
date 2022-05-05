@@ -1,9 +1,11 @@
 import { DynamicPadComponent } from './../../../../../shared/component/dynamic-pad/dynamic-pad.component';
-import { DynamicPadService } from './../../../../../service/dynamicPad/dynamic-pad.service';
-import { Component, Input, OnInit, ChangeDetectorRef, ViewChild, ComponentFactoryResolver, ViewContainerRef, ElementRef } from '@angular/core';
+import { DynamicPadService } from '../../../../../shared/component/dynamic-pad/service/dynamic-pad.service';
+import { Component, Input, OnInit, ChangeDetectorRef, ViewChild, ComponentFactoryResolver, ViewContainerRef, ElementRef, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { userValidator } from 'src/app/shared/util/check/user-validator.directive';
 import { F1005Service } from 'src/app/service/10/f1005.service';
+import { countInt } from 'src/app/shared/util/common';
+import { CryptoService } from 'src/app/service/shared/crypto.service';
 
 
 @Component({
@@ -12,38 +14,43 @@ import { F1005Service } from 'src/app/service/10/f1005.service';
   styleUrls: ['./form1.component.css']
 })
 export class Form1Component implements OnInit {
+  /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+    F1005 SSL交易密碼變更-變更頁 component-form1
+    declare variable
+  ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
   @ViewChild(DynamicPadComponent, { read: ElementRef }) private dynamicPadElementRef!: ElementRef;
+  @Output() nextEvent = new EventEmitter<number>();
 
-
-  form1Data = {
-    custName: "",
-    lastModifyDttm: ""
-  };
   f1005Form!: FormGroup;
-  isLoading: boolean = false;
   isSubmit: boolean = false;
 
+
+
+  /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+    constructor
+  ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
   constructor(
     private form: FormBuilder,//使用 FormBuilder 服務產生控制元件
     private f1005Service: F1005Service,
     private changeDectorRef: ChangeDetectorRef,
     public dynamicPadService: DynamicPadService,
-  ) {
+    private cryptoService:CryptoService
+  ) {}
 
-  }
 
+
+  /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+    init
+  ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
   ngOnInit(): void {
-
-
-    //get data from f1004Service
-    this.getFormData();
+    // console.log( B64_SHA1("88888888")+"=")
     this.f1005Form = this.form.group({
       oldSSL: ['',
         [
           Validators.required,
           Validators.minLength(8),
           Validators.maxLength(12),
-          Validators.pattern("^[a-zA-Z0-9][a-zA-Z0-9_]*[a-zA-Z0-9]$|^[a-zA-Z0-9]*$"),
+          Validators.pattern("^[0-9]*$"),
           userValidator()
         ]
       ],
@@ -52,7 +59,7 @@ export class Form1Component implements OnInit {
           Validators.required,
           Validators.minLength(8),
           Validators.maxLength(12),
-          Validators.pattern("^[a-zA-Z0-9][a-zA-Z0-9_]*[a-zA-Z0-9]$|^[a-zA-Z0-9]*$"),
+          Validators.pattern("^[0-9]*$"),
           userValidator()
         ]
       ],
@@ -61,12 +68,12 @@ export class Form1Component implements OnInit {
           Validators.required,
           Validators.minLength(8),
           Validators.maxLength(12),
-          Validators.pattern("^[a-zA-Z0-9][a-zA-Z0-9_]*[a-zA-Z0-9]$|^[a-zA-Z0-9]*$"),
+          Validators.pattern("^[0-9]*$"),
           userValidator()
         ]
       ],
     },
-      { validators: [this.compareCheckPd, this.compareNewPd] }
+      { validators: [this.compareCheckSSL, this.compareNewSSL] }
     );
 
 
@@ -90,32 +97,56 @@ export class Form1Component implements OnInit {
   }
 
 
-  //自定義交叉驗證
-  //新、檢查需相同
-  compareCheckPd: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-    const newPd = control.get('newPd')?.value;
-    const checkPd = control.get('checkPd')?.value;
-    return newPd === checkPd ? { isCompare1: { value: true } } : null;
+  /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+    customer validate
+  ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
+  //檢核新SSL與確認SSL需相同
+  compareCheckSSL: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const newSSL = control.get('newSSL')?.value;
+    const checkSSL = control.get('checkSSL')?.value;
+    return (newSSL !== checkSSL && (newSSL!="" && checkSSL!="")) ? { isCompareNew: { value: true } } : null;
   };
-  //新、舊需相同
-  compareNewPd: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-    const newPd = control.get('newPd')?.value;
-    const oldPd = control.get('oldPd')?.value;
-    return newPd === oldPd ? { isCompare2: { value: true } } : null;
+  //檢查新舊SSL不能相同
+  compareNewSSL: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const newSSL = control.get('newSSL')?.value;
+    const oldSSL = control.get('oldSSL')?.value;
+    return (newSSL === oldSSL && (newSSL!="" && oldSSL!="")) ?  { isCompareOld: { value: true } } : null;
   };
 
-  //表單送出時驗證
+
+  /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+    submit & validate
+  ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
   onValidate() {
     this.isSubmit = true;
-    if (this.oldSSLCtrl.errors?.['required'] ||
-      this.oldSSLCtrl.errors?.['minlength'] ||
-      this.oldSSLCtrl.errors?.['maxlength'] ||
-      this.oldSSLCtrl.errors?.['pattern'] ||
-      this.f1005Form.errors?.['isIdCompare'] ||
-      this.f1005Form.errors?.['isCompare'] ||
-      this.oldSSLCtrl.errors?.['continuous4Validator'] ||
-      this.oldSSLCtrl.errors?.['increment4Validator'] ||
-      this.oldSSLCtrl.errors?.['decrease4Validator']) {
+    if (
+            //old
+            this.oldSSLCtrl.errors?.['required'] ||
+            this.oldSSLCtrl.errors?.['minlength'] ||
+            this.oldSSLCtrl.errors?.['maxlength'] ||
+            this.oldSSLCtrl.errors?.['pattern'] ||
+            this.oldSSLCtrl.errors?.['continuous4Validator'] ||
+            this.oldSSLCtrl.errors?.['increment4Validator'] ||
+            this.oldSSLCtrl.errors?.['decrease4Validator'] ||
+            //new
+            this.newSSLCtrl.errors?.['required'] ||
+            this.newSSLCtrl.errors?.['minlength'] ||
+            this.newSSLCtrl.errors?.['maxlength'] ||
+            this.newSSLCtrl.errors?.['pattern'] ||
+            this.newSSLCtrl.errors?.['continuous4Validator'] ||
+            this.newSSLCtrl.errors?.['increment4Validator'] ||
+            this.newSSLCtrl.errors?.['decrease4Validator'] ||
+            this.f1005Form.errors?.['isCompareOld'] ||
+            //check
+            this.checkSSLCtrl.errors?.['required'] ||
+            this.checkSSLCtrl.errors?.['minlength'] ||
+            this.checkSSLCtrl.errors?.['maxlength'] ||
+            this.checkSSLCtrl.errors?.['pattern'] ||
+            this.checkSSLCtrl.errors?.['continuous4Validator'] ||
+            this.checkSSLCtrl.errors?.['increment4Validator'] ||
+            this.checkSSLCtrl.errors?.['decrease4Validator'] ||
+            this.f1005Form.errors?.['isCompareNew']
+    ) {
       return false;
     } else {
       return true;
@@ -126,50 +157,37 @@ export class Form1Component implements OnInit {
   goNext() {
     //欄位檢核
     const isValidate = this.onValidate();
-    //process
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-    if (isValidate) {
-      this.isLoading = true;
-      //模擬打API等待時間
-      setTimeout(() => {
-        console.log("test Waited For: " + 3 + " seconds");
-        this.isLoading = false;
-        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-        this.f1005Service.setStep(2);
-      }, 2000);
+
+    // 計算字母數量(大寫、小寫、數字) for error page display
+    this.f1005Service.setCountIntOld(countInt(this.f1005Form.get('oldSSL')?.value));
+
+    // 計算字母數量(大寫、小寫、數字)
+    this.f1005Service.setCountInt(countInt(this.f1005Form.get('newSSL')?.value));
+
+    //go to step 2
+    if(true){//方便測試暫時不檢核
+
+      // 檢核通過後，欄位加密
+      this.f1005Service.setOldSSL(this.cryptoService.b64_sha1(this.f1005Form.get('oldSSL')?.value));
+      this.f1005Service.setNewSSL(this.cryptoService.b64_sha1(this.f1005Form.get('newSSL')?.value));
+      this.f1005Service.setCheckSSL(this.cryptoService.b64_sha1(this.f1005Form.get('checkSSL')?.value));
+
+      this.nextEvent.emit(2);
     }
-  }
 
-  //從servce，取得ＡＰＩ資料
-  getFormData() {
-    this.isLoading = true;
-    console.log("form1 : getFormData() start")
-    this.f1005Service.queryf1005().subscribe(
-      (data) => {
-        console.log("form1 : getFormData() end")
-
-        this.isLoading = false;
-        window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-        this.form1Data = {
-          custName: data.clientResponse.custName,
-          lastModifyDttm: data.clientResponse.lastModifyDttm,
-        }
-        //暫存資料到service
-        this.f1005Service.setCustName(data.clientResponse.custName);
-        this.f1005Service.setLastModifyDttm(data.clientResponse.lastModifyDttm);
-
-        //變化檢測>刷新畫面
-        this.changeDectorRef.markForCheck();
-        this.changeDectorRef.detectChanges();
-
-      }, (error) => {
-        this.isLoading = false;
-      }
-
-    )
   }
 
 
+  /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
+    set() & get()
+  ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
+
+  get form1Data() {
+    return {
+      custName: this.f1005Service.getCustName(),
+      lastModifyDttm: this.f1005Service.getLastModifyDttm()
+    }
+  };
 
 
   //formControl
@@ -178,3 +196,5 @@ export class Form1Component implements OnInit {
   get checkSSLCtrl() { return this.f1005Form.get('checkSSL')! as FormControl; }
   get f() { return this.f1005Form.controls; }
 }
+
+

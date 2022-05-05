@@ -1,0 +1,74 @@
+<div class="cardBusiness shadowStyle mar-ver10 cardGreen">
+  <div class="row  mar-hor20">
+    <span class="listTitle fontSize16 fontGray1 col-12 textLeft">安全驗證方式：</span>
+  </div>
+  <div class="row mar-hor20 mar-t5">
+    <ul class="subTabs  areaTabs sixItems mar-t10">
+
+      <button class=""
+        *ngIf="this.securityStatus.ssl || true"
+        [ngClass]="this.getBtnClass('ssl')"
+        (click)="this.securityStatus.ssl ? this.setCurrentSecurity('ssl'):''">
+        SSL密碼
+      </button>
+
+      <button class=""
+        *ngIf="this.securityStatus.oneTouch || true"
+        [ngClass]="this.getBtnClass('oneTouch')"
+        (click)="this.securityStatus.oneTouch ? this.setCurrentSecurity('oneTouch'):this.setCurrentSecurity('oneTouch')">
+        e指通
+      </button>
+
+      <button class=""
+        *ngIf="this.securityStatus.deviceBinding || true"
+        [ngClass]="this.getBtnClass('deviceBinding')"
+        (click)="this.securityStatus.deviceBinding ? this.setCurrentSecurity('deviceBinding'):this.setCurrentSecurity('deviceBinding')">
+        裝置綁定
+      </button>
+
+
+      <button class=""
+        *ngIf="this.securityStatus.otp || true"
+        [ngClass]="this.getBtnClass('otp')"
+        (click)="this.securityStatus.otp ? this.setCurrentSecurity('otp') :this.setCurrentSecurity('otp')">
+        實體OTP
+      </button>
+
+      <button class=""
+      *ngIf="this.securityStatus.fxml || true"
+      [ngClass]="this.getBtnClass('fxml')"
+      (click)="this.securityStatus.fxml ? this.setCurrentSecurity('fxml') :''">
+        電子憑證
+      </button>
+
+      <button class=""
+      *ngIf="this.securityStatus.card || true"
+      [ngClass]="this.getBtnClass('card')"        
+      (click)="this.securityStatus.card ? this.setCurrentSecurity('card') :this.setCurrentSecurity('card')">
+        晶片金融卡
+      </button>
+
+      <span class="slider"></span>
+    </ul>
+    <div class="tabContent mar-t10 mar-b20 w100">
+      <ng-container [ngSwitch]="this.getCurrentSecurity()">
+        <security-ssl *ngSwitchCase="'ssl'"></security-ssl>
+        <security-one-touch *ngSwitchCase="'oneTouch'"></security-one-touch>
+        <secuirty-device-binding *ngSwitchCase="'deviceBinding'"></secuirty-device-binding>
+        <security-otp *ngSwitchCase="'otp'"></security-otp>
+        <secuirty-fxml *ngSwitchCase="'fxml'"></secuirty-fxml>
+        <security-card *ngSwitchCase="'card'"></security-card>
+        <div *ngSwitchDefault>
+          <div class="textCenter  fontGray2 mar-ver40">
+            <div>
+                <span class="fontSize16 ">請選擇安控</span>
+            </div>
+        </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<!-- SSL動態鍵盤 -->
+<div class="dynamicPad_temp" #dynamicPad></div>

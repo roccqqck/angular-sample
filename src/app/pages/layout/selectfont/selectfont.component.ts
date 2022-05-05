@@ -19,10 +19,12 @@ export class SelectfontComponent implements OnInit {
   this.isOpen= !this.isOpen;
   }
 
-  changeSize(size:string){
-    // this.settingService.setCss('html', 'font-size', size);
-    this.settingService.setCss('html', 'font-size', size);
+  // changeSize(size:string,text:any){
+  //   console.log("changeSIze",text)
+  //   // this.settingService.setCss('html', 'font-size', size);
+  //   this.settingService.setCss('html', 'font-size', size);
+  //   this.settingService.setSelectFontText(text);
 
-  }
+  // }
 
 }

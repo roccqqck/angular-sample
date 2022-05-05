@@ -1,0 +1,56 @@
+<form name="form1" [formGroup]="cardForm">
+  <div class="tabPane exampleStyle ">
+    <div class="row col-12 inputItem1 textLeft ">
+      <span class="fontSize16 fontGray2">我的讀卡機</span>
+      <div class="promptFrame ">
+        <i class="far fa-credit-card fontGreen2 fontSize24 mar-l10 "></i>
+        <div class="frame">
+          <div class="frameTitile fontSize16 fontOrange"> 使用晶片金融卡交易(需插入讀卡機) </div>
+        </div>
+      </div>
+      <!-- select2下拉選單 start-->
+      <div class="selectBtn1  mar-t10 fontSize16">
+        <ng-select2  name="readerSelect" class="select2 choose"  [options]="{language:'zh-TW'}"  >
+        </ng-select2>     
+        <!-- <select name="readerSelect" class="select2 choose select2-hidden-accessible "
+          tabindex="-1" aria-hidden="true"> -->
+<!-- 
+        </select> -->
+      </div>
+      <!-- select2下拉選單 end-->
+      <div class="col-12 textLeft fontGray2 mar-t10 ">
+        <span class="fontSize16 ">請輸入晶片金融卡密碼</span>
+        <div class="inputVerify inputPwd mar-t10" [ngClass]="{'error': false}">
+          <input class="inputBox pwd fontSize16" type="{{this.inputType}}" id="cardSecurity" name="cardSecurity"
+            formControlName="cardSecurity" (click)="this.dynamicPadService.dynamicPad('cardSecurity',12)" required
+            placeholder="請輸入" size="22" maxlength="12" autocomplete="off" readonly i18n-placeholder="@@nb_f1003_input">
+          <ng-container>
+            <a #inpiutKeyboard>
+              <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@nb_f1003_dykeybord"
+                title="動態鍵盤"></i>
+            </a>
+          </ng-container>
+          <span class="iconSwitch " [ngClass]="{'active':this.inputType=='password'}" (click)="onChange()"></span>
+        </div>
+      </div>
+
+
+
+      <button (click)="sendCard()">測試送出</button>
+    </div>
+
+  </div>
+    <dynamic-pad [numList]="this.dynamicPadService.keyboardList"></dynamic-pad>
+
+    <!-- card info -->
+    <div id="MSGBody" name="MSGBody"></div>
+    <input name="txTrnsSeq" type="hidden" value="1234">
+    <input name="chipCardTxSeqNo" type="hidden">
+    <input name="chipCardMemo" type="hidden">
+    <input name="tac" type="hidden">
+    <input name="payerAcctNo" type="hidden">
+    <input name="seqNo" type="hidden" value="1234">
+    <input name="transDT" type="hidden">
+    <input name="terminalCheckSum" type="hidden">
+    <input name="TxnName" type="hidden" value="please input data">
+</form>

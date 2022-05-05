@@ -1,15 +1,26 @@
 <!-- title -->
 <app-fn-title title="登入密碼變更" fnctId="F1004" i18n-title="@@nb_f1004_title"></app-fn-title>
 <!-- step -->
-<app-fn-step stepItem1="變更" i18n-stepItem1="@@nb_f1004_step1"
-             stepItem2="完成" i18n-stepItem2="@@nb_f1004_step2"
-             stepItem3=""
-             stepItem4=""
-             stepItem5=""
-             stepItem6=""
+<app-fn-step *ngIf="getStep()!=0"
+  stepItem1="變更" i18n-stepItem1="@@nb_f1004_step1"
+  stepItem2="完成" i18n-stepItem2="@@nb_f1004_step2"
+  stepItem3=""
+  stepItem4=""
+  stepItem5=""
+  stepItem6=""
   [currentStep]="getStep()" [txnError]="txnError">
 </app-fn-step>
-<!-- form -->
-<app-form1 *ngIf="1==getStep()"></app-form1>
+<!-- 引導頁 -->
+<app-fn-guide-page *ngIf="0==getStep()"
+  title="您無法執行此交易" i18n-title="@@nb_f1005_guidepage_title"
+  content=""
+>
+</app-fn-guide-page>
+<!-- 變更頁 -->
+<app-form1 *ngIf="1==getStep()" (nextEvent)="goStep2($event)"></app-form1>
+<!-- 完成頁 -->
 <app-form2 *ngIf="2==getStep()" ></app-form2>
+
+<!-- loading -->
+<form-loading *ngIf="getIsLoading()"></form-loading>
 

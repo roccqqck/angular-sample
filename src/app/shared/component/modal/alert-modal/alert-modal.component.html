@@ -1,0 +1,13 @@
+<div class="modal" [ngClass]="{'active':this.isOpen}">
+    <div class="modalDialog wm50">
+        <div class="modalTitle fontSize18 fontGreen2">
+            {{title == '' ? '說明' : title}}
+        </div>
+        <ng-content select=".modalContent">
+
+        </ng-content>
+        <div class="modalBtns">
+            <button class="btnClose btnLight mar-all10" (click)="handleOk()" >{{btnOk == '' ? '我知道了' : btnOk}}</button>
+        </div>
+    </div>
+</div>

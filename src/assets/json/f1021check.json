@@ -1,0 +1,12 @@
+{
+	"success": true,
+	"clientResponse": {
+		"custId": "A1231231230",
+		"sslStatus": "5",
+		"otpStatus": "0",
+		"fxmlStatus": "4",
+		"efingerStatus": "1"
+	},
+	"responseId": "apply-platform-common",
+	"statusCode": "0000"
+}

@@ -1,0 +1,37 @@
+{
+	"success": true,
+	"clientResponse": {
+		"accountList":[
+			{
+				"account":"09357123456",
+				"branchTW":"營業部",
+				"branchEN":"Business Division"
+			},
+			{
+				"account":"09368123456",
+				"branchTW":"營業部",
+				"branchEN":"Business Division"
+			},
+			{
+				"account":"09468123456",
+				"branchTW":"安和分行",
+				"branchEN":"Anhe Branch"
+			},
+			{
+				"account":"14068123456",
+				"branchTW":"圓山分行",
+				"branchEN":"Yuanshan Branch"
+			}
+		],
+    	"lastModifyDttm":"20220313175959",
+		"lastModifyChannel":"第e個網"
+	},
+	"error":{
+		"code":"D007",
+		"message":"D007 檔案服務程式錯誤",
+		"messageEN":"D007 file service error",
+		"details":[]
+	  },
+	"responseId": "apply-platform-common",
+	"statusCode": "0000"
+}

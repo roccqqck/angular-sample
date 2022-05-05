@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
   changeLanguage() {
     const changelang=this.lang=="tw"?"en":"tw";
     console.log("redirect : 1."+ this.lang+ " 2."+changelang);
-    const redirectPathName = window.location.pathname.replace(`/`+this.lang+`/`,`/`+changelang+`/`);
+    const redirectPathName = window.location.pathname.replace(`/`+this.lang+`/`,`/`+changelang+`/`)+window.location.hash;
     console.log(redirectPathName);
    // window.location.pathname = redirectPathName;
     window.location.href=redirectPathName;

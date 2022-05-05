@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { ChangeDetectorRef, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { captcha } from 'src/app/shared/model/captcha.model';
@@ -10,7 +10,8 @@ import { captcha } from 'src/app/shared/model/captcha.model';
 })
 export class CaptchaService {
 
-  APIURL: string = environment.APIURL_CAPTCHA;
+  APIURL: string = "https://common-shared-ibank.apps.devocp.firstbank.com.tw/api/common/shared/v1/shared/createcaptcha";
+
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -30,7 +31,9 @@ export class CaptchaService {
   }
 
 
-  constructor(public http: HttpClient) { }
+  constructor(
+    public http: HttpClient
+  ) { }
 
 
 

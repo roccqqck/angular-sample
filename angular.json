@@ -10,11 +10,11 @@
         "locales": {
           "en": {
             "translation": "src/locale/messages.en.xlf",
-            "baseHref": "/en/"
+            "baseHref": "/c1/ileobank/en/"
           },
           "zh": {
             "translation": "src/locale/messages.zh.hant.xlf",
-            "baseHref": "/tw/"
+            "baseHref": "/c1/ileobank/tw/"
           }
         }
       },
@@ -47,10 +47,11 @@
             ],
             "styles": [
               "src/styles.css",
+              "node_modules/select2/dist/css/select2.min.css",
               "src/assets/css/fontawesome.min.css",
               "src/assets/css/solid.min.css",
-              "src/assets/css/bootstrap-grid.min.css",
               "src/assets/css/regular.min.css",
+              "src/assets/css/bootstrap-grid.min.css",
               "src/assets/css/reset.min.css",
               "src/assets/css/pikaday_iLEO.css",
               "src/assets/css/css_iLEO.min.css",
@@ -58,8 +59,20 @@
               "src/assets/css/keyboard.css"
             ],
             "scripts": [
-              "src/assets/js/jquery.min.js",
-              "src/assets/js/keyboard.js"
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/select2/dist/js/select2.min.js",
+              "node_modules/select2/dist/js/i18n/zh-TW.js",
+              "src/assets/js/keyboard.js",
+              "src/assets/js/FirstCardObject_js.js"
+              // "src/assets/js/FirstCardObjectNew.js",
+              // "src/assets/js/fxml/asyn/fcb_ws_base.js",
+              // "src/assets/js/fxml/asyn/fcb_plugin_detect.js",
+              // "src/assets/js/fxml/asyn/fcb_plugin_msg.js",
+              // "src/assets/js/fxml/asyn/fcb_token_function.js",
+              // "src/assets/js/fxml/FBCertClient.js",
+              // "src/assets/js/fxml/PKCS7CodeMapping.js",
+              // "src/assets/js/fxml/PKCS7SignClient.js"
+              
             ]
           },
           "configurations": {
@@ -78,7 +91,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -99,7 +112,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
