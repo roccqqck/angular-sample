@@ -47,13 +47,13 @@ spec:
           successThreshold: 1
           failureThreshold: 3
         volumeMounts:
-        - mountPath: /opt/bitnami/nginx/conf/server_blocks/ # mount nginx-conf volume to /etc/nginx
+        - mountPath: /opt/bitnami/nginx/conf/server_blocks/ 
           readOnly: true
-          name: bitnami-nginx-conf-serverblocks-path   # path name
+          name: bitnami-nginx-conf-serverblocks-volume   # mount bitnami-nginx-conf-serverblocks-volume volume to /opt/bitnami/nginx/conf/server_blocks/
       volumes:
       - name: bitnami-nginx-conf-serverblocks-volume    # volume name
         configMap:
-          name: angular-sample-configmap 
+          name: angular-sample-configmap
           items:
             - key: bitnami-nginx-server-blocks.conf
-              path: bitnami-nginx-conf-serverblocks-path    # put bitnami-nginx-server-blocks.conf to /opt/bitnami/nginx/conf/server_blocks/
+              path: my_server_block.conf   # rename bitnami-nginx-server-blocks.conf
