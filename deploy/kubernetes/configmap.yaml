@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-conf
+  name: angular-sample-configmap
 data:
   bitnami-nginx-server-blocks.conf: |
     server {
