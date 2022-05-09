@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: angular-sample
+spec:
+  rules:
+    - host: angular-sample.ntu.edu.tw 
+      http:
+        paths:
+          - path: /c1/ileobank
+            pathType: Prefix
+            backend:
+              service:
+                name: angular-sample
+                port:
+                  number: 8081  # service port

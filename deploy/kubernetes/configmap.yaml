@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-conf
+data:
+  bitnami-nginx-server-blocks.conf: |
+    server {
+        listen       8081;
+        listen  [::]:8081;
+        server_name  localhost;
+
+        #access_log  /var/log/nginx/host.access.log  main;
+
+        index index.html ;
+        location /c1/ileobank/en {
+            alias   /web/en/;
+            try_files $uri$args $uri$args/ /en/index.html;
+        }
+
+        location /c1/ileobank/zh {
+            alias   /web/zh/;
+            try_files $uri$args $uri$args/ /zh/index.html;
+        }
+
+        location /c1/ileobank {
+            alias   /web/zh/;
+            try_files $uri$args $uri$args/ /index.html;
+        }
+    }

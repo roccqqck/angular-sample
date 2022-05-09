@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-sample
+spec:
+  selector:
+    matchLabels:
+      app: angular-sample
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: angular-sample  # for service
+    spec:
+      containers:
+      - name: angular-sample
+        image: roccqqck/angular-sample:0.0.4
+        imagePullPolicy: Always
+############# advanced setting not necessarily
+        ports:
+        - containerPort: 8081
+        resources:
+          requests: 
+            cpu: 1m
+            memory: 10Mi
+          limits:
+            cpu: 1
+            memory: 1G
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8081
+            scheme: HTTP
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8081
+            scheme: HTTP
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+          periodSeconds: 10
+          successThreshold: 1
+          failureThreshold: 3
+        volumeMounts:
+        - mountPath: /opt/bitnami/nginx/conf/server_blocks/ # mount nginx-conf volume to /etc/nginx
+          readOnly: true
+          name: bitnami-nginx-conf-serverblocks-path   # path name
+      volumes:
+      - name: bitnami-nginx-conf-serverblocks-volume    # volume name
+        configMap:
+          name: nginx-conf # place ConfigMap `nginx-conf` on /etc/nginx
+          items:
+            - key: bitnami-nginx-server-blocks.conf
+              path: bitnami-nginx-conf-serverblocks    # put bitnami-nginx-server-blocks.conf to /opt/bitnami/nginx/conf/server_blocks/
