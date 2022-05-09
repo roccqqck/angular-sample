@@ -3,9 +3,9 @@ version: '3.8'
 services:
   nginx:
     container_name: angular-sample
-    image: roccqqck/angular-sample:0.0.3
+    image: roccqqck/angular-sample:0.0.4
     ports:
       - '8081:8081'
       - '8080:8080'
     volumes:
-      - ./frontend-docker-default-8080.conf:/opt/bitnami/nginx/conf/server_blocks/my_server_block.conf
+      - ./frontend-docker-default-8081.conf:/opt/bitnami/nginx/conf/server_blocks/my_server_block.conf
