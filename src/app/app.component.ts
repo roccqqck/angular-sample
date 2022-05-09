@@ -30,15 +30,8 @@ export class AppComponent {
       console.log('remove mobileView')
     }
 
-    this.run();
   }
-  run(){
-    //example
-    var _api_URL = "http://test.com/123";
-    // axios.post(_api_URL).then(function(res){
-    //   console.log(res.data);
-    // })
-  }
+
   title = "iLeoBank"
 
   print(){

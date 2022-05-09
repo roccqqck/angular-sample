@@ -1,14 +1,14 @@
 <div class="tabPane exampleStyle ">
   <form [formGroup]="otpForm">
     <div class="col-12 textLeft fontGray2">
-      <span class="fontSize16 ">請輸入實體OTP密碼</span>
+      <span class="fontSize16" i18n="@@component_otp_01">請輸入實體OTP密碼</span>
       <div class="inputVerify inputPwd mar-t10" [ngClass]="{'error': false}">
 
         <input class="inputBox pwd fontSize16" type="{{this.inputType}}" id="otpSecurity" name="otpSecurity" formControlName="otpSecurity"
-        (click)="this.dynamicPadService.dynamicPad('otpSecurity',12)" required  placeholder="請輸入" size="22" maxlength="12" autocomplete="off" readonly i18n-placeholder="@@nb_f1003_input">
+        (click)="this.dynamicPadService.dynamicPad('otpSecurity',12)" required  placeholder="請輸入" size="22" maxlength="12" autocomplete="off" readonly i18n-placeholder="@@component_placeholder">
         <ng-container>
           <a #inpiutKeyboard >
-            <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@nb_f1003_dykeybord"
+            <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@component_dykeybord"
               title="動態鍵盤" ></i>
           </a>
         </ng-container>
@@ -19,7 +19,7 @@
     <!-- 分隔線 -->
     <hr class="dividerGray">
     <div class="col-12 textLeft fontGray2">
-      <span class="fontSize16 ">圖形驗證碼 </span>
+      <span class="fontSize16 " i18n="@@component_otp_02">圖形驗證碼 </span>
       <span class="mar-l10" rowName>
         <ng-container *ngIf="this.captchaImage  ;else  loaderror">
           <img style="vertical-align: middle;"  [src]="this.captchaImage" height="30" width="60">
@@ -27,11 +27,11 @@
         <ng-template #loaderror>
           <img style="vertical-align: middle;" [src]="" height="30" width="60">
         </ng-template>
-        <button class="btnMdborder mar-l10" (click)="this.getCaptchImage()">重新產生</button>
+        <button class="btnMdborder mar-l10" (click)="this.getCaptchImage()" i18n="@@component_otp_03">重新產生</button>
       </span>
       <div class="inputVerify inputPwd mar-t10 ">
         <input class="inputBox pwd fontSize16" type="text" id="otpCaptcha" name="otpCaptcha" formControlName="otpCaptcha"
-        required  placeholder="請輸入" size="22" maxlength="8" autocomplete="off" i18n-placeholder="@@nb_f1003_input">
+        required  placeholder="請輸入" size="22" maxlength="8" autocomplete="off" i18n-placeholder="@@component_placeholder">
       </div>
     </div>
   </form>

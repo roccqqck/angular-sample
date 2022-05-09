@@ -1,26 +1,32 @@
 <div class="tabPane exampleStyle ">
     <div class="row">
         <div class="col-12 textLeft fontGray2">
-            <span class="fontSize16 ">裝置綁定(iLEO)</span>
+            <span class="fontSize16 " i18n="@@component_devicebinding_01">裝置綁定(iLEO)</span>
         </div>
     </div>
     <ng-container *ngIf="this.pushState==false else isClickPushBtn">
-        <button class="btn mar-all10 pad-hor30 fontSize16" (click)="this.pushInfo()">點我取得交易確認訊息</button>
+        <button class="btn mar-all10 pad-hor30 fontSize16" (click)="this.pushInfo()" i18n="@@component_devicebinding_02">點我取得交易確認訊息</button>
     </ng-container>
     <ng-template #isClickPushBtn>
-        <button class="btn mar-all10 pad-hor30 fontSize16" (click)="this.OpenModal()">交易確認訊息已推播，請至手機確認</button>
+        <button class="btn mar-all10 pad-hor30 fontSize16" (click)="this.OpenModal()" i18n="@@component_devicebinding_03">交易確認訊息已推播，請至手機確認</button>
     </ng-template>
 
     <div class="promptNote1 mar-t5 webViewBtn">
         <!--嵌入APP不顯示-->
-        <p class="fontGray2 fontBold">裝置綁定服務請於iLEO APP進行交易確認，於<span class="fontRed">5分鐘</span>內至行動裝置(手機/平板)確認此筆交易！</p>
+        <p class="fontGray2">
+            <span class="fontBold" i18n="@@component_devicebinding_04_1">裝置綁定服務請於iLEO APP進行交易確認，於</span>
+            <span class="fontBold fontRed" i18n="@@component_devicebinding_04_2">5分鐘</span>
+            <span class="fontBold" i18n="@@component_devicebinding_04_3">內至行動裝置(手機/平板)確認此筆交易！</span>
+        </p>
         <ul class="listDecimal textLeft">
-            <li>系統將推播「交易確認訊息」至您註冊的行動裝置(手機/平板)供您確認交易，請務必<span class="fontRed">開啟通知功能</span>，否則將無法收到交易確認訊息。
-                <br>A.至手機的【設定/開啟通知】功能。
-                <br>B.至iLEO APP/設定/推播通知，開啟APP通知
+            <li><span i18n="@@component_devicebinding_05_1">系統將推播「交易確認訊息」至您註冊的行動裝置(手機/平板)供您確認交易，請務必</span>
+                <span class="fontRed" i18n="@@component_devicebinding_05_2">開啟通知功能</span>
+                <span i18n="@@component_devicebinding_05_3">，否則將無法收到交易確認訊息。</span>
+                <br><span i18n="@@component_devicebinding_05_4">A.至手機的【設定/開啟通知】功能。</span>
+                <br><span i18n="@@component_devicebinding_05_5">B.至iLEO APP/設定/推播通知，開啟APP通知</span>
             </li>
-            <li>若未收到「交易確認訊息」，請打開iLEO APP點選「設定/裝置綁定服務」進行交易確認。</li>
-            <li>裝置綁定不代表交易完成。請輸入網路銀行登入密碼後，按下【確定】以完成交易。</li>
+            <li i18n="@@component_devicebinding_06">若未收到「交易確認訊息」，請打開iLEO APP點選「設定/裝置綁定服務」進行交易確認。</li>
+            <li i18n="@@component_devicebinding_07">裝置綁定不代表交易完成。請輸入網路銀行登入密碼後，按下【確定】以完成交易。</li>
         </ul>
     </div>
 
@@ -28,13 +34,13 @@
     <hr class="dividerGray">
     <form [formGroup]="pushForm">
         <div class="col-12 textLeft fontGray2">
-            <span class="fontSize16 ">網路銀行登入密碼</span>
+            <span class="fontSize16 " i18n="@@component_devicebinding_08">網路銀行登入密碼</span>
             <div class="inputVerify inputPwd mar-t10" [ngClass]="{'error': false}">
                 <input class="inputBox pwd fontSize16" type="{{this.inputType}}" id="id_nbSecurity" name="nbSecurity"
                     formControlName="nbSecurity" required placeholder="請輸入" size="22" maxlength="12" autocomplete="off"
-                     i18n-placeholder="@@nb_f1003_input">
+                     i18n-placeholder="@@component_placeholder">
                 <a #inpiutKeyboard id="keyboardOpen_nbSecurity" (click)="this.openKeyboard();">
-                    <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@nb_f1003_dykeybord"
+                    <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@component_dykeybord"
                         title="動態鍵盤"></i>
                 </a>
                 <span class="iconSwitch " [ngClass]="{'active':this.inputType=='password'}" (click)="onChange()"></span>
@@ -47,15 +53,18 @@
 
 
 <!-- modal -->
-<app-alert-modal *ngIf="this.showModal" [isOpen]="this.showModal" title="提醒" i18n-title="" btnOk="我知道了" i18n-btnOk=""
+<app-alert-modal *ngIf="this.showModal" [isOpen]="this.showModal" title="提醒" i18n-title="@@component_devicebinding_9" btnOk="我知道了" i18n-btnOk="@@component_devicebinding_10"
     (btnEvent)="handleModal($event)">
     <!-- modal content -->
     <div class="modalContent iLeoLion">
         <div class="textContent textLeft fontSize16">
-            <p class="fontGray2">訊息已推播，請至您的iLEO APP進行驗證。</p>
-            <p class="fontGray2"><span class="fontRed">驗證後不代表交易完成</span>，需回本頁繼續完成交易。</p>
+            <p class="fontGray2" i18n="@@component_devicebinding_11">訊息已推播，請至您的iLEO APP進行驗證。</p>
+            <p class="fontGray2" >
+                <span class="fontRed" i18n="@@component_devicebinding_12_1">驗證後不代表交易完成</span>
+                <span i18n="@@component_devicebinding_12_2">，需回本頁繼續完成交易。</span>
+            </p>
             <br>
-            <p class="fontGray2">【注意】請於自動登出時限內完成交易，逾時未完成視同交易取消</p>
+            <p class="fontGray2" i18n="@@component_devicebinding_11">【注意】請於自動登出時限內完成交易，逾時未完成視同交易取消</p>
         </div>
     </div>
     <!-- modal content -->

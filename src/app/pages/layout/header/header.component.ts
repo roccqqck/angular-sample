@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
     return this.router.url;
   }
   changeLanguage() {
-    const changelang=this.lang=="tw"?"en":"tw";
+    const changelang=this.lang=="zh"?"en":"zh";
     console.log("redirect : 1."+ this.lang+ " 2."+changelang);
     const redirectPathName = window.location.pathname.replace(`/`+this.lang+`/`,`/`+changelang+`/`)+window.location.hash;
     console.log(redirectPathName);
@@ -32,10 +32,10 @@ export class HeaderComponent implements OnInit {
   }
 
   private getCurrentLanguage = () => {
-    const lang = ['en', 'tw'];
+    const lang = ['en', 'zh'];
     const currentLang = lang.find(l => new RegExp(`/${l}/`).test(window.location.pathname));
     if (!currentLang) {
-      return 'tw';
+      return 'zh';
     }
     return currentLang;
   };

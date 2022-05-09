@@ -1,13 +1,13 @@
 <div class="block mar-ver10">
    <!-- formTitle -->
-   <form-title formTitle="交易內容" i18n-formTitle="@@nb_f1003_title"></form-title>
+   <form-title formTitle="交易內容" i18n-formTitle="@@nb_f1021_title"></form-title>
   <div class="content bgWhite">
    
     <!-- formContent -->
-    <form-row-readonly rowName="帳號" i18n-rowName="@@nb_f1003_accountName" [rowValue]="form2Data.selectAccount">
+    <form-row-readonly rowName="帳號" i18n-rowName="@@nb_f1021_accountName" [rowValue]="form2Data.selectAccount">
     </form-row-readonly>
     <hr class="dividerGray">
-    <form-row-readonly rowName="密碼" i18n-rowName="@@nb_f1003_accountName" [rowValue]="form2Data.widhdraw">
+    <form-row-readonly rowName="密碼" i18n-rowName="@@nb_f1021_accountName" [rowValue]="form2Data.widhdraw">
     </form-row-readonly>
   </div>
 
@@ -17,9 +17,9 @@
 
   <div>
     <button class="btn btnOne mar-all10 mar-t20 fontSize16"
-    i18n="@@nb_f1021_excuteChange" (click)="goBack()">取消</button>
+    i18n="@@nb_f1021_btn_cancel" (click)="goBack()">取消</button>
     <button class="btn btnOne mar-all10 mar-t20 fontSize16" (click)="goNext()"
-      i18n="@@nb_f1021_excuteChange">確定</button>
+      i18n="@@nb_f1021_btn_check">確定</button>
   </div>
   
 </div>

@@ -8,7 +8,7 @@
   <div class="businessList">
 
     <div class="row">
-      <span class="listTitle fontSize16 fontGray2 col-6">回應代碼</span>
+      <span class="listTitle fontSize16 fontGray2 col-6" i18n="@@component_errorpage_01">回應代碼</span>
       <p class="listContent fontSize16 fontGray1 textCenter col-6">
         {{code}}
       </p>
@@ -22,8 +22,8 @@
       </span>
     </div>
     <div class="promptNote1   fontSize14" *ngIf="this.code!='404'">
-      <span class="promptTitle textLeft">提醒您：</span><p></p>
-      <p class="textLeft pad-l30">如為轉帳或扣款類交易，請先查詢餘額或交易明細確認交易是否成功，以免重複轉帳！ 或先洽詢本行客服人員確認，謝謝。</p>
+      <span class="promptTitle textLeft" i18n="@@component_errorpage_02">提醒您：</span><p></p>
+      <p class="textLeft pad-l30" i18n="@@component_errorpage_03">如為轉帳或扣款類交易，請先查詢餘額或交易明細確認交易是否成功，以免重複轉帳！ 或先洽詢本行客服人員確認，謝謝。</p>
     </div>
   </div>
 </div>

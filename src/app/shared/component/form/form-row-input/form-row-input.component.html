@@ -18,11 +18,11 @@
     <div class="inputVerify inputPwd mar-t10" [ngClass]="{'error': isError}">
       <input class="inputBox pwd fontSize16" type="{{this.inputType}}" id="id_{{id}}" name="{{id}}"
         formControlName="{{id}}" required placeholder="請輸入" size="22" maxlength="12" autocomplete="off"
-        i18n-placeholder="@@nb_f1003_input">
+        i18n-placeholder="@@component_placeholder">
       <ng-container *ngIf="hasKeyboard==true">
         <!-- 一般動態鍵盤 -->
         <a #inpiutKeyboard id="keyboardOpen_{{id}}" (click)="this.openKeyboard();">
-          <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@nb_f1003_dykeybord"
+          <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@component_dykeybord"
             title="動態鍵盤"></i>
         </a>
       </ng-container>

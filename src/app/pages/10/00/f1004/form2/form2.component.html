@@ -2,23 +2,23 @@
   <form-success *ngIf="this.getTxnStatus()=='success'">
     <!-- 交易內容 start -->
     <div class="row">
-      <span class="listTitle fontSize16 fontGray1 col-12 textLeft">您的交易內容如下：</span>
+      <span class="listTitle fontSize16 fontGray1 col-12 textLeft" i18n="@@nb_f1004_result1">您的交易內容如下：</span>
     </div>
     <div class="row ">
-      <span class="listTitle fontSize16 fontGray2 col-4 textLeft">交易時間</span>
+      <span class="listTitle fontSize16 fontGray2 col-4 textLeft" i18n="@@nb_f1004_result2">交易時間</span>
       <span class="listTitle fontSize16 fontGray2 col-6 textLeft"></span>
       <p class="listContent col-12 textLeft fontBold fontBlack mar-t10">{{this.form2Data.transDttm}}</p>
     </div>
     <div class="row">
       <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder1">
-        <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">總長度</span>
+        <span class="listTitle fontSize16 fontGray2 textLeft mar-t10" i18n="@@nb_f1004_result3">總長度</span>
         <p class="listContent textLeft fontBold mar-t10"
           [ngClass]="this.form2Data.countTotal > 0 ? 'fontRed':'fontBlack'">
           {{this.form2Data.countTotal}}位英數字
         </p>
       </div>
       <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder2">
-        <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">大寫字母</span>
+        <span class="listTitle fontSize16 fontGray2 textLeft mar-t10" i18n="@@nb_f1004_result4">大寫字母</span>
         <p class="listContent textLeft fontBold mar-t10"
           [ngClass]="this.form2Data.countUpper > 0 ? 'fontRed':'fontBlack'">
           {{this.form2Data.countUpper}}位
@@ -27,14 +27,14 @@
     </div>
     <div class="row">
       <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder1">
-        <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">小寫字母</span>
+        <span class="listTitle fontSize16 fontGray2 textLeft mar-t10" i18n="@@nb_f1004_result5">小寫字母</span>
         <p class="listContent textLeft fontBold mar-t10"
           [ngClass]="this.form2Data.countLower > 0 ? 'fontRed':'fontBlack'">
           {{this.form2Data.countLower}}位
         </p>
       </div>
       <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder2">
-        <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">數字</span>
+        <span class="listTitle fontSize16 fontGray2 textLeft mar-t10" i18n="@@nb_f1004_result6">數字</span>
         <p class="listContent textLeft fontBold mar-t10"
           [ngClass]="this.form2Data.countInt > 0 ? 'fontRed':'fontBlack'">
           {{this.form2Data.countInt}}位
@@ -44,9 +44,9 @@
     <!-- 交易內容 end -->
     <!-- 注意事項 -->
     <div class="textLeft">
-      <span class="promptTitle fontBold fontRed">注意事項</span>
+      <span class="promptTitle fontBold fontRed" i18n="@@nb_f1004_result7">注意事項</span>
       <ul class="listDisc">
-        <li class="fontRed mar-t0">後續使用時請輸入正確密碼，並注意大小寫</li>
+        <li class="fontRed mar-t0" i18n="@@nb_f1004_result8">後續使用時請輸入正確密碼，並注意大小寫</li>
       </ul>
     </div>
   </form-success>
@@ -54,11 +54,11 @@
 
   <form-error *ngIf="this.getTxnStatus()=='error'">
     <div class="row ">
-        <span class="listTitle fontSize16 fontGray2 col-12 textLeft">交易狀態</span>
+        <span class="listTitle fontSize16 fontGray2 col-12 textLeft" i18n="@@nb_f1004_result9">交易狀態</span>
         <p class="listContent col-12 textLeft fontBold fontRed mar-t10">{{errorMessage.message}}</p>
     </div>
     <div class="row ">
-        <span class="listTitle fontSize16 fontGray2 col-12 textLeft">交易時間</span>
+        <span class="listTitle fontSize16 fontGray2 col-12 textLeft" i18n="@@nb_f1004_result10">交易時間</span>
         <p class="listContent col-12 textLeft fontBold fontBlack mar-t10">2022/04/07 11:54:06</p>
     </div>
 </form-error>

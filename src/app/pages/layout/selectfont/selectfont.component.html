@@ -1,11 +1,11 @@
 <div class="selectFont" id="selectFont" (click)="this.selectFontSize()" [ngClass]="{'on':this.isOpen}" style="z-index: 10;">
   <p class="font">
     <span class="symbol">A</span>
-    <span class="text">標準</span>
+    <span class="text" i18n="@@nb_selectfont1">標準</span>
   </p>
   <ul>
-    <li appSelectfont value="18" >大</li>
-    <li appSelectfont value="16" >標準</li>
-    <li appSelectfont value="14" >小</li>
+    <li appSelectfont value="18" i18n="@@nb_selectfont2">大</li>
+    <li appSelectfont value="16" i18n="@@nb_selectfont3">標準</li>
+    <li appSelectfont value="14" i18n="@@nb_selectfont4">小</li>
   </ul>
 </div>

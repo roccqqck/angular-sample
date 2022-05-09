@@ -37,6 +37,7 @@ import { SecurityControlModule } from './shared/component/securityControl/securi
 import { F1002Component } from './pages/10/f1002/f1002.component';
 import { F1021Module } from './pages/10/00/f1021/f1021.module';
 import { ScriptService } from './service/script/script.service';
+import { MaskNamePipe } from './shared/pipes/mask-name.pipe';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { ScriptService } from './service/script/script.service';
     SelectfontDirective,
     SideMenuDirective,
     F1002Component,
+    MaskNamePipe,
   ],
   imports: [
     BrowserModule,

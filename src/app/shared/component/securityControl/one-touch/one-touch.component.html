@@ -1,25 +1,32 @@
 <div class="tabPane exampleStyle ">
     <div class="row">
         <div class="col-12 textLeft fontGray2">
-            <span class="fontSize16 ">e指通</span>
+            <span class="fontSize16 " i18n="@@component_onetouch_01">e指通</span>
         </div>
     </div>
     <ng-container *ngIf="this.pushState==false else isClickPushBtn">
-        <button class="btn mar-all10 pad-hor30 fontSize16" (click)="this.pushInfo()">點我取得交易確認訊息</button>
+        <button class="btn mar-all10 pad-hor30 fontSize16" (click)="this.pushInfo()" i18n="@@component_onetouch_02">點我取得交易確認訊息</button>
     </ng-container>
     <ng-template #isClickPushBtn>
-        <button class="btn mar-all10 pad-hor30 fontSize16" (click)="this.OpenModal()">交易確認訊息已推播，請至手機確認</button>
+        <button class="btn mar-all10 pad-hor30 fontSize16" (click)="this.OpenModal()" i18n="@@component_onetouch_03">交易確認訊息已推播，請至手機確認</button>
     </ng-template>
     <div class="promptNote1 mar-t5 webViewBtn">
         <!--嵌入APP不顯示-->
-        <p class="fontGray2 fontBold ">e指通服務請於第e行動App進行交易確認，請您在<span class="fontRed">5分鐘</span>內至行動裝置(手機/平板)確認此筆交易！</p>
+        <p class="fontGray2">
+            <span class="fontBold" i18n="@@component_onetouch_04_1">指通服務請於第e行動App進行交易確認，請您在</span>
+            <span class="fontBold fontRed" i18n="@@component_onetouch_04_2">5分鐘</span>
+            <span class="fontBold" i18n="@@component_onetouch_04_3">內至行動裝置(手機/平板)確認此筆交易！</span>
+        </p>
         <ul class="listDecimal textLeft">
-            <li>系統將推播「交易確認訊息」至您註冊的行動裝置(手機/平板)供您確認交易，請務必<span class="fontRed">開啟通知功能</span>，否則將無法收到交易確認訊息。
-                <br>(1)至手機的「設定」開啟「通知」功能。
-                <br>(2)至第e行動App/個人設定，開啟「通知訊息功能」
+            <li>
+                <span i18n="@@component_onetouch_05_1">系統將推播「交易確認訊息」至您註冊的行動裝置(手機/平板)供您確認交易，請務必</span>
+                <span class="fontRed" i18n="@@component_onetouch_05_2">開啟通知功能</span>
+                <span i18n="@@component_onetouch_05_3">，否則將無法收到交易確認訊息。</span>
+                <br><span i18n="@@component_onetouch_05_4">(1)至手機的「設定」開啟「通知」功能。</span>
+                <br><span i18n="@@component_onetouch_05_5">(2)至第e行動App/個人設定，開啟「通知訊息功能」</span>
             </li>
-            <li>若未收到「交易確認訊息」，請打開第e行動點選-帳務服務/個人化服務/e指通交易確認。</li>
-            <li>e指通不代表交易完成。請輸入網路銀行登入密碼後，按下【確定】以完成交易。</li>
+            <li i18n="@@component_onetouch_06">若未收到「交易確認訊息」，請打開第e行動點選-帳務服務/個人化服務/e指通交易確認。</li>
+            <li i18n="@@component_onetouch_07">e指通不代表交易完成。請輸入網路銀行登入密碼後，按下【確定】以完成交易。</li>
         </ul>
     </div>
 
@@ -27,13 +34,13 @@
     <hr class="dividerGray">
     <form [formGroup]="pushForm">
         <div class="col-12 textLeft fontGray2">
-            <span class="fontSize16 ">網路銀行登入密碼</span>
+            <span class="fontSize16 " i18n="@@component_onetouch_08">網路銀行登入密碼</span>
             <div class="inputVerify inputPwd mar-t10" [ngClass]="{'error': false}">
                 <input class="inputBox pwd fontSize16" type="{{this.inputType}}" id="id_nbSecurity" name="nbSecurity"
                     formControlName="nbSecurity" required placeholder="請輸入" size="22" maxlength="12" autocomplete="off"
-                    i18n-placeholder="@@nb_f1003_input">
+                    i18n-placeholder="@@component_placeholder">
                 <a #inpiutKeyboard id="keyboardOpen_nbSecurity" (click)="this.openKeyboard();">
-                    <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@nb_f1003_dykeybord"
+                    <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@component_dykeybord"
                         title="動態鍵盤"></i>
                 </a>
                 <span class="iconSwitch " [ngClass]="{'active':this.inputType=='password'}" (click)="onChange()"></span>
@@ -47,15 +54,15 @@
 
 
 <!-- modal -->
-<app-alert-modal *ngIf="this.showModal" [isOpen]="this.showModal" title="提醒" i18n-title="" btnOk="我知道了" i18n-btnOk=""
+<app-alert-modal *ngIf="this.showModal" [isOpen]="this.showModal" title="提醒" i18n-title="@@component_onetouch_12" btnOk="我知道了" i18n-btnOk="@@component_onetouch_13"
     (btnEvent)="handleModal($event)">
     <!-- modal content -->
     <div class="modalContent iLeoLion">
         <div class="textContent textLeft fontSize16">
-            <p class="fontGray2">訊息已推播，請至您的第e行動APP進行驗證。</p>
-            <p class="fontGray2"><span class="fontRed">驗證後不代表交易完成</span>，需回本頁繼續完成交易。</p>
+            <p class="fontGray2" i18n="@@component_onetouch_09">訊息已推播，請至您的第e行動APP進行驗證。</p>
+            <p class="fontGray2" i18n="@@component_onetouch_10"><span class="fontRed">驗證後不代表交易完成</span>，需回本頁繼續完成交易。</p>
             <br>
-            <p class="fontGray2">【注意】請於自動登出時限內完成交易，逾時未完成視同交易取消</p>
+            <p class="fontGray2" i18n="@@component_onetouch_11">【注意】請於自動登出時限內完成交易，逾時未完成視同交易取消</p>
         </div>
     </div>
     <!-- modal content -->

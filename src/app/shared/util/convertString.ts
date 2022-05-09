@@ -37,7 +37,7 @@ export function convertStrToDateString(dateString: string) {
 
 
 function getCurrentLanguage() {
-    const lang = ['en', 'tw'];
+    const lang = ['en', 'zh'];
     const currentLang = lang.find(l => new RegExp(`/${l}/`).test(window.location.pathname));
     if(currentLang=="en"){
         return 'en-US'

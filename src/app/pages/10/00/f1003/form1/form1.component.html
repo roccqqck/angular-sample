@@ -20,31 +20,31 @@
     </form-row-input>
     <div *ngIf="usrIdCtrl.invalid && ((usrIdCtrl.dirty || usrIdCtrl.touched) || this.isSubmit)"
       class="fontRed fontSize14 errorMsg textLeft mar-l10">
-      <div *ngIf="usrIdCtrl.errors?.['required']">
+      <div *ngIf="usrIdCtrl.errors?.['required']" i18n="@@nb_f1003_newUsrId_error1">
         ※請輸入此欄位
       </div>
-      <div *ngIf="usrIdCtrl.errors?.['minlength']">
+      <div *ngIf="usrIdCtrl.errors?.['minlength']" i18n="@@nb_f1003_newUsrId_error2">
         ※請輸入8-12位，已輸入{{usrIdCtrl.value.length}}位
       </div>
-      <div *ngIf="usrIdCtrl.errors?.['maxlength']">
+      <div *ngIf="usrIdCtrl.errors?.['maxlength']" i18n="@@nb_f1003_newUsrId_error3">
         ※請輸入8-12位，已輸入{{usrIdCtrl.value.length}}位
       </div>
-      <div *ngIf="usrIdCtrl.errors?.['pattern']">
+      <div *ngIf="usrIdCtrl.errors?.['pattern']" i18n="@@nb_f1003_newUsrId_error4">
         ※請勿使用特殊符號(例如#,*,?,!,%...等)
       </div>
-      <div *ngIf="usrIdCtrl.errors?.['continuous4Validator']">
+      <div *ngIf="usrIdCtrl.errors?.['continuous4Validator']" i18n="@@nb_f1003_newUsrId_error5">
         ※不可連續四個重複
       </div>
-      <div *ngIf="usrIdCtrl.errors?.['increment4Validator']">
+      <div *ngIf="usrIdCtrl.errors?.['increment4Validator']" i18n="@@nb_f1003_newUsrId_error6">
         ※不能為遞增連號
       </div>
-      <div *ngIf="usrIdCtrl.errors?.['decrease4Validator']">
+      <div *ngIf="usrIdCtrl.errors?.['decrease4Validator']" i18n="@@nb_f1003_newUsrId_error7">
         ※不能為遞減連號
       </div>
     </div>
     <div *ngIf="f1003Form.invalid && (f1003Form.dirty || f1003Form.touched)"
       class="fontRed fontSize14 errorMsg textLeft mar-l10">
-      <div *ngIf="f1003Form.errors?.['isIdCompare'] ">
+      <div *ngIf="f1003Form.errors?.['isIdCompare'] " i18n="@@nb_f1003_newUsrId_error8">
         ※不能與原登入代號相同
       </div>
     </div>
@@ -58,8 +58,8 @@
     </form-row-input>
     <div *ngIf="f1003Form.invalid && (f1003Form.dirty || f1003Form.touched)"
       class="fontRed fontSize14 errorMsg textLeft mar-l10">
-      <div *ngIf="f1003Form.errors?.['isCompare'] ">
-        ※登入代號提示不可與登入代號相同
+      <div *ngIf="f1003Form.errors?.['isCompare'] " i18n="@@nb_f1003_usrTip_error1">
+        ※不能與登入代號相同
       </div>
     </div>
     <!-- input&check end -->
@@ -80,6 +80,6 @@
 </div>
 <div>
   <button class="btn btnOne mar-all10 mar-t20 fontSize16" (click)="goNext()"
-    i18n="@@nb_f1003_excuteChange">執行變更</button>
+    i18n="@@nb_f1003_btn_excuteChange">執行變更</button>
 </div>
 

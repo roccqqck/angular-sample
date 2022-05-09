@@ -1,6 +1,6 @@
 <div class="cardBusiness shadowStyle mar-ver10 cardGreen">
   <div class="row  mar-hor20">
-    <span class="listTitle fontSize16 fontGray1 col-12 textLeft">安全驗證方式：</span>
+    <span class="listTitle fontSize16 fontGray1 col-12 textLeft" i18n="@@component_securitycontrol_01">安全驗證方式：</span>
   </div>
   <div class="row mar-hor20 mar-t5">
     <ul class="subTabs  areaTabs sixItems mar-t10">
@@ -8,21 +8,24 @@
       <button class=""
         *ngIf="this.securityStatus.ssl || true"
         [ngClass]="this.getBtnClass('ssl')"
-        (click)="this.securityStatus.ssl ? this.setCurrentSecurity('ssl'):''">
+        (click)="this.securityStatus.ssl ? this.setCurrentSecurity('ssl'):''"
+        i18n="@@component_securitycontrol_02">
         SSL密碼
       </button>
 
       <button class=""
         *ngIf="this.securityStatus.oneTouch || true"
         [ngClass]="this.getBtnClass('oneTouch')"
-        (click)="this.securityStatus.oneTouch ? this.setCurrentSecurity('oneTouch'):this.setCurrentSecurity('oneTouch')">
+        (click)="this.securityStatus.oneTouch ? this.setCurrentSecurity('oneTouch'):this.setCurrentSecurity('oneTouch')"
+        i18n="@@component_securitycontrol_03">
         e指通
       </button>
 
       <button class=""
         *ngIf="this.securityStatus.deviceBinding || true"
         [ngClass]="this.getBtnClass('deviceBinding')"
-        (click)="this.securityStatus.deviceBinding ? this.setCurrentSecurity('deviceBinding'):this.setCurrentSecurity('deviceBinding')">
+        (click)="this.securityStatus.deviceBinding ? this.setCurrentSecurity('deviceBinding'):this.setCurrentSecurity('deviceBinding')"
+        i18n="@@component_securitycontrol_04">
         裝置綁定
       </button>
 
@@ -30,21 +33,24 @@
       <button class=""
         *ngIf="this.securityStatus.otp || true"
         [ngClass]="this.getBtnClass('otp')"
-        (click)="this.securityStatus.otp ? this.setCurrentSecurity('otp') :this.setCurrentSecurity('otp')">
+        (click)="this.securityStatus.otp ? this.setCurrentSecurity('otp') :this.setCurrentSecurity('otp')"
+        i18n="@@component_securitycontrol_05">
         實體OTP
       </button>
 
       <button class=""
-      *ngIf="this.securityStatus.fxml || true"
-      [ngClass]="this.getBtnClass('fxml')"
-      (click)="this.securityStatus.fxml ? this.setCurrentSecurity('fxml') :''">
+        *ngIf="this.securityStatus.fxml || true"
+        [ngClass]="this.getBtnClass('fxml')"
+        (click)="this.securityStatus.fxml ? this.setCurrentSecurity('fxml') :''"
+        i18n="@@component_securitycontrol_06">
         電子憑證
       </button>
 
       <button class=""
-      *ngIf="this.securityStatus.card || true"
-      [ngClass]="this.getBtnClass('card')"        
-      (click)="this.securityStatus.card ? this.setCurrentSecurity('card') :this.setCurrentSecurity('card')">
+        *ngIf="this.securityStatus.card || true"
+        [ngClass]="this.getBtnClass('card')"        
+        (click)="this.securityStatus.card ? this.setCurrentSecurity('card') :this.setCurrentSecurity('card')"
+        i18n="@@component_securitycontrol_07">
         晶片金融卡
       </button>
 
@@ -61,7 +67,7 @@
         <div *ngSwitchDefault>
           <div class="textCenter  fontGray2 mar-ver40">
             <div>
-                <span class="fontSize16 ">請選擇安控</span>
+                <span class="fontSize16 " i18n="@@component_securitycontrol_08">請選擇安控</span>
             </div>
         </div>
         </div>

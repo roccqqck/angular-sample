@@ -1,5 +1,906 @@
-<p>f1002 works!</p>
-<span>{{test}}</span>
+<!-- <p>f1002 works!</p> -->
+<h2 class="unitName mar-all10">基本資料變更<i class="far fa-star "></i></h2>
+<div class="component">
+    <div class="tabContent mar-t10">
+        <div class="block">
+            <div class="">
+                <!-- <div id="area1" class="row"> -->
+                    <!-- 單筆區塊 Start-->
+                    <!-- 交易內容 Start -->
+                    <div class="block mar-ver10">
+                        <div class="content mar-t10">
+                            <ul [class.fourItems]="apiR_a245 == 'Y' " [class.threeItems]="apiR_a245 == 'N' " class="subTabs smallTabs fourItems mar-t10">
+                                <li [class.active]="functionItem == 1" (click)="switchFunctionItem(1)">基本資料</li>
+                                <li [class.active]="functionItem == 2" (click)="switchFunctionItem(2)">聯絡資訊</li>
+                                <li [class.active]="functionItem == 3" (click)="switchFunctionItem(3)">寄送設定</li>
+                                <ng-template [ngIf]="apiR_a245 == 'Y' ">
+                                    <li [class.active]="functionItem == 4" (click)="switchFunctionItem(4)">上傳檔案</li>
+                                </ng-template>
+                                <span class="slider"></span>
+                            </ul>
+                            <div class="tabContent mar-t10">
+                                <ng-template [ngIf]="functionItem == 1">
+                                    <div class="tabPane exampleStyle active">
+                                        <!-- 個人基本資料 -->
+                                        <div class="progressCircle progressGreen1 progressTwo mar-all20">
+                                            <ul class="ulTwoText">
+                                                <li class="active"></li>
+                                                <li></li>
+                                                <li></li>
+                                            </ul>
+                                            <ul>
+                                                <ol class="titleTxt fontBold fontGreen2">變更</ol>
+                                                <ol class="titleTxt fontBold fontGray3">確認</ol>
+                                                <ol class="titleTxt fontBold fontGray3">完成</ol>
+                                            </ul>
+                                        </div>
+                                        <div class="mar-t10">
+                                            <div class="handGreen fontSize16 textLeft">變更內容</div>
+                                            <div class="content bgWhite">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">戶名</div>
+                                                    <div class="row mar-all10 fontBold fontBlack fontSize16">{{ apiR_name | maskName:"〇" }}</div>
+                                                    <!-- <div class="row mar-all10 fontBold fontBlack fontSize16">{{ test[name] }}</div> -->
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">暱稱</div>
+                                                    <div class="mar-all10">
+                                                        <div class="inputEnter1">
+                                                            <input class="inputBox fontSize16" type="text" placeholder="請輸入暱稱" [value]="apiR_nickName">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">學歷</div>
+                                                    <div class="mar-all10">
+                                                        <div class="selectBtn1">
+                                                            <select class="select2 choose fontSize16" style="padding: 13px 3.6rem 13px 0.85rem;" [value]="apiR_education">
+                                                                <option value="1">國中以下</option>
+                                                                <option value="2">國中</option>
+                                                                <option value="3">高中/職</option>
+                                                                <option value="4">大專</option>
+                                                                <option value="5">碩士</option>
+                                                                <option value="6">博士</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">婚姻</div>
+                                                    <div class="mar-all10">
+                                                        <div class="selectBtn1">
+                                                            <select class="select2 choose fontSize16" style="padding: 13px 3.6rem 13px 0.85rem;" [value]="apiR_marriage">
+                                                                <option value="1">未婚</option>
+                                                                <option value="2">已婚</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">職業</div>
+                                                    <div class="mar-all10">
+                                                        <div class="selectBtn1">
+                                                            <select class="select2 choose fontSize16" style="padding: 13px 3.6rem 13px 0.85rem;" [value]="apiR_job">
+                                                                <option value="01">農林漁牧</option>
+                                                                <option value="02">公務員</option>
+                                                                <option value="03">軍警</option>
+                                                                <option value="04">教職</option>
+                                                                <option value="05">金融</option>
+                                                                <option value="06">保險</option>
+                                                                <option value="07">資訊</option>
+                                                                <option value="08">電信</option>
+                                                                <option value="09">仲介</option>
+                                                                <option value="10">自由</option>
+                                                                <option value="11">服務</option>
+                                                                <option value="12">醫師</option>
+                                                                <option value="13">會計師</option>
+                                                                <option value="14">建築師</option>
+                                                                <option value="15">律師</option>
+                                                                <option value="16">大眾傳播</option>
+                                                                <option value="17">旅遊</option>
+                                                                <option value="18">國際貿易</option>
+                                                                <option value="19">醫療</option>
+                                                                <option value="20">電子</option>
+                                                                <option value="21">零售</option>
+                                                                <option value="22">批發</option>
+                                                                <option value="23">百貨</option>
+                                                                <option value="24">製造</option>
+                                                                <option value="25">食品</option>
+                                                                <option value="26">交通運輸</option>
+                                                                <option value="27">飯店</option>
+                                                                <option value="28">餐飲</option>
+                                                                <option value="29">建築</option>
+                                                                <option value="30">營造</option>
+                                                                <option value="31">學生</option>
+                                                                <option value="32">家管</option>
+                                                                <option value="33">待業/無業/退休</option>
+                                                                <option value="34">軍火業</option>
+                                                                <option value="35">軍用精密設備業</option>
+                                                                <option value="36">高單價商品(珠寶、貴金屬、藝術品、骨董及其他)</option>
+                                                                <option value="37">無實體店面零售業</option>
+                                                                <option value="38">中古汽機車買賣</option>
+                                                                <option value="39">汽柴油買賣</option>
+                                                                <option value="40">大宗物資買賣</option>
+                                                                <option value="41">水、電及燃氣供應業</option>
+                                                                <option value="42">貨運業</option>
+                                                                <option value="43">典當、現金服務及其他民間融資業</option>
+                                                                <option value="44">虛擬貨幣業</option>
+                                                                <option value="45">不動產投資、買賣與經紀業</option>
+                                                                <option value="46">記帳及稅務代理人、記帳士</option>
+                                                                <option value="47">大使館、領事館</option>
+                                                                <option value="48">博弈產業</option>
+                                                                <option value="49">運動、表演藝術及其他娛樂服務業</option>
+                                                                <option value="50">人民團體、宗教、慈善、公益團體等財團法人</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">任職公司/就讀學校</div>
+                                                    <div class="mar-all10">
+                                                        <div class="raidoGroup mar-all10">
+                                                            <div class="radioBtn">
+                                                                <input type="radio" id="r2" name="r1" [checked]="apiR_company != ''"> 
+                                                                <label for="r2" style="width: max-content;">
+                                                                    <span></span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="inputEnter1">
+                                                                <input class="inputBox fontSize16" type="text" placeholder="" [value]="apiR_company">
+                                                            </div>
+                                                        </div>
+                                                        <div class="raidoGroup mar-all10">
+                                                            <div class="radioBtn">
+                                                                <input type="radio" id="r1" name="r1" [checked]="apiR_company == ''"> 
+                                                                <label for="r1">
+                                                                    <span>無</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">任職公司地址/就讀學校地址</div>
+                                                    <div class="row mar-all10 fontBold fontBlack fontSize16">{{ apiR_companyAddress }}</div>
+                                                    <button class="btnSm mar-all8" onclick="redirect('./個人基本資料_變更地址中.htm')">地址變更</button>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">職稱</div>
+                                                    <div class="mar-all10">
+                                                        <div class="selectBtn1">
+                                                            <select class="select2 choose fontSize16" style="padding: 13px 3.6rem 13px 0.85rem;" [value]="apiR_jobTitle">
+                                                                <option value="1">一般職員</option>
+                                                                <option value="2">高階主管</option>
+                                                                <option value="3">負責人或企業主</option>
+                                                                <option value="4">專業人士(醫師/會計師/律師)</option>
+                                                                <option value="5">技術或操作人員</option>
+                                                                <option value="9">其他</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">現在居住地國別</div>
+                                                    <div class="mar-all10">
+                                                        <div class="selectBtn1">
+                                                            <select class="select2 choose fontSize16" style="padding: 13px 3.6rem 13px 0.85rem;" [value]="apiR_livingCountry">
+                                                                <option value="1001">中華民國(Taiwan )</option>
+                                                                <option value="1002">日本(Japan)</option>
+                                                                <option value="1003">大韓民國("Korea, Rep. of")</option>
+                                                                <option value="1004">香港(Hong Kong)</option>
+                                                                <option value="1005">印度(India)</option>
+                                                                <option value="1006">印尼(Indonesia)</option>
+                                                                <option value="1007">馬來西亞(Malaysia)</option>
+                                                                <option value="1008">菲律賓(Philippines)</option>
+                                                                <option value="1009">新加坡(Singapore)</option>
+                                                                <option value="1010">斯里蘭卡(Sri Lanka)</option>
+                                                                <option value="1011">泰國(Thailand)</option>
+                                                                <option value="1012">巴基斯坦(Pakistan)</option>
+                                                                <option value="1013">孟加拉(Bangladesh)</option>
+                                                                <option value="1014">汶萊(Brunei Darussalam)</option>
+                                                                <option value="1015">澳門(Macao)</option>
+                                                                <option value="1016">越南(Vietnam)</option>
+                                                                <option value="1019">北韓("Korea, Democratic People's of")</option>
+                                                                <option value="1020">中國大陸(China)</option>
+                                                                <option value="1021">尼伯爾(Nepal)</option>
+                                                                <option value="1022">緬甸(Myanmar)</option>
+                                                                <option value="1023">不丹(Bhutan)</option>
+                                                                <option value="1024">高棉(柬埔寨)(Cambodia)</option>
+                                                                <option value="1025">寮國(Lao People's Democratic Republic)</option>
+                                                                <option value="1026">蒙古(Mongolia)</option>
+                                                                <option value="1028">東帝汶(Timor-Leste)</option>
+                                                                <option value="1099">其他亞洲地區( )</option>
+                                                                <option value="1212">伊朗(Iran (Islamic Republic of))</option>
+                                                                <option value="1213">北葉門(Yemen)</option>
+                                                                <option value="1214">巴林(Bahrain)</option>
+                                                                <option value="1215">以色列(Israel)</option>
+                                                                <option value="1216">伊拉克(Iraq)</option>
+                                                                <option value="1217">約旦(Jordan)</option>
+                                                                <option value="1218">科威特(Kuwait)</option>
+                                                                <option value="1219">黎巴嫩(Lebanon)</option>
+                                                                <option value="1220">庫達(卡達)(Qatar)</option>
+                                                                <option value="1221">沙烏地阿拉伯(Saudi Arabia)</option>
+                                                                <option value="1222">阿拉伯聯合大公國(United Arab Emirates)</option>
+                                                                <option value="1223">賽普路斯(Cyprus)</option>
+                                                                <option value="1225">土耳其(Turkey)</option>
+                                                                <option value="1226">敘利亞(Syrian Arab Republic)</option>
+                                                                <option value="1227">阿曼(Oman)</option>
+                                                                <option value="1228">阿富汗(Afghanistan)</option>
+                                                                <option value="1229">亞美尼亞(Armenia)</option>
+                                                                <option value="1230">亞塞拜然(Azerbaijan)</option>
+                                                                <option value="1231">白俄羅斯(Belarus)</option>
+                                                                <option value="1232">喬治亞(Georgia)</option>
+                                                                <option value="1233">哈薩克(Kazakhstan)</option>
+                                                                <option value="1234">吉爾吉斯(Kyrgyzstan)</option>
+                                                                <option value="1235">摩爾瓦多("Moldova, Republic of")</option>
+                                                                <option value="1236">塔吉克(Tajikistan)</option>
+                                                                <option value="1237">土庫曼(Turkmenistan)</option>
+                                                                <option value="1238">烏克蘭(Ukraine)</option>
+                                                                <option value="1239">烏茲別克(Uzbekistan)</option>
+                                                                <option value="1299">其他中東及近東地區( )</option>
+                                                                <option value="2001">澳大利亞(Australia)</option>
+                                                                <option value="2002">巴布亞新幾內亞(Papua New Guinea)</option>
+                                                                <option value="2003">紐西蘭(New Zealand)</option>
+                                                                <option value="2004">斐濟(Fiji)</option>
+                                                                <option value="2005">法屬玻里尼西亞(French Polynesia)</option>
+                                                                <option value="2006">索羅門群島(Solomon Islands)</option>
+                                                                <option value="2007">吉里巴斯(Kiribati)</option>
+                                                                <option value="2008">馬爾地夫(Maldives)</option>
+                                                                <option value="2009">馬紹爾群島(Marshall Islands)</option>
+                                                                <option value="2010">密克羅尼西亞(Micronesia (Federated States of))</option>
+                                                                <option value="2011">諾魯(Nauru)</option>
+                                                                <option value="2012">帛琉(Palau)</option>
+                                                                <option value="2013">東加(Tonga)</option>
+                                                                <option value="2014">吐瓦魯(Tuvalu)</option>
+                                                                <option value="2015">萬那杜(Vanuatu)</option>
+                                                                <option value="2016">新喀里多尼亞(New Caledonia)</option>
+                                                                <option value="2017">薩摩亞群島(Samoa)</option>
+                                                                <option value="2018">科克群島(Cook Islands)</option>
+                                                                <option value="2019">紐威島(Niue)</option>
+                                                                <option value="2021">美屬薩摩亞(American Samoa)</option>
+                                                                <option value="2022">南極洲(Antarctica)</option>
+                                                                <option value="2023">聖誕島(Christmas Island)</option>
+                                                                <option value="2024">可可斯群島(Cocos (Keeling) Islands)</option>
+                                                                <option value="2025">赫德及麥當勞群島(Heard and McDonald Islands)</option>
+                                                                <option value="2026">諾福克群島(Norfolk Island)</option>
+                                                                <option value="2027">北馬里亞納群島(Northern Mariana Islands)</option>
+                                                                <option value="2028">皮特康島(Pitcairn)</option>
+                                                                <option value="2029">南喬治亞及南三明治群島(South Georgia and South Sandwich Islands)</option>
+                                                                <option value="2030">托克勞群島(Tokelau)</option>
+                                                                <option value="2031">沃里斯及伏塔那島(Wallis and Futuna Islands)</option>
+                                                                <option value="2099">其他歐洲地區( )</option>
+                                                                <option value="3000">關島(Guam)</option>
+                                                                <option value="3001">加拿大(Canada)</option>
+                                                                <option value="3002">美國(United States)</option>
+                                                                <option value="3003">格陵蘭(Greenland)</option>
+                                                                <option value="3004">聖匹及密啟倫群島(Saint Pierre and Miquelon)</option>
+                                                                <option value="3005">美國邊疆群島(Unites States Minor Outlying Islands)</option>
+                                                                <option value="3099">其他非洲地區( )</option>
+                                                                <option value="4001">阿根廷(Argentina)</option>
+                                                                <option value="4002">巴哈馬(Bahamas)</option>
+                                                                <option value="4003">巴西(Brazil)</option>
+                                                                <option value="4004">智利(Chile)</option>
+                                                                <option value="4005">哥倫比亞(Colombia)</option>
+                                                                <option value="4006">哥斯大黎加(Costa Rica)</option>
+                                                                <option value="4007">厄瓜多爾(Ecuador)</option>
+                                                                <option value="4008">瓜地馬拉(Guatemala)</option>
+                                                                <option value="4009">海地(Haiti)</option>
+                                                                <option value="4010">牙買加(Jamaica)</option>
+                                                                <option value="4011">墨西哥(Mexico)</option>
+                                                                <option value="4012">尼加拉瓜(Nicaragua)</option>
+                                                                <option value="4013">巴拿馬(Panama)</option>
+                                                                <option value="4014">巴拉圭(Paraguay)</option>
+                                                                <option value="4015">秘魯(Peru)</option>
+                                                                <option value="4016">波多黎各(Puerto Rico)</option>
+                                                                <option value="4017">千里達-托貝哥(Trinidad and Tobago)</option>
+                                                                <option value="4018">烏拉圭(Uruguay)</option>
+                                                                <option value="4019">委內瑞拉(Venezuela)</option>
+                                                                <option value="4020">多明尼加(Dominican Republic)</option>
+                                                                <option value="4023">宏都拉斯(Honduras)</option>
+                                                                <option value="4024">百慕達(Bermuda)</option>
+                                                                <option value="4025">古拉索(Curacao)</option>
+                                                                <option value="4026">巴貝多(Barbados)</option>
+                                                                <option value="4027">玻利維亞(Bolivia)</option>
+                                                                <option value="4028">古巴(Cuba)</option>
+                                                                <option value="4029">薩爾瓦多(El Salvador)</option>
+                                                                <option value="4030">格瑞那達(Grenada)</option>
+                                                                <option value="4031">安地卡及巴布達(Antigua and Barbuda)</option>
+                                                                <option value="4032">貝里斯(Belize)</option>
+                                                                <option value="4033">多米尼克(Dominica)</option>
+                                                                <option value="4034">蓋亞那(Guyana)</option>
+                                                                <option value="4035">聖克里斯多福 (Saint Kitts and Nevis)</option>
+                                                                <option value="4036">聖露西亞(Saint Lucia)</option>
+                                                                <option value="4037">聖文森及(Saint Vincent and the Grenadines)</option>
+                                                                <option value="4038">蘇利南(Suriname)</option>
+                                                                <option value="4040">開曼群島(Cayman Islands)</option>
+                                                                <option value="4041">英屬維爾京群島("Virgin Islands, British")</option>
+                                                                <option value="4043">阿魯巴(Aruba)</option>
+                                                                <option value="4044">英屬安圭拉(Anguilla)</option>
+                                                                <option value="4045">波奈、聖佑達修斯及沙巴("Bonaire, Sint Eustatius and Saba")</option>
+                                                                <option value="4046">福克蘭群島(Falkland Islands (Malvinas))</option>
+                                                                <option value="4047">法屬圭亞那(French Guiana)</option>
+                                                                <option value="4048">瓜德魯普島(Guadeloupe)</option>
+                                                                <option value="4049">法屬馬丁尼克(Martinique)</option>
+                                                                <option value="4050">蒙瑟拉特島(Montserrat)</option>
+                                                                <option value="4051">巴拿馬運河區(Panama Canal Zone)</option>
+                                                                <option value="4052">土克斯及開科斯群島(Turks and Caicos Islands)</option>
+                                                                <option value="4053">美屬維爾京群島("Virgin Islands, U.S.")</option>
+                                                                <option value="4054">聖巴瑟米(Saint Barthelemy)</option>
+                                                                <option value="4055">聖馬丁(法屬)(Saint Martin (French Part))</option>
+                                                                <option value="4056">聖馬丁(荷屬)(Sint Maarten (Dutch Part))</option>
+                                                                <option value="4099">其他北美洲地區( )</option>
+                                                                <option value="4199">其他中美洲地區( )</option>
+                                                                <option value="5001">奧地利(Austria)</option>
+                                                                <option value="5002">比利時(Belgium)</option>
+                                                                <option value="5003">丹麥(Denmark)</option>
+                                                                <option value="5004">芬蘭(Finland)</option>
+                                                                <option value="5005">法國(France)</option>
+                                                                <option value="5006">希臘(Greece)</option>
+                                                                <option value="5007">冰島(Iceland)</option>
+                                                                <option value="5008">義大利(Italy)</option>
+                                                                <option value="5009">盧森堡(Luxembourg)</option>
+                                                                <option value="5010">馬爾他(Malta)</option>
+                                                                <option value="5011">荷蘭(Netherlands)</option>
+                                                                <option value="5012">挪威(Norway)</option>
+                                                                <option value="5013">葡萄牙(Portugal)</option>
+                                                                <option value="5014">西班牙(Spain)</option>
+                                                                <option value="5015">瑞典(Sweden)</option>
+                                                                <option value="5016">愛爾蘭(Ireland)</option>
+                                                                <option value="5017">瑞士(Switzerland)</option>
+                                                                <option value="5018">英國(United Kingdom)</option>
+                                                                <option value="5019">德國(Germany)</option>
+                                                                <option value="5020">捷克(Czech Republic)</option>
+                                                                <option value="5021">羅馬尼亞(Romania)</option>
+                                                                <option value="5022">愛沙尼亞(Estonia)</option>
+                                                                <option value="5023">波蘭(Poland)</option>
+                                                                <option value="5024">塞爾維亞(Serbia)</option>
+                                                                <option value="5025">保加利亞(Bulgaria)</option>
+                                                                <option value="5026">匈牙利(Hungary)</option>
+                                                                <option value="5027">列支敦斯堡(Liechtenstein)</option>
+                                                                <option value="5028">克羅埃西亞(Croatia)</option>
+                                                                <option value="5029">阿爾巴尼亞(Albania)</option>
+                                                                <option value="5030">斯洛凡尼亞(Slovenia)</option>
+                                                                <option value="5031">波士尼亞(Bosnia and Herzegovina)</option>
+                                                                <option value="5032">摩納哥(Monaco)</option>
+                                                                <option value="5033">安道爾(Andorra)</option>
+                                                                <option value="5034">斯洛伐克(Slovakia)</option>
+                                                                <option value="5035">俄羅斯聯邦(Russian Federation)</option>
+                                                                <option value="5036">馬其頓()</option>
+                                                                <option value="5037">拉脫維亞(Latvia)</option>
+                                                                <option value="5038">立陶宛(Lithuania)</option>
+                                                                <option value="5039">聖馬利諾(San Marino)</option>
+                                                                <option value="5040">澤西島("Jersey, C.I.")</option>
+                                                                <option value="5041">格恩西島("Guernsey, C.I.")</option>
+                                                                <option value="5042">蒙特尼哥羅(Montenegro)</option>
+                                                                <option value="5043">直布羅陀(Gibraltar)</option>
+                                                                <option value="5044">波維特島(Bouvet Island)</option>
+                                                                <option value="5045">法羅群島(Faeroe Islands)</option>
+                                                                <option value="5046">法屬南部屬地(French Southern Territories)</option>
+                                                                <option value="5047">教廷(Holy See (Vatican City States))</option>
+                                                                <option value="5048">曼島(Isle of Man)</option>
+                                                                <option value="5049">斯瓦多及尖棉島(Svalbard and Jan Mayen Islands)</option>
+                                                                <option value="5050">奧蘭群島(Aland Islands)</option>
+                                                                <option value="5099">其他南美洲地區( )</option>
+                                                                <option value="6001">埃及(Egypt)</option>
+                                                                <option value="6002">加彭(Gabon)</option>
+                                                                <option value="6003">迦納(Ghana)</option>
+                                                                <option value="6004">象牙海岸(Cote d'Ivoire)</option>
+                                                                <option value="6005">肯亞(Kenya)</option>
+                                                                <option value="6006">馬拉威(Malawi)</option>
+                                                                <option value="6007">莫三鼻給(Mozambique)</option>
+                                                                <option value="6008">南非共和國(South Africa)</option>
+                                                                <option value="6009">納米比亞(Namibia)</option>
+                                                                <option value="6010">烏干達(Uganda)</option>
+                                                                <option value="6011">尚比亞(Zambia)</option>
+                                                                <option value="6012">辛巴威(羅德西亞)(Zimbabwe)</option>
+                                                                <option value="6013">奈及利亞(Nigeria)</option>
+                                                                <option value="6014">利比亞(Libyan Arab Jamahiriya)</option>
+                                                                <option value="6015">摩洛哥(Morocco)</option>
+                                                                <option value="6016">貝南(達荷美)(Benin)</option>
+                                                                <option value="6017">上伏塔(布吉納法索)(Burkina Faso)</option>
+                                                                <option value="6018">蒲隆地(Burundi)</option>
+                                                                <option value="6019">佛德角(Cape Verde)</option>
+                                                                <option value="6020">中非共和國(Central African Republic)</option>
+                                                                <option value="6021">查德(Chad)</option>
+                                                                <option value="6023">葛摩(Comoros)</option>
+                                                                <option value="6024">吉布地(Djibouti)</option>
+                                                                <option value="6025">赤道幾內亞(Equatorial Guinea)</option>
+                                                                <option value="6026">賴比瑞亞(Liberia)</option>
+                                                                <option value="6027">突尼西亞(Tunisia)</option>
+                                                                <option value="6028">厄利垂亞(Eritrea)</option>
+                                                                <option value="6029">安哥拉(Angola)</option>
+                                                                <option value="6030">甘比亞(Gambia)</option>
+                                                                <option value="6031">波札那(Botswana)</option>
+                                                                <option value="6032">幾內亞(Guinea)</option>
+                                                                <option value="6033">幾內亞比索(Guinea-Bissau)</option>
+                                                                <option value="6034">喀麥隆(Cameroon)</option>
+                                                                <option value="6035">賴索托(Lesotho)</option>
+                                                                <option value="6036">馬達加斯加(Madagascar)</option>
+                                                                <option value="6037">馬利(Mali)</option>
+                                                                <option value="6038">剛果(Congo)</option>
+                                                                <option value="6039">茅利塔尼亞(Mauritania)</option>
+                                                                <option value="6040">尼日(Niger)</option>
+                                                                <option value="6041">衣索比亞(Ethiopia)</option>
+                                                                <option value="6042">盧安達(Rwanda)</option>
+                                                                <option value="6043">聖托馬-普林斯浦(Sao Tome and Principe)</option>
+                                                                <option value="6044">索馬利亞(Somalia)</option>
+                                                                <option value="6045">蘇丹(Sudan)</option>
+                                                                <option value="6046">多哥(Togo)</option>
+                                                                <option value="6049">模里西斯(Mauritius)</option>
+                                                                <option value="6053">塞內加爾(Senegal)</option>
+                                                                <option value="6054">塞席爾(Seychelles)</option>
+                                                                <option value="6055">獅子山(Sierra Leone)</option>
+                                                                <option value="6058">史瓦濟蘭(Swaziland)</option>
+                                                                <option value="6059">坦尚尼亞("Tanzania, United Republic of")</option>
+                                                                <option value="6061">阿爾及利亞(Algeria)</option>
+                                                                <option value="6062">留尼旺(Reunion)</option>
+                                                                <option value="6063">英屬印度洋地區(British Indian Ocean Territory)</option>
+                                                                <option value="6064">薩伊("Congo, The Democratic Rep. of the")</option>
+                                                                <option value="6065">美亞特(Mayotte)</option>
+                                                                <option value="6066">聖赫勒拿島(Saint Helena)</option>
+                                                                <option value="6067">西撒哈拉(Western Sahara)</option>
+                                                                <option value="6068">南蘇丹(South Sudan)</option>
+                                                                <option value="6099">其他大洋洲地區( )</option>
+                                                                <option value="9999">測試國家(TEST COUNTRY)</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">開戶目的與性質(可複選)</div>
+                                                    <div class="multipleCheck row mar-t20">
+                                                        <div class="flexContent mar-all10">
+                                                            <div class="checkBtn">
+                                                                <input type="checkbox" id="a">
+                                                                <label for="a">
+                                                                    <span>薪轉</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkBtn">
+                                                                <input type="checkbox" id="b">
+                                                                <label for="b">
+                                                                    <span>理財投資</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkBtn">
+                                                                <input type="checkbox" id="c">
+                                                                <label for="c">
+                                                                    <span>儲蓄</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkBtn">
+                                                                <input type="checkbox" id="d">
+                                                                <label for="d">
+                                                                    <span>資金調度</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkBtn">
+                                                                <input type="checkbox" id="e">
+                                                                <label for="e">
+                                                                    <span>證券戶</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkBtn">
+                                                                <input type="checkbox" id="f">
+                                                                <label for="f">
+                                                                    <span>授信</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkBtn">
+                                                                <input type="checkbox" id="g">
+                                                                <label for="g">
+                                                                    <span>公司營運</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkBtn">
+                                                                <input type="checkbox" id="h">
+                                                                <label for="h">
+                                                                    <span>保管箱</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkBtn">
+                                                                <input type="checkbox" id="i">
+                                                                <label for="i">
+                                                                    <span>信用卡單收單</span>
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkInput">
+                                                                <div class="checkBtn">
+                                                                    <input type="checkbox" id="j">
+                                                                    <label for="j">
+                                                                        <span>其他</span>
+                                                                    </label>
+                                                                </div>
+                                                                <input class="inputBox" type="text" placeholder="請說明原因">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">個人年收入(新臺幣)</div>
+                                                    <!-- <div class="mar-all10">
+                                                        <div class="inputBtn3">
+                                                            <input class="inputBox fontSize16" type="text" placeholder="請輸入應繳金額"><span>萬</span>
+                                                        </div>
+                                                    </div> -->
+                                                    <div class="mar-all10">
+                                                        <div class="inputEnter1">
+                                                            <input class="inputBox fontSize16" type="text" placeholder="請輸入個人年收入" [value]="apiR_income">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">資金主要來源</div>
+                                                    <div class="mar-all10">
+                                                        <div class="radioBtn mar-t10">
+                                                            <input type="radio" id="r2-1" name="r2" value="01" [checked]="apiR_fundSource == '01'">
+                                                            <label for="r2-1">
+                                                                <span>經營事業收入/營業所得</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radioBtn mar-t10">
+                                                            <input type="radio" id="r2-2" name="r2" value="02" [checked]="apiR_fundSource == '02'">
+                                                            <label for="r2-2">
+                                                                <span>遺產繼承(含贈與)</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radioBtn mar-t10">
+                                                            <input type="radio" id="r3-3" name="r2" value="03" [checked]="apiR_fundSource == '03'">
+                                                            <label for="r3-3">
+                                                                <span>買賣房地產</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radioBtn mar-t10">
+                                                            <input type="radio" id="r4-2" name="r2" value="04" [checked]="apiR_fundSource == '04'">
+                                                            <label for="r4-2">
+                                                                <span>薪資</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radioBtn mar-t10">
+                                                            <input type="radio" id="r5-2" name="r2" value="05" [checked]="apiR_fundSource == '05'">
+                                                            <label for="r5-2">
+                                                                <span>退休(職)金</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radioBtn mar-t10">
+                                                            <input type="radio" id="r6-2" name="r2" value="06" [checked]="apiR_fundSource == '06'">
+                                                            <label for="r6-2">
+                                                                <span>年金或社會福利金等款項</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radioBtn mar-t10">
+                                                            <input type="radio" id="r7-2" name="r2" value="07" [checked]="apiR_fundSource == '07'">
+                                                            <label for="r7-2">
+                                                                <span>理財投資</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radioBtn mar-t10">
+                                                            <input type="radio" id="r8-2" name="r2" value="08" [checked]="apiR_fundSource == '08'">
+                                                            <label for="r8-2">
+                                                                <span>資金收入</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radioBtn mar-t10" style="display: block;">
+                                                            <input type="radio" id="r9-2" name="r2" value="10" [checked]="apiR_fundSource == '10'">
+                                                            <label for="r9-2">
+                                                                <span>其他</span>
+                                                            </label>
+                                                            <div style="width: auto; display: inline-block;">
+                                                                <input class="inputBox fontSize16" type="text" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- <div class="fontRed mar-all10">本電話使用於綁定行動支付、申請數位存款帳戶及帳戶交易確認等用途，如欲更新本行動電話，請使用晶片金融卡、e指通、實體OTP或電子憑證進行修改。</div> -->
+                                                <hr class="dividerGray">
+                                                <div class="row mar-all10 fontSize16">申請人同意上方所載之學歷、婚姻、職業、任職公司等資料，與本行已登錄之資料不一致時，本行得逕依上方所載資料變更之。</div>
+                                                <div class="textCenter">
+                                                    <button class="btn btnOne mar-all10 mar-t20 fontSize16" onclick="redirect('./個人基本資料_確認.htm')">確定變更</button>
+                                                    <!-- <button class="btn btnOne mar-all10 mar-t20 fontSize16" onClick="javascript:void(0)">資料確認無誤</button> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 個人基本資料 -->
+                                    </div>
+                                </ng-template>
+                                <ng-template [ngIf]="functionItem == 2">
+                                    <div class="tabPane exampleStyle active">
+                                        <!-- 聯絡資訊 -->
+                                        <div class="progressCircle progressGreen1 progressTwo mar-all20">
+                                            <ul class="ulTwoText">
+                                                <li class="active"></li>
+                                                <li></li>
+                                                <li></li>
+                                            </ul>
+                                            <ul>
+                                                <ol class="titleTxt fontBold fontGreen2">變更</ol>
+                                                <ol class="titleTxt fontBold fontGray3">確認</ol>
+                                                <ol class="titleTxt fontBold fontGray3">完成</ol>
+                                            </ul>
+                                        </div>
+                                        <div class="mar-t10">
+                                            <div class="handGreen fontSize16 textLeft">變更內容</div>
+                                            <div class="content bgWhite">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">Email信箱</div>
+                                                    <div class="row mar-all10 fontBold fontBlack fontSize16">
+                                                        <ng-template [ngIf]="apiR_emailValidate === 'Y'">{{ apiR_email }}【已驗證】</ng-template>
+                                                        <ng-template [ngIf]="apiR_emailValidate === 'N'">{{ apiR_email }}【<span class="fontRed">未驗證</span>】</ng-template>
+                                                    </div>
+                                                    <!-- <button class="btn btnOne mar-all10 mar-t20 fontSize16" onClick="javascript:void(0)">新增/變更E-Mail</button> -->
+                                                    <button class="btnSm mar-all8" onclick="redirect('./聯絡資訊_變更Email.htm')">新增/變更Email</button>
+                                                    <button *ngIf="apiR_emailValidate === 'N'" class="btnSm mar-all8" onclick="redirect('./聯絡資訊_重發驗證信_完成.htm')">重發驗證信</button>
+                                                    <!-- <span>
+                                                        <button class="btnSmborder2 mar-all8 btnBox" data-name="01">重發驗證信</button>
+                                                        <div class="modal" data-name="01">
+                                                            <div class="modalDialog wm50">
+                                                                <div class="modalTitle fontSize18 fontGreen2">
+                                                                    申請重發驗證信交易成功
+                                                                </div>
+                                                                <div class="modalContent">
+                                                                    <div class="textContent">
+                                                                        <p class="fontGray2 mar-b10">已發送驗證信到您的信箱 i079db@firstbank.com.tw</p>
+                                                                        <p class="fontGray2 mar-b10">為確保您的權益,請務必於48小時內( 2022/04/13 19:16:02前)完成驗證。未收到驗證信或逾驗證期限,請至「第e個網/第e行動/eATM網路理財機」申請「重發驗證信」。</p>
+                                                                        <p class="fontRed">※本行優惠訊息及服務通知將發送至上述E-MAIL。如您有申請電子綜合業務對帳單,需完成E-MAIL信箱驗證,電子綜合業務對帳單服務將於完成驗證後次月起生效;若未完成驗證,請至原開戶分行親自領取實體綜合業務對帳單。
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modalBtns">
+                                                                    <button class="btnClose btnLight mar-all10" data-name="01">知道了</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </span> -->
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">住家電話</div>
+                                                    <div class="inputBtn4 row mar-all10">
+                                                        <div class="col-3 inputItem1">
+                                                            <!-- <span>住家區碼</span> -->
+                                                            <input type="text" placeholder="請輸入區碼" [value]="apiR_homePhone1">
+                                                        </div>
+                                                        <div class="col-6 inputItem2">
+                                                            <!-- <span>住家電話</span> -->
+                                                            <input type="text" placeholder="請輸入電話" [value]="apiR_homePhone2">
+                                                        </div>
+                                                        <div class="col-3 inputItem1">
+                                                            <!-- <span>住家分機</span> -->
+                                                            <input type="text" placeholder="請輸入分機" [value]="apiR_homePhone3">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">公司電話</div>
+                                                    <div class="inputBtn4 row mar-all10">
+                                                        <div class="col-3 inputItem1">
+                                                            <!-- <span>公司區碼</span> -->
+                                                            <input type="text" placeholder="請輸入區碼" [value]="apiR_companyPhone1">
+                                                        </div>
+                                                        <div class="col-6 inputItem2">
+                                                            <!-- <span>公司電話</span> -->
+                                                            <input type="text" placeholder="請輸入電話" [value]="apiR_companyPhone2">
+                                                        </div>
+                                                        <div class="col-3 inputItem1">
+                                                            <!-- <span>公司分機</span> -->
+                                                            <input type="text" placeholder="請輸入分機" [value]="apiR_companyPhone3">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">行動電話</div>
+                                                    <div class="mar-all10">
+                                                        <div class="inputEnter1">
+                                                            <input class="inputBox fontSize16" type="text" placeholder="請輸入" [value]="apiR_cellPhone">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">雙因素行動電話</div>
+
+                                                    <div class="mar-all10">
+                                                        <div class="inputEnter1">
+                                                            <input class="inputBox fontSize16" type="text" placeholder="請輸入" [value]="apiR_tfaPhone">
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div style="display: block;">
+                                                        <div class="row mar-all10 fontGray2 fontSize16">為確保您的權益，貼心提醒：您修改的雙因素行動電話與他人相同，請選填重複原因或重新修改雙因素行動電話</div>                                                                
+                                                        <div>
+                                                            <div class="row mar-all10 fontGray2 fontSize16">重複原因</div>
+                                                            <div class="mar-all10">
+                                                                <div class="selectBtn1">
+                                                                    <select class="select2 choose fontSize16" style="padding: 13px 3.6rem 13px 0.85rem;">
+                                                                        <option selected="">父母</option>
+                                                                        <option>配偶</option>
+                                                                        <option>子女</option>
+                                                                        <option>其他親屬</option>
+                                                                        <option>其他</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+                                                    </div> -->
+                                                </div>
+                                                <div class="fontRed mar-all10">本電話使用於綁定行動支付、申請數位存款帳戶及帳戶交易確認等用途，如欲更新本行動電話，請使用晶片金融卡、e指通、實體OTP或電子憑證進行修改。</div>
+                                                <!-- 分隔線 -->
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">通訊地址</div>
+                                                    <div class="row mar-all10 fontBold fontBlack fontSize16">{{apiR_zip}} - {{apiR_contactAddress}}</div>
+                                                    <button class="btnSm mar-all8">通訊地址變更</button>
+                                                </div>
+                                                <hr class="dividerGray">
+                                                <div class="row mar-all10 fontSize16">申請人同意上方所載之學歷、婚姻、職業、任職公司等資料，與本行已登錄之資料不一致時，本行得逕依上方所載資料變更之。</div>
+                                                <div class="textCenter">
+                                                    <button class="btn btnOne mar-all10 mar-t20 fontSize16" onclick="redirect('./聯絡資訊_確認.htm')">確認變更</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 聯絡資訊 -->
+                                    </div>
+                                </ng-template>
+                                <ng-template [ngIf]="functionItem == 3">
+                                    <div class="tabPane exampleStyle active">
+                                        <!-- 帳單寄送設定及補寄 -->
+                                        <div class="progressCircle progressGreen1 progressTwo mar-all20">
+                                            <ul class="ulTwoText">
+                                                <li class="active"></li>
+                                                <li></li>
+                                                <li></li>
+                                            </ul>
+                                            <ul>
+                                                <ol class="titleTxt fontBold fontGreen2">變更</ol>
+                                                <ol class="titleTxt fontBold fontGray3">確認</ol>
+                                                <ol class="titleTxt fontBold fontGray3">完成</ol>
+                                            </ul>
+                                        </div>
+                                        <div class="mar-t10">
+                                            <div class="handGreen fontSize16 textLeft">變更內容</div>
+                                            <div class="content bgWhite">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">綜合對帳單寄送方式</div>
+                                                    <div class="mar-all10">
+                                                        <div class="selectBtn1">
+                                                            <select class="select2 choose fontSize16" style="padding: 13px 3.6rem 13px 0.85rem;">
+                                                                <ng-template *nfIf="apiR_bankStatementType"></ng-template>
+                                                                <option value="1">電子郵件</option>
+                                                                <option value="2" selected="">郵寄</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="row mar-all10 fontBold fontBlack fontSize16">i20263@firstbank.com.tw</div> -->
+                                                </div>
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">Email信箱</div>
+                                                    <div class="row mar-all10 fontBold fontBlack fontSize16">
+                                                        <ng-template [ngIf]="apiR_emailValidate === 'Y'">{{ apiR_email }}【已驗證】</ng-template>
+                                                        <ng-template [ngIf]="apiR_emailValidate === 'N'">{{ apiR_email }}【<span class="fontRed">未驗證</span>】</ng-template>
+                                                    </div>
+                                                    <button class="btnSm mar-all8" onclick="redirect('./變更基本資料_合併.htm')">新增/變更Email</button>
+                                                    <button *ngIf="apiR_emailValidate === 'N'" class="btnSm mar-all8" onclick="redirect('./聯絡資訊_重發驗證信_完成.htm')">重發驗證信</button>
+                                                </div>
+                                                <hr class="dividerGray">
+                                                <div class="textCenter">
+                                                    <button class="btn btnOne mar-all10 mar-t20 fontSize16" onclick="redirect('./帳單寄送設定及補寄_確認.htm')">確認變更</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 帳單寄送設定及補寄 -->
+                                    </div>
+                                </ng-template>
+                                <ng-template [ngIf]="functionItem == 4">
+                                    <div class="tabPane exampleStyle active">
+                                        <!-- 上傳檔案 -->
+                                        <div class="progressCircle progressGreen1 progressTwo mar-all20">
+                                            <ul class="ulTwoText">
+                                                <li class="active"></li>
+                                                <li></li>
+                                            </ul>
+                                            <ul>
+                                                <ol class="titleTxt fontBold fontGreen2">上傳</ol>
+                                                <ol class="titleTxt fontBold fontGray3">完成</ol>
+                                            </ul>
+                                        </div>
+                                        <div class="mar-t10">
+                                            <div class="handGreen fontSize16 textLeft">上傳檔案內容</div>
+                                            <div class="content bgWhite">
+                                                <div class="row mar-all10 fontGray2 fontSize16">是否同意查聯徵(Z21)</div>
+                                                <div class="mar-all10">
+                                                    <div class="radioBtn mar-t10">
+                                                        <input type="radio" id="rb4-1" name="rb4-1">
+                                                        <label for="rb4-1">
+                                                            <span>是</span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="radioBtn mar-t10">
+                                                        <input type="radio" id="rb4-2" name="rb4-1">
+                                                        <label for="rb4-2">
+                                                            <span>否</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <hr class="dividerGray">
+                                                <div>
+                                                    <div class="row mar-all10 fontGray2 fontSize16">上傳身分證件</div>
+                                                    <div class="row multiDarg mar-t20">
+                                                        <!-- <div class="col-3 formTitle">拖曳上傳檔案</div> -->
+                                                        <div class="col-12">
+                                                            <form action="/target">
+                                                                <div class="fileBlock">
+                                                                    <div class="dargBtn dropzone">
+                                                                        <div class="dragBox dz-default dz-message">
+                                                                            <i class="iconFlle"></i>
+                                                                            <p class="fontSize14 fontBold fontGray2">拖曳檔案至此或點擊上傳</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <ul class="fileList" id="previews">
+                                                                        <li id="template" class="file">
+                                                                            <span class="upTitle" data-dz-name=""></span>
+                                                                            <span class="size" data-dz-size=""></span>
+                                                                            <button class="closerFile" data-dz-remove=""></button>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </form>                         
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="textCenter">
+                                                    <button class="btn btnOne mar-all10 mar-t20 fontSize16" onclick="redirect('./上傳檔案_完成.htm')">上傳</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- 上傳檔案 -->
+                                    </div>
+                                </ng-template>
+                                
+                                
+                                
+                            </div>
+    
+                            
+                        </div>
+                    </div>
+                    <!-- 交易內容 End -->
+                    <!-- 單筆區塊 End-->
+                <!-- </div> -->
+            </div>
+        </div>
+        
+    </div>
+</div>
 
 <!-- loading -->
-<form-loading *ngIf="getIsLoading()"></form-loading>
+<form-loading *ngIf="isLoading"></form-loading>

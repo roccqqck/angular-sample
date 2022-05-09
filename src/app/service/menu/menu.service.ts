@@ -21,10 +21,10 @@ export class MenuService {
   }
 
   getCurrentLanguage() {
-    const lang = ['en', 'tw'];
+    const lang = ['en', 'zh'];
     const currentLang = lang.find(l => new RegExp(`/${l}/`).test(window.location.pathname));
     if (!currentLang) {
-      return 'tw';
+      return 'zh';
     }
     return currentLang;
   };

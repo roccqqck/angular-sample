@@ -2,31 +2,31 @@
     <form-success *ngIf="this.getTxnStatus()=='success'">
         <!-- 交易內容 start -->
         <div class="row">
-            <span class="listTitle fontSize16 fontGray1 col-12 textLeft">您的交易內容如下：</span>
+            <span class="listTitle fontSize16 fontGray1 col-12 textLeft" i18n="@@nb_f1003_result1">您的交易內容如下：</span>
         </div>
         <div class="row ">
-            <span class="listTitle fontSize16 fontGray2 col-4 textLeft">交易時間</span>
+            <span class="listTitle fontSize16 fontGray2 col-4 textLeft" i18n="@@nb_f1003_result2">交易時間</span>
             <span class="listTitle fontSize16 fontGray2 col-6 textLeft"></span>
             <p class="listContent col-12 textLeft fontBold fontBlack mar-t10">{{form2Data.transDttm | date:'yyyy/MM/dd HH:mm:ss'}}</p>
         </div>
         <div class="row">
             <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder1">
-                <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">身分證號/統一編號</span>
+                <span class="listTitle fontSize16 fontGray2 textLeft mar-t10" i18n="@@nb_f1003_result3">身分證號/統一編號</span>
                 <p class="listContent textLeft fontBold fontBlack mar-t10">A12****0000</p>
             </div>
             <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder2">
-                <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">戶名</span>
+                <span class="listTitle fontSize16 fontGray2 textLeft mar-t10" i18n="@@nb_f1003_result4">戶名</span>
                 <p class="listContent textLeft fontBold fontBlack mar-t10">{{form2Data.custName}}</p>
             </div>
         </div>
         <div class="row">
             <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder1">
-                <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">新登入代號</span>
+                <span class="listTitle fontSize16 fontGray2 textLeft mar-t10" i18n="@@nb_f1003_result5">新登入代號</span>
                 <p class="listContent textLeft fontRed fontBold mar-t10">{{form2Data.usrId}}
                 </p>
             </div>
             <div class=" col-sm-12 col-md-6 col-lg-6 textLeft colBorder2">
-                <span class="listTitle fontSize16 fontGray2 textLeft mar-t10">登入代號提示</span>
+                <span class="listTitle fontSize16 fontGray2 textLeft mar-t10" i18n="@@nb_f1003_result6">登入代號提示</span>
                 <p class="listContent textLeft fontRed fontBold mar-t10">{{form2Data.usrTipId}}</p>
             </div>
         </div>
@@ -34,11 +34,11 @@
     </form-success>
     <form-error *ngIf="this.getTxnStatus()=='error'">
         <div class="row ">
-            <span class="listTitle fontSize16 fontGray2 col-12 textLeft">交易狀態</span>
+            <span class="listTitle fontSize16 fontGray2 col-12 textLeft" i18n="@@nb_f1003_result7">交易狀態</span>
             <p class="listContent col-12 textLeft fontBold fontRed mar-t10">{{errorMessage.message}}</p>
         </div>
         <div class="row ">
-            <span class="listTitle fontSize16 fontGray2 col-12 textLeft">交易時間</span>
+            <span class="listTitle fontSize16 fontGray2 col-12 textLeft" i18n="@@nb_f1003_result8">交易時間</span>
             <p class="listContent col-12 textLeft fontBold fontBlack mar-t10">2022/04/07 11:54:06</p>
         </div>
     </form-error>
