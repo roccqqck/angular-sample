@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: angular-sample
-        image: roccqqck/angular-sample:0.0.4
+        image: roccqqck/angular-sample:0.0.6
         imagePullPolicy: Always
 ############# advanced setting not necessarily
         ports:
