@@ -1,0 +1,20 @@
+{
+    "/api/security":{
+        "target":"https://security-common-ibank.apps.devocp.firstbank.com.tw",
+        "logLevel":"debug",
+        "secure":false,
+        "changeOrigin":true
+    },
+    "/api/customer":{
+        "target":"https://customer-common-ibank.apps.devocp.firstbank.com.tw",
+        "logLevel":"debug",
+        "secure":false,
+        "changeOrigin":true
+    },
+    "/api/common":{
+        "target":"https://common-shared-ibank.apps.devocp.firstbank.com.tw",
+        "logLevel":"debug",
+        "secure":false,
+        "changeOrigin":true
+    }
+}

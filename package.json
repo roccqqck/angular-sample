@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --disable-host-check ",
-    "starttw": "ng serve --configuration=zh --disable-host-check",
-    "starten": "ng serve --configuration=en --disable-host-check",
+    "start": "ng serve --disable-host-check --proxy-config proxy.conf.json ",
+    "starttw": "ng serve --configuration=zh --disable-host-check --proxy-config proxy.conf.json",
+    "starten": "ng serve --configuration=en --disable-host-check --proxy-config proxy.conf.json",
     "i18n": "ng extract-i18n --output-path src/locale",
     "build": "ng build",
     "demo": "ng build --configuration=demo",

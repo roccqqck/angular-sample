@@ -1,0 +1,58 @@
+#!groovy
+
+pipeline {
+    agent any
+
+    environment {
+        nexus = "devnexus.firstbank.com.tw"
+        harbor = "devharbor.firstbank.com.tw"
+        gitlab = "devgitlab.firstbank.com.tw"
+        ocp = "https://api.devocp.firstbank.com.tw:6443"
+        app_env = "uat"
+        gitlab_user='robot'
+        gitlab_token='cicduser'
+        HARBOR_ROBOT_NAME='robot$harbor'
+        HARBOR_ROBOT_TOKEN="CG35f6BPhNpHsFmy9NTpKcUEqLWRf6vD"
+    }
+
+    stages {
+
+         stage('準備環境') {
+            steps {
+                sh 'printenv'
+                sh 'rm -rf ${repository}'
+            }
+        }
+       
+        stage('初始環境') {
+            steps {
+                sh 'printenv'
+                sh 'helm version'
+                sh 'rm -rf ${repository}'
+            }
+        }
+        
+          stage('取得 Source Code') {
+            steps {
+                sh 'git -c http.sslVerify=false clone https://${gitlab_user}:${gitlab_token}@${gitlab}/gitlab/${project}/${repository}.git'
+                dir("${repository}") {
+                    sh 'git checkout ${tag}'
+                }
+            }
+        } 
+        
+
+        stage ('Helm Upgrade') {
+            steps {
+                sh 'oc login ${ocp} -u ${user} -p ${password} --insecure-skip-tls-verify'
+                sh 'oc project ${project}'
+                dir("${repository}") {
+                      sh "helm list"
+                      sh "helm upgrade -f deploy/helm/values-uat.yaml ${repository} deploy/helm/"
+                      sh "helm list"
+                }      
+            }
+        }
+       
+    }
+}

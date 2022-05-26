@@ -1,0 +1,51 @@
+#!groovy
+
+pipeline {
+    agent any 
+
+    environment {
+        harbor = "prdharbor.firstbank.com.tw"
+        gitlab = "prdgitlab.firstbank.com.tw"
+        ocp = "https://api.prdocp.firstbank.com.tw:6443"
+        app_env = "prd"
+        docker_env = "prd"
+        gitlab_user = 'robot'
+        gitlab_token = 'cicduser'
+        harbor_user = 'admin'
+        harbor_token = 'Cicduser1'
+    }
+
+    stages {
+        stage('準備環境') {
+            steps {
+                sh 'printenv'
+                sh 'rm -rf ${repository}'
+            }
+        }
+        stage('取得 Source Code') {
+            steps {
+                sh 'git -c http.sslVerify=false clone https://${gitlab_user}:${gitlab_token}@${gitlab}/gitlab/${project}/${repository}.git'
+                dir("${repository}") {
+                    sh 'git checkout ${tag}'
+                }
+            }
+        }
+        stage('建置 Image') {
+            steps {
+                dir("${repository}") {
+                    sh 'docker login ${harbor} -u ${harbor_user} -p ${harbor_token}'
+                    sh 'docker pull prdharbor.firstbank.com.tw/docker.io/library/node:16-bullseye-slim'
+                    sh 'docker pull prdharbor.firstbank.com.tw/docker.io/bitnami/nginx:1.20'
+                    sh 'docker build --rm -f Dockerfile-${docker_env} -t ${harbor}/${project}/${image}:${tag} --progress=plain .'
+                }
+            }
+        }
+        stage('發佈 Image') {
+            steps {
+                sh 'docker push ${harbor}/${project}/${image}:${tag}'
+                sh 'docker rmi -f ${harbor}/${project}/${image}:${tag}'
+                sh 'docker rmi $(docker images --filter "dangling=true" -q --no-trunc)   || true'
+            }
+        }
+    }
+}

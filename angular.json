@@ -54,16 +54,14 @@
               "src/assets/css/bootstrap-grid.min.css",
               "src/assets/css/reset.min.css",
               "src/assets/css/pikaday_iLEO.css",
-              "src/assets/css/css_iLEO.min.css",
-              "src/assets/css/fcb_iLEO.css",
               "src/assets/css/keyboard.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
               "node_modules/select2/dist/js/select2.min.js",
               "node_modules/select2/dist/js/i18n/zh-TW.js",
-              "src/assets/js/keyboard.js",
-              "src/assets/js/FirstCardObject_js.js"
+              "src/assets/js/keyboard.js"
+              // "src/assets/js/FirstCardObject_js.js",
               // "src/assets/js/FirstCardObjectNew.js",
               // "src/assets/js/fxml/asyn/fcb_ws_base.js",
               // "src/assets/js/fxml/asyn/fcb_plugin_detect.js",
@@ -79,12 +77,14 @@
             "en": {
               "localize": [
                 "en"
-              ]
+              ],
+              "optimization": false
             },
             "zh": {
               "localize": [
                 "zh"
-              ]
+              ],
+              "optimization": false
             },
             "production": {
               "budgets": [
