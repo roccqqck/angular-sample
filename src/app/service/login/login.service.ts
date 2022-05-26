@@ -26,7 +26,7 @@ export class LoginService {
   results!: string;
 
   // APIURL="https://common-platform-apply.apps.devocp.firstbank.com.tw/common/createcaptcha";
-  APIURL=environment.APIURL_CAPTCHA;
+  APIURL="/api/common/shared/v1/shared/createcaptcha";
   login!: Login;
   await: any;
   constructor(public http: HttpClient) {

@@ -14,6 +14,7 @@ import { c10ViewComponent } from './pages/10/c10-view.component';
 import { c1000ViewComponent } from './pages/10/00/c1000-view.component';
 import { F1005Component } from './pages/10/00/f1005/f1005.component';
 import { F1021Component } from './pages/10/00/f1021/f1021.component';
+import { CanDeactivateGuard } from './auth/can-deactivateGuard.service';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
@@ -79,7 +80,7 @@ const routes: Routes = [
         children: [
           { path: '', redirectTo: '1000view', pathMatch: 'full' },//導至default
           { path: '1000view', component: c1000ViewComponent },//個人化服務>安全設定-view
-          { path: 'f1003', component: F1003Component },//個人化服務>安全設定>登入代號變更
+          { path: 'f1003', component: F1003Component ,canDeactivate:[CanDeactivateGuard]},//個人化服務>安全設定>登入代號變更
           { path: 'f1004', component: F1004Component },//個人化服務>安全設定>登入密碼變更
           { path: 'f1005', component: F1005Component },//個人化服務>安全設定>SSL交易密碼變更
           { path: 'f1021', component: F1021Component },//個人化服務>安全設定>存摺通提(取款)密碼變更

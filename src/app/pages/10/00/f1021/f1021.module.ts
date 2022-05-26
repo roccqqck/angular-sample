@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ComponentModule } from 'src/app/shared/component/component.module';
 import { F1005Service } from 'src/app/service/10/f1005.service';
 import { Form3Component } from './form3/form3.component';
-import { SecurityControlModule } from 'src/app/shared/component/securityControl/security-control.module';
+import { SecurityControlModule } from 'src/app/shared/securityControl/security-control.module';
 
 
 

@@ -1,8 +1,8 @@
 import { Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CryptoService } from 'src/app/service/shared/crypto.service';
-import { DynamicPadComponent } from '../../dynamic-pad/dynamic-pad.component';
-import { DynamicPadService } from '../../dynamic-pad/service/dynamic-pad.service';
+import { DynamicPadComponent } from '../../component/dynamic-pad/dynamic-pad.component';
+import { DynamicPadService } from '../../component/dynamic-pad/service/dynamic-pad.service';
 import { SecurityControlService } from '../security-control.service';
 
 @Component({

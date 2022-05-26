@@ -2,9 +2,9 @@ import { Component, Input, OnInit, ChangeDetectorRef, Output, EventEmitter } fro
 import { FormBuilder, Validators, FormGroup, FormControl, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { userValidator } from 'src/app/shared/util/check/user-validator.directive';
 import { F1004Service } from 'src/app/service/10/f1004.service';
-import { convertStrToDateString } from 'src/app/shared/util/convertString';
 import { countInt, countLo, countUp } from 'src/app/shared/util/common';
 import { CryptoService } from 'src/app/service/shared/crypto.service';
+import { FUNC_TWO_STEP_2 } from 'src/app/shared/constants/function.constants';
 
 
 @Component({
@@ -28,11 +28,8 @@ export class Form1Component implements OnInit {
   constructor(
     private form: FormBuilder,//使用 FormBuilder 服務產生控制元件
     private f1004Service: F1004Service,
-    private changeDectorRef: ChangeDetectorRef,
     private cryptoService:CryptoService
-  ) {
-
-  }
+  ) { }
 
   /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
     init
@@ -168,7 +165,7 @@ export class Form1Component implements OnInit {
       this.f1004Service.setCheckPd(this.cryptoService.b64_sha1("A1231231230"+this.f1004Form.get('checkPd')?.value));
 
 
-      this.nextEvent.emit(2);
+      this.nextEvent.emit(FUNC_TWO_STEP_2);
     }
   }
 

@@ -5,10 +5,10 @@ import { FormBuilder, Validators, FormGroup, FormControl, ValidatorFn, AbstractC
 import { userValidator } from 'src/app/shared/util/check/user-validator.directive';
 import { countInt, select2Init } from 'src/app/shared/util/common';
 import { CryptoService } from 'src/app/service/shared/crypto.service';
-import { checkThenShowIcReader, jsGetCardAccount, listReaders, readCardData, readerSelect } from 'src/app/shared/util/firstCardObject';
 import { Select2OptionData } from 'src/app/shared/component/ng-select2/ng-select2.interface';
 import { Observable, of, Subscriber } from 'rxjs';
 import { F1021Service } from 'src/app/service/10/f1021.service';
+import { ScriptService } from 'src/app/service/script/script.service';
 
 declare var $: any;
 
@@ -42,6 +42,7 @@ export class Form1Component implements OnInit {
     private f1021Service: F1021Service,
     private changeDectorRef: ChangeDetectorRef,
     public dynamicPadService: DynamicPadService,
+    private scriptService:ScriptService,
     private cryptoService: CryptoService
   ) {}
 
@@ -143,16 +144,21 @@ export class Form1Component implements OnInit {
     if(currentTab=="tab2"){
       // this.f1021Service.setIsLoading(true);
       this.accountList=[]
-      this.f1021Service.cardObservable().subscribe(
-        (data)=>{
-        this.accountList=data
-        console.log('data:',data);
-        // this.f1021Service.setIsLoading(false);
-
-        //變化檢測>刷新畫面
-        this.changeDectorRef.markForCheck();
-        this.changeDectorRef.detectChanges();
-        })
+      this.scriptService.load('FirstCardObject_js','FirstCardObjectNew').then(data => {
+        console.log('script loaded ', data);
+        this.f1021Service.cardObservable().subscribe(
+          (data)=>{
+          this.accountList=data
+          console.log('data:',data);
+          // this.f1021Service.setIsLoading(false);
+  
+          //變化檢測>刷新畫面
+          this.changeDectorRef.markForCheck();
+          this.changeDectorRef.detectChanges();
+          })
+    
+      }).catch(error => console.log('script loaded error',error));
+     
         // this.f1021Service.setIsLoading(false);
     }
     

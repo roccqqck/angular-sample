@@ -228,7 +228,7 @@
       </trans-unit>
       <trans-unit id="nb_example_txnresult_content1" datatype="html">
         <source>您的交易內容如下：</source>
-        <target>您的交易內容如下：</target>
+        <target>Details：</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">171</context>
@@ -252,7 +252,7 @@
       </trans-unit>
       <trans-unit id="nb_example_txnresult_attention1" datatype="html">
         <source>注意事項</source>
-        <target>注意事項</target>
+        <target>Attention</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/main/main.component.html</context>
           <context context-type="linenumber">187</context>
@@ -296,7 +296,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_step1" datatype="html">
         <source>變更</source>
-        <target>變更</target>
+        <target>Change User</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/f1003.component.html</context>
           <context context-type="linenumber">5</context>
@@ -304,7 +304,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_step2" datatype="html">
         <source>完成</source>
-        <target>完成</target>
+        <target>Complete</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/f1003.component.html</context>
           <context context-type="linenumber">6</context>
@@ -328,7 +328,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_lastModifyDttm" datatype="html">
         <source>上次變更時間</source>
-        <target>上次變更時間</target>
+        <target>Last changed</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">9</context>
@@ -336,7 +336,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_oldUsrId" datatype="html">
         <source>原登入代號</source>
-        <target>Original Login Code</target>
+        <target>Original User ID</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">12</context>
@@ -344,7 +344,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_newUsrId" datatype="html">
         <source>新登入代號</source>
-        <target>New Login ID</target>
+        <target>New User ID</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">17</context>
@@ -416,7 +416,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_usrTip" datatype="html">
         <source>登入代號提示</source>
-        <target>Login ID Tips</target>
+        <target>User ID Tips</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">55</context>
@@ -424,7 +424,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_usrTip_error1" datatype="html">
         <source> ※不能與登入代號相同 </source>
-        <target> Cannot be the same as New Login ID. </target>
+        <target> Cannot be the same as New User ID. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">61,63</context>
@@ -432,7 +432,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_attentionText1" datatype="html">
         <source>請勿使用身份證字號、電話號碼或生日等易被他人得知的號碼作為登入代號。</source>
-        <target>請勿使用身份證字號、電話號碼或生日等易被他人得知的號碼作為登入代號。</target>
+        <target>Do not use your ID no., telephone no., birthday, or other information that can be easily known by others as your login ID. </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">72</context>
@@ -440,7 +440,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_attentionText2" datatype="html">
         <source>設定登入代號時僅限使用阿拉伯數字及英文字母(登入代號長度為8~12位數),並請勿使用特殊字元或符號(例如#,*,?,!,% ...等)。</source>
-        <target>設定登入代號時僅限使用阿拉伯數字及英文字母(登入代號長度為8~12位數),並請勿使用特殊字元或符號(例如#,*,?,!,% ...等)。</target>
+        <target>Only Arabic numerals and English alphabet letters may be used when setting the login ID (8 to 12 digits long). Do not use special characters or symbols (such as #,*,?,!,%,etc.) </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">73</context>
@@ -448,7 +448,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_attentionText3" datatype="html">
         <source>登入代號最好包含英文字及數字(勿設定與密碼相同)。</source>
-        <target>登入代號最好包含英文字及數字(勿設定與密碼相同)。</target>
+        <target>Login ID should contain English alphabet letters and Arabic numbers (may not be identical to your password). </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">74</context>
@@ -456,7 +456,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_attentionText4" datatype="html">
         <source>請定期使用"登入代號變更"的功能來變更您的登入代號。</source>
-        <target>請定期使用"登入代號變更"的功能來變更您的登入代號。</target>
+        <target>You should periodically use the Login ID Change function to change your login ID.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">75</context>
@@ -464,7 +464,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_attentionText5" datatype="html">
         <source>請妥善保管您的密碼及電子憑證載具並儘量不要使用公用電腦進入網路銀行。</source>
-        <target>請妥善保管您的密碼及電子憑證載具並儘量不要使用公用電腦進入網路銀行。</target>
+        <target>Keep your password and e-token device safe, and avoid accessing Internet Banking using a public computer.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form1/form1.component.html</context>
           <context context-type="linenumber">76</context>
@@ -480,7 +480,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_result1" datatype="html">
         <source>您的交易內容如下：</source>
-        <target>您的交易內容如下：</target>
+        <target>Details：</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form2/form2.component.html</context>
           <context context-type="linenumber">5</context>
@@ -512,7 +512,7 @@
       </trans-unit>
       <trans-unit id="nb_f1003_result5" datatype="html">
         <source>新登入代號</source>
-        <target>New Login ID</target>
+        <target>New User ID</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1003/form2/form2.component.html</context>
           <context context-type="linenumber">24</context>
@@ -556,7 +556,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_step1" datatype="html">
         <source>變更</source>
-        <target>變更</target>
+        <target>Change Password</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/f1004.component.html</context>
           <context context-type="linenumber">5</context>
@@ -564,7 +564,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_step2" datatype="html">
         <source>完成</source>
-        <target>完成</target>
+        <target>Complete</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/f1004.component.html</context>
           <context context-type="linenumber">6</context>
@@ -588,7 +588,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_lastModifyDttm" datatype="html">
         <source>上次變更時間</source>
-        <target>上次變更時間</target>
+        <target>Last changed</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
           <context context-type="linenumber">10</context>
@@ -804,7 +804,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_attentionText1" datatype="html">
         <source>請勿使用身份證號碼,電話號碼或生日等易被他人得知的號碼作為密碼</source>
-        <target>請勿使用身份證號碼,電話號碼或生日等易被他人得知的號碼作為密碼</target>
+        <target>Do not use your ID no., telephone no., birthday, or other information that can be easily known by others as your password.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
           <context context-type="linenumber">120</context>
@@ -812,7 +812,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_attentionText2" datatype="html">
         <source>用戶密碼最好包含英文及數字.(勿設定為1111或abcd等諸如此類易被猜出的密碼).</source>
-        <target>用戶密碼最好包含英文及數字.(勿設定為1111或abcd等諸如此類易被猜出的密碼).</target>
+        <target>It is recommended to use both English alphabet letters and Arabic numerals in your user password (do not use a password that is easy to guess, such as “1111” or “abcd”).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
           <context context-type="linenumber">121</context>
@@ -820,7 +820,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_attentionText3" datatype="html">
         <source>最好定期使用"登入密碼變更"的功能來變更您的密碼.</source>
-        <target>最好定期使用"登入密碼變更"的功能來變更您的密碼.</target>
+        <target>You should periodically use the Login Code Change function to change your password.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
           <context context-type="linenumber">122</context>
@@ -828,7 +828,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_attentionText4" datatype="html">
         <source>妥善保管您的密碼及電子憑證載具並儘量不要使用公用電腦進入網路銀行.</source>
-        <target>妥善保管您的密碼及電子憑證載具並儘量不要使用公用電腦進入網路銀行.</target>
+        <target>Keep your password and e-token device safe, and avoid accessing Internet Banking using a public computer.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
           <context context-type="linenumber">123</context>
@@ -836,7 +836,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_attentionText5" datatype="html">
         <source>設定密碼時僅限使用阿拉伯數字及英文字母(密碼長度為8~12位數且大小寫有別),並請勿使用特殊字元或符號(例如#,*,?,!,% ...等).</source>
-        <target>設定密碼時僅限使用阿拉伯數字及英文字母(密碼長度為8~12位數且大小寫有別),並請勿使用特殊字元或符號(例如#,*,?,!,% ...等).</target>
+        <target>Only Arabic numerals and English alphabet letters may be used when setting the password (8 to 12 numerals digits long and case-sensitive).     Do not use special characters or symbols (such as #,*,?,!,%,etc.) </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/form1/form1.component.html</context>
           <context context-type="linenumber">124</context>
@@ -852,7 +852,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_result1" datatype="html">
         <source>您的交易內容如下：</source>
-        <target>您的交易內容如下：</target>
+        <target>Details：</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/form2/form2.component.html</context>
           <context context-type="linenumber">5</context>
@@ -892,7 +892,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_result6" datatype="html">
         <source>數字</source>
-        <target>Numbers</target>
+        <target>Digits</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/form2/form2.component.html</context>
           <context context-type="linenumber">37</context>
@@ -900,7 +900,7 @@
       </trans-unit>
       <trans-unit id="nb_f1004_result7" datatype="html">
         <source>注意事項</source>
-        <target>注意事項</target>
+        <target>Attention</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1004/form2/form2.component.html</context>
           <context context-type="linenumber">47</context>
@@ -944,7 +944,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_step1" datatype="html">
         <source>變更</source>
-        <target>變更</target>
+        <target>Change SSL Transcation Password</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/f1005.component.html</context>
           <context context-type="linenumber">5</context>
@@ -952,7 +952,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_step2" datatype="html">
         <source>完成</source>
-        <target>完成</target>
+        <target>Complete</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/f1005.component.html</context>
           <context context-type="linenumber">6</context>
@@ -984,7 +984,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_lastModifyDttm" datatype="html">
         <source>上次變更時間</source>
-        <target>上次變更時間</target>
+        <target>Last changed</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/form1/form1.component.html</context>
           <context context-type="linenumber">10</context>
@@ -1200,7 +1200,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_attentionText1" datatype="html">
         <source>請勿使用身份證號碼,電話號碼或生日等易被他人得知的號碼作為密碼</source>
-        <target>請勿使用身份證號碼,電話號碼或生日等易被他人得知的號碼作為密碼</target>
+        <target>Do not use your ID no., telephone no., birthday, or other information that can be easily known by others as your password.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/form1/form1.component.html</context>
           <context context-type="linenumber">116</context>
@@ -1208,7 +1208,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_attentionText2" datatype="html">
         <source>用戶密碼最好包含英文及數字.(勿設定為1111等諸如此類易被猜出的密碼).</source>
-        <target>用戶密碼最好包含英文及數字.(勿設定為1111等諸如此類易被猜出的密碼).</target>
+        <target>Do not use passwords that are easy to guess, such as “1111”, for the user password.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/form1/form1.component.html</context>
           <context context-type="linenumber">117</context>
@@ -1216,7 +1216,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_attentionText3" datatype="html">
         <source>最好定期使用"SSL交易密碼變更"的功能來變更您的密碼.</source>
-        <target>最好定期使用"SSL交易密碼變更"的功能來變更您的密碼.</target>
+        <target>You should periodically use the SSL Transaction Password Change function to change your SSL transaction password.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/form1/form1.component.html</context>
           <context context-type="linenumber">118</context>
@@ -1224,7 +1224,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_attentionText4" datatype="html">
         <source>設定密碼時僅限使用阿拉伯數字(密碼長度為8~12位數字).</source>
-        <target>設定密碼時僅限使用阿拉伯數字(密碼長度為8~12位數字).</target>
+        <target>Only Arabic numerals may be used when setting the password (8 to 12 digitslong).</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/form1/form1.component.html</context>
           <context context-type="linenumber">119</context>
@@ -1240,7 +1240,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_result1" datatype="html">
         <source>您的交易內容如下：</source>
-        <target>您的交易內容如下：</target>
+        <target>Details：</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/form2/form2.component.html</context>
           <context context-type="linenumber">5</context>
@@ -1256,7 +1256,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_result3" datatype="html">
         <source>數字</source>
-        <target>數字</target>
+        <target>Digits</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/form2/form2.component.html</context>
           <context context-type="linenumber">14</context>
@@ -1264,7 +1264,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_result4" datatype="html">
         <source>注意事項</source>
-        <target>注意事項</target>
+        <target>Attention</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/form2/form2.component.html</context>
           <context context-type="linenumber">21</context>
@@ -1272,7 +1272,7 @@
       </trans-unit>
       <trans-unit id="nb_f1005_result5" datatype="html">
         <source>後續使用時請輸入正確密碼</source>
-        <target>後續使用時請輸入正確密碼</target>
+        <target>Please enter the correct password during usage.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/10/00/f1005/form2/form2.component.html</context>
           <context context-type="linenumber">23</context>
@@ -1571,19 +1571,11 @@
         </context-group>
       </trans-unit>
       <trans-unit id="nb_footer_text3" datatype="html">
-        <source>建議瀏覽器版本：IE9或更新版本。解析度1024x768</source>
-        <target>建議瀏覽器版本：IE9或更新版本。解析度1024x768</target>
+        <source>建議瀏覽器版本：IE11以上、Chrome、Edge或Safari，解析度1024x768為佳</source>
+        <target>Recommended browsers: Microsoft Internet Explorer 11 (latest versions), Chrome, Edge, Apple Safari with 1024X768 pixels.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/layout/footer/footer.component.html</context>
           <context context-type="linenumber">14</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="nb_footer_text4" datatype="html">
-        <source>建議最佳解析度為1280*768以上</source>
-        <target>建議最佳解析度為1280*768以上</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nb_header_link1" datatype="html">
@@ -1628,7 +1620,7 @@
       </trans-unit>
       <trans-unit id="nb_selectfont1" datatype="html">
         <source>標準</source>
-        <target>標準</target>
+        <target>Normal</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/layout/selectfont/selectfont.component.html</context>
           <context context-type="linenumber">4</context>
@@ -1636,7 +1628,7 @@
       </trans-unit>
       <trans-unit id="nb_selectfont2" datatype="html">
         <source>大</source>
-        <target>大</target>
+        <target>Large</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/layout/selectfont/selectfont.component.html</context>
           <context context-type="linenumber">7</context>
@@ -1644,7 +1636,7 @@
       </trans-unit>
       <trans-unit id="nb_selectfont3" datatype="html">
         <source>標準</source>
-        <target>標準</target>
+        <target>Normal</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/layout/selectfont/selectfont.component.html</context>
           <context context-type="linenumber">8</context>
@@ -1652,7 +1644,7 @@
       </trans-unit>
       <trans-unit id="nb_selectfont4" datatype="html">
         <source>小</source>
-        <target>小</target>
+        <target>Small</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/layout/selectfont/selectfont.component.html</context>
           <context context-type="linenumber">9</context>
@@ -1776,7 +1768,7 @@
       </trans-unit>
       <trans-unit id="component_attention_01" datatype="html">
         <source>注意事項</source>
-        <target>注意事項</target>
+        <target>Attention</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/component/form/form-attention/form-attention.component.html</context>
           <context context-type="linenumber">3</context>
@@ -1784,7 +1776,7 @@
       </trans-unit>
       <trans-unit id="component_formerror_01" datatype="html">
         <source>交易結果</source>
-        <target>交易結果</target>
+        <target>Result</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/component/form/form-error/form-error.component.html</context>
           <context context-type="linenumber">2</context>
@@ -1792,7 +1784,7 @@
       </trans-unit>
       <trans-unit id="component_formerror_02" datatype="html">
         <source>交易失敗</source>
-        <target>交易失敗</target>
+        <target>Fail</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/component/form/form-error/form-error.component.html</context>
           <context context-type="linenumber">8</context>
@@ -1800,7 +1792,7 @@
       </trans-unit>
       <trans-unit id="component_placeholder" datatype="html">
         <source>請輸入</source>
-        <target>請輸入</target>
+        <target>Please enter</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/component/form/form-row-input/form-row-input.component.html</context>
           <context context-type="linenumber">20</context>
@@ -1868,7 +1860,7 @@
       </trans-unit>
       <trans-unit id="component_formsuccess_01" datatype="html">
         <source>交易結果</source>
-        <target>交易結果</target>
+        <target>Result</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/component/form/form-success/form-success.component.html</context>
           <context context-type="linenumber">2</context>
@@ -1876,7 +1868,7 @@
       </trans-unit>
       <trans-unit id="component_formsuccess_02" datatype="html">
         <source>交易成功</source>
-        <target>交易成功</target>
+        <target>Success</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/shared/component/form/form-success/form-success.component.html</context>
           <context context-type="linenumber">8</context>

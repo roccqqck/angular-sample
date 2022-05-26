@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { f1003_query,f1003_change } from 'src/app/shared/model/f1003.model';
+import { f1003_query, f1003_change } from 'src/app/shared/model/f1003.model';
+import { API_F1003_GETUSRID, API_F1003_MODIFYUSRID, API_SETTING_HTTPOPTIONS } from 'src/app/shared/constants/api.constants'
 
 
 @Injectable({
@@ -22,29 +22,22 @@ export class F1003Service {
   isLoading:boolean=false;
   txnStatus!: string;//"success" or "error"
   error!: { code: string, message: string, details: [] }// if txnStatus=error,
-
+  
+  
   //DATA FROM FORM_INPUT
   usrId!: string;
   usrIdTip!: string;
 
   //DATA FROM API
+  custId!:string;
   custName!: string;
   lastModifyDttm!: string;
   oldUsrId!: string;
   transDttm!: string;
 
-  //API URL
-  APIURL: string = environment.APIURL_F10003;
-  APIURL2: string = "https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/security/modifyusrid"
 
-  //POST HEADER OPTION
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': 'Bearer test'
-    })
-  };
-
+  //canDeactivateGuard
+  isChangeNotSave=false;
 
   /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
     constructor
@@ -69,10 +62,10 @@ export class F1003Service {
         "additionalProp3": "test"
       },
       "body": {
-        "custId": "A1231231230"
+        "custId": this.getCustId()
       }
     }
-    return this.http.post<f1003_query>(this.APIURL, APIBODY, this.httpOptions).pipe(
+    return this.http.post<f1003_query>( API_F1003_GETUSRID, APIBODY, API_SETTING_HTTPOPTIONS ).pipe(
       tap((response) => {
         console.log("queryf1003", response);
         return response;
@@ -91,14 +84,14 @@ export class F1003Service {
         "additionalProp3": "test"
       },
       "body": {
-        "custId": "A1231231230",
+        "custId": this.getCustId(),
         "oldUsrId": this.getOldUsrId(),
         "newUsrId": this.getUsrId(),
         "usrIdTip": this.getUsrIdTip(),
         "loginWay": "w"
       }
     }
-    return this.http.post<f1003_change>(this.APIURL2, APIBODY2, this.httpOptions).pipe(
+    return this.http.post<f1003_change>( API_F1003_MODIFYUSRID, APIBODY2, API_SETTING_HTTPOPTIONS ).pipe(
       tap((response) => {
         console.log("changef1003", response);
         return response;
@@ -140,9 +133,22 @@ export class F1003Service {
   }
   setUsrId(usrId: string) {
     this.usrId = usrId;
+    if(usrId!=""){
+      this.isChangeNotSave=true;
+    }else{
+      this.isChangeNotSave=false;
+    }
   }
   setUsrIdTip(usrIdTip: string) {
     this.usrIdTip = usrIdTip;
+    if(usrIdTip!=""){
+      this.isChangeNotSave=true;
+    }else{
+      this.isChangeNotSave=false;
+    }
+  }
+  setCustId(custId:string){
+    this.custId = custId;
   }
   setCustName(custName: string) {
     this.custName = custName;
@@ -162,6 +168,9 @@ export class F1003Service {
   setError(error: any) {
     this.error = error;
   }
+  setIsChangeNotSave(isChangeNotSave:boolean){
+    this.isChangeNotSave = isChangeNotSave;
+  }
 
 
   getStep() { return this.step; }
@@ -171,6 +180,8 @@ export class F1003Service {
   getUsrId() { return this.usrId; }
 
   getUsrIdTip() { return this.usrIdTip; }
+
+  getCustId() { return this.custId; }
 
   getCustName() { return this.custName }
 

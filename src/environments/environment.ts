@@ -6,7 +6,12 @@ export const environment = {
   production: false,
   AES_KEY: "9y$B&E)H@McQeThWmZq4t7w!z%C*F-Ja",//AES256 要放32字元
   AES_IV:"D*G-KaPdSgUkXp2s5v8y/B?E(H+MbQeT",//位元數同上
+  AES_KEY_128: "SYSTEX.6214@FCB@",
+  AES_IV_128: "1234567890abcdef",
   //API PATH
+  API_PATH:"https://customer-common-ibank.apps.devocp.firstbank.com.tw/api/",
+  API_COMMON_PATH:"https://common-platform-apply.apps.devocp.firstbank.com.tw/common/",
+  
   APIURL_CAPTCHA:"https://common-platform-apply.apps.devocp.firstbank.com.tw/common/createcaptcha",
   APIURL_FAVORITE:"https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/personal/getusrfnct",
   APIURL_LOGIN:"http://localhost:4200/json/login.json",

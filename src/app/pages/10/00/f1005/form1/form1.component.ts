@@ -6,6 +6,7 @@ import { userValidator } from 'src/app/shared/util/check/user-validator.directiv
 import { F1005Service } from 'src/app/service/10/f1005.service';
 import { countInt } from 'src/app/shared/util/common';
 import { CryptoService } from 'src/app/service/shared/crypto.service';
+import { FUNC_TWO_STEP_2 } from 'src/app/shared/constants/function.constants';
 
 
 @Component({
@@ -20,7 +21,6 @@ export class Form1Component implements OnInit {
   ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
   @ViewChild(DynamicPadComponent, { read: ElementRef }) private dynamicPadElementRef!: ElementRef;
   @Output() nextEvent = new EventEmitter<number>();
-
   f1005Form!: FormGroup;
   isSubmit: boolean = false;
 
@@ -32,7 +32,6 @@ export class Form1Component implements OnInit {
   constructor(
     private form: FormBuilder,//使用 FormBuilder 服務產生控制元件
     private f1005Service: F1005Service,
-    private changeDectorRef: ChangeDetectorRef,
     public dynamicPadService: DynamicPadService,
     private cryptoService:CryptoService
   ) {}
@@ -172,7 +171,7 @@ export class Form1Component implements OnInit {
       this.f1005Service.setNewSSL(this.cryptoService.b64_sha1(this.f1005Form.get('newSSL')?.value));
       this.f1005Service.setCheckSSL(this.cryptoService.b64_sha1(this.f1005Form.get('checkSSL')?.value));
 
-      this.nextEvent.emit(2);
+      this.nextEvent.emit(FUNC_TWO_STEP_2);
     }
 
   }

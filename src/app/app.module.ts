@@ -32,12 +32,16 @@ import { DownloadCSVService } from './shared/component/download-csv/service/down
 import { MenuDirective, ToggleMenuDirective } from './pages/layout/menu/menu.directive';
 import { SelectfontDirective } from './pages/layout/selectfont/selectfont.directive';
 import { SideMenuDirective } from './pages/layout/side-menu/side-menu.directive';
-import { SecurityControlService } from './shared/component/securityControl/security-control.service';
-import { SecurityControlModule } from './shared/component/securityControl/security-control.module';
+import { SecurityControlService } from './shared/securityControl/security-control.service';
+import { SecurityControlModule } from './shared/securityControl/security-control.module';
 import { F1002Component } from './pages/10/f1002/f1002.component';
 import { F1021Module } from './pages/10/00/f1021/f1021.module';
 import { ScriptService } from './service/script/script.service';
 import { MaskNamePipe } from './shared/pipes/mask-name.pipe';
+import { MaskCreditCardPipe } from './shared/pipes/mask-credit-card.pipe'
+import { ScrollDirective } from './shared/util/directive/scroll.directive';
+import { GlobalHttpInterceptor } from './shared/util/interceptor/global-http-interceptor';
+import { CanDeactivateGuard } from './auth/can-deactivateGuard.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +65,8 @@ import { MaskNamePipe } from './shared/pipes/mask-name.pipe';
     SideMenuDirective,
     F1002Component,
     MaskNamePipe,
+    MaskCreditCardPipe,
+    ScrollDirective
   ],
   imports: [
     BrowserModule,
@@ -85,9 +91,11 @@ import { MaskNamePipe } from './shared/pipes/mask-name.pipe';
     FavoriteService,
     DownloadCSVService,
     SecurityControlService,
-    ScriptService
+    ScriptService,
+    CanDeactivateGuard
 
-    ,{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    ,{ provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    ,{ provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

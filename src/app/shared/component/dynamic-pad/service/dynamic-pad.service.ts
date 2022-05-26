@@ -72,7 +72,7 @@ export class DynamicPadService {
       if (isTargetOnDynaKeyPadListener(target)) {
         return;
       }
-      if (target.closest("#" + textId).length == 0) {
+      if (target.closest("#" + textId).length == 0 && target[0].id!="secruityKeyboard") {
         $('#' + padId).fadeOut();
       }
     })
@@ -86,13 +86,35 @@ export class DynamicPadService {
 
   shiftToRightPlace(textId:string){
     var ipt =$('#'+textId);
+    // if(textId=="sslSecurity" || textId=="cardSecurity" || textId=="otpSecurity"){
+    //   //only for 安控（未使用 form-row-ssl元件）
+    //   var leftOfPad=ipt.offset().left+60;
+    //   var topOfPad=ipt.offset().top+40 ;
+    // }else{
+    //   var leftOfPad=ipt.offset().left +ipt.width() + 130;
+    //   var topOfPad=ipt.offset().top + ipt.height() +50;
+    // }
+    let obj = (document.querySelector('#'+textId) )as HTMLInputElement ;
+    var pos = { "top": 0, "left": 0 };
+    if (obj.offsetParent) {
+      while (obj.offsetParent) {
+        pos.top += obj.offsetTop;
+        pos.left += obj.offsetLeft;
+        obj = obj.offsetParent as HTMLInputElement;
+      }
+    } else if (ipt.x) {
+      pos.left += ipt.x;
+    } else if (ipt.x) {
+      pos.top += ipt.y;
+    }
+    console.log("新座標 高度:",pos.top," 寬度:",pos.left)
+    var leftOfPad=pos.left;
+    var topOfPad=pos.top;
+
     if(textId=="sslSecurity" || textId=="cardSecurity" || textId=="otpSecurity"){
       //only for 安控（未使用 form-row-ssl元件）
-      var leftOfPad=ipt.offset().left+60;
-      var topOfPad=ipt.offset().top+40 ;
-    }else{
-      var leftOfPad=ipt.offset().left +ipt.width() + 130;
-      var topOfPad=ipt.offset().top + ipt.height() +50;
+       leftOfPad=pos.left+60;
+       topOfPad=pos.top+40 ;
     }
 
     topOfPad=topOfPad<0? 0:topOfPad;

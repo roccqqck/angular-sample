@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { security_efinger, security_fxml, security_query, send_efinger } from '../../model/security.model';
+import { security_efinger, security_fxml, security_query, send_efinger } from '../model/security.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,19 +39,19 @@ export class SecurityControlService {
 
 
   //API URL
-  APIURL_SECURITY_QUERY="https://security-common-ibank.apps.devocp.firstbank.com.tw/api/security/securityinfo/v1/status/getallsecurity"
-  APIURL_SECURITY_SSL="https://security-common-ibank.apps.devocp.firstbank.com.tw/api/security/securityauth/v1/ssl/getssl"
-  APIURL_SECURITY_SENDMESSAGE="https://security-common-ibank.apps.devocp.firstbank.com.tw/api/security/securityauth/v1/efinger/sendmessage"
-  APIURL_SECURITY_ONETOUCH="https://security-common-ibank.apps.devocp.firstbank.com.tw/api/security/securityauth/v1/efinger/verifyefinger"
-  APIURL_SECURITY_DEVICEBINDING="https://security-common-ibank.apps.devocp.firstbank.com.tw/api/security/securityauth/v1/efinger/verifyefinger"
-  APIURL_SECURITY_OTP="https://security-common-ibank.apps.devocp.firstbank.com.tw/api/security/securityauth/v1/otp/verifyotp"
-  APIURL_SECURITY_FXML="https://security-common-ibank.apps.devocp.firstbank.com.tw/api/security/securityauth/v1/fxml/verifyfxml"
+  APIURL_SECURITY_QUERY="/api/security/securityinfo/v1/status/getallsecurity"
+  APIURL_SECURITY_SSL="/api/security/securityauth/v1/ssl/getssl"
+  APIURL_SECURITY_SENDMESSAGE="/api/security/securityauth/v1/efinger/sendmessage"
+  APIURL_SECURITY_ONETOUCH="/api/security/securityauth/v1/efinger/verifyefinger"
+  APIURL_SECURITY_DEVICEBINDING="/api/security/securityauth/v1/efinger/verifyefinger"
+  APIURL_SECURITY_OTP="/api/security/securityauth/v1/otp/verifyotp"
+  APIURL_SECURITY_FXML="/api/security/securityauth/v1/fxml/verifyfxml"
 
   //POST HEADER OPTION
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': 'test'
+      'Content-Type': 'application/json'
+      // 'authorization': 'test'
     })
   };
 

@@ -8,7 +8,6 @@ import { DynamicPadComponent } from './dynamic-pad/dynamic-pad.component';
 import { DownloadCSVComponent } from './download-csv/download-csv.component';
 import { FnGuidePageComponent } from './fn-guide-page/fn-guide-page.component';
 import { SubTabsComponent } from './tab/sub-tabs/sub-tabs.component';
-import { SecurityControlModule } from './securityControl/security-control.module';
 import { FormAttentionComponent } from './form/form-attention/form-attention.component';
 import { FormErrorComponent } from './form/form-error/form-error.component';
 import { FormLoadingComponent } from './form/form-loading/form-loading.component';

@@ -1,5 +1,5 @@
 <div class="block mar-ver10">
-  <form-success *ngIf="this.getTxnStatus()=='success'">
+  <form-success *ngIf=" this.getTxnStatus() == TXNSUCCESS ">
     <!-- 交易內容 start -->
         <div class="row">
           <span class="listTitle fontSize16 fontGray1 col-12 textLeft" i18n="@@nb_f1005_result1">您的交易內容如下：</span>
@@ -26,7 +26,7 @@
     <!-- 交易內容 end -->
   </form-success>
 
-  <form-error *ngIf="this.getTxnStatus()=='error'">
+  <form-error *ngIf=" this.getTxnStatus() == TXNERROR ">
     <div class="row ">
         <span class="listTitle fontSize16 fontGray2 col-12 textLeft" i18n="@@nb_f1005_result6">交易狀態</span>
         <p class="listContent col-12 textLeft fontBold fontRed mar-t10">{{errorMessage.message}}</p>

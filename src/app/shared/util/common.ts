@@ -102,4 +102,46 @@ export function select2Init(){
     $('input.select2-search__field').prop('placeholder', '請輸入關鍵字');
   });
 }
-// ==============================================================================
+
+// =========================切換NETBANK風格=====================================================
+/**
+ *偵測通路變化netbank樣式
+ *
+ * @export
+ * @param {string} channel
+ */
+export function netbankStyle(channel:string){
+  console.log("change netbank style :"+channel);
+  let title='iLEO'
+  switch(channel){
+    case 'W' :
+      title='iLEO';
+      break;
+    case 'W_N' :
+      title='mBank'
+      break;
+    case 'W_M' :
+      title='mBank'
+      break;
+    case 'W_L' :
+      title='iLEO'
+      break;
+    default :
+      title='iLEO'
+  }
+
+  //用dom方法獲取所有link元素
+  const links = document.getElementsByTagName("link");
+  for (let i=0; links[i]; i++){
+    if ((links[i] as any).getAttribute("rel").indexOf("style") != -1 && links[i].getAttribute("title")) {
+      //把所有link設為disabled
+      links[i].disabled = true;
+      //再來判斷title中是否有指定的title字串 有則把當前的link設為可視 即啟用當前的link
+      if ((links[i].getAttribute("title")as any).indexOf(title) != -1) {
+          links[i].disabled = false;
+          //alert("ok");
+      }
+    }
+  }
+
+}

@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ScriptService } from 'src/app/service/script/script.service';
 import { select2Init } from 'src/app/shared/util/common';
 import { checkThenShowIcReader, listReaders, readerSelect, readCardData, jsGetCardAccount, verifyPIN } from 'src/app/shared/util/firstCardObject';
-import { DynamicPadComponent } from '../../dynamic-pad/dynamic-pad.component';
-import { DynamicPadService } from '../../dynamic-pad/service/dynamic-pad.service';
+import { DynamicPadComponent } from '../../component/dynamic-pad/dynamic-pad.component';
+import { DynamicPadService } from '../../component/dynamic-pad/service/dynamic-pad.service';
 import { SecurityControlService } from '../security-control.service';
 
 declare var $: any;
@@ -20,15 +21,19 @@ export class CardComponent implements OnInit {
   constructor(
     private form: FormBuilder,//使用 FormBuilder 服務產生控制元件
     public dynamicPadService: DynamicPadService,
-    private securityControlService: SecurityControlService
+    private securityControlService: SecurityControlService,
+    private scriptService:ScriptService
   ) { }
 
   ngOnInit(): void {
-
-
-    checkThenShowIcReader()
+    this.scriptService.load('FirstCardObject_js','FirstCardObjectNew').then(data => {
+      console.log('script loaded ', data);
+      checkThenShowIcReader()
     listReaders(document.getElementsByName('readerSelect')[0].children[0])
     readerSelect(document.getElementsByName('readerSelect')[0].children[0])
+    }).catch(error => console.log('script loaded error',error));
+
+    
 
     this.cardForm = this.form.group({
       cardSecurity: ['', []]
@@ -85,9 +90,9 @@ export class CardComponent implements OnInit {
       alert("取得卡片資訊失敗！")
       return
     }
-    console.log(  "讀卡機名稱",  $("select.select2").val())
+    console.log(  "讀卡機名稱",  $("select.select2").val());
     // console.log( "密碼",this.cardForm.get("cardSecurity")?.value)
-    console.log( verifyPIN( $("select.select2").val()) )
+    console.log( verifyPIN(  $("select.select2").val() ));
 
   }
 

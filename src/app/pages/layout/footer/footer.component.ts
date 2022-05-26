@@ -12,4 +12,13 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getCurrentLanguage() {
+    const lang = ['en', 'zh'];
+    const currentLang = lang.find(l => new RegExp(`/${l}/`).test(window.location.pathname));
+    if (!currentLang) {
+      return 'zh';
+    }
+    return currentLang;
+  };
+
 }

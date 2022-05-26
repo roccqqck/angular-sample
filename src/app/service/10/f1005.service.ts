@@ -1,9 +1,9 @@
 import { f1005_change } from './../../shared/model/f1005.model';
-import { environment } from './../../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { f1005_query } from 'src/app/shared/model/f1005.model';
+import { API_F1005_GETSSL, API_F1005_MODIFYSSL, API_SETTING_HTTPOPTIONS } from 'src/app/shared/constants/api.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -35,22 +35,6 @@ export class F1005Service {
   usrId!: string;
   transDttm!: string;
 
-  
-  //API URL
-  APIURL = environment.APIURL_F10004
-  // APIURL_F10005_QUERY="http://localhost:4200/json/f1005query.json"
-  // APIURL_F10005_CHANGE="http://localhost:4200/json/f1005update.json"
- 
-  APIURL_F10005_QUERY= "https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/security/getssl"
-  APIURL_F10005_CHANGE="https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/security/modifyssl"
-
-  //POST HEADER OPTION
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': 'Bearer test'
-    })
-  };
 
     //TXN RESULT TIP(for success,count newSSL)
     countInt!: number;
@@ -105,10 +89,10 @@ export class F1005Service {
         "additionalProp3": "test"
       },
       "body": {
-        "custId": "A1231231230"
+        "custId": this.getCustId()
       }
     }
-    return this.http.post<f1005_query>(this.APIURL_F10005_QUERY,APIBODY,this.httpOptions).pipe(
+    return this.http.post<f1005_query>( API_F1005_GETSSL, APIBODY, API_SETTING_HTTPOPTIONS ).pipe(
       tap((response) => {
         console.log("queryf1005", response);
         return response;
@@ -124,14 +108,14 @@ export class F1005Service {
         "additionalProp3": "test"
       },
       "body": {
-        "custId": "A1231231230",
+        "custId":  this.getCustId(),
         "oldSSL": this.getOldSSL(),
         "newSSL": this.getNewSSL(),
         "chkSSL": this.getCheckSSL(),
         "loginWay": "w"
       }
     }
-    return this.http.post<f1005_change>(this.APIURL_F10005_CHANGE,APIBODY2, this.httpOptions).pipe(
+    return this.http.post<f1005_change>( API_F1005_MODIFYSSL, APIBODY2, API_SETTING_HTTPOPTIONS ).pipe(
       tap((response) => {
         console.log("queryf1005", response);
         return response;

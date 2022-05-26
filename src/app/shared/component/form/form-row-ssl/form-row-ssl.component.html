@@ -22,7 +22,7 @@
           <ng-container *ngIf="hasKeyboard==true">
             <!-- 一般動態鍵盤 -->
             <a #inpiutKeyboard >
-              <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@component_dykeybord"
+              <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@component_dykeybord"  (click)="this.dynamicPadService.dynamicPad(id,12)"
                 title="動態鍵盤"></i>
             </a>
           </ng-container>

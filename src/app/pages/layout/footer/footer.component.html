@@ -11,13 +11,19 @@
           </ul>
           <p i18n="@@nb_footer_text1">第一商業銀行股份有限公司 First Commercial Bank 版權所有</p>
           <p i18n="@@nb_footer_text2">24小時銀行客服專線 (02)2181-1111</p>
-          <p i18n="@@nb_footer_text3">建議瀏覽器版本：IE9或更新版本。解析度1024x768</p>
-          <p i18n="@@nb_footer_text4">建議最佳解析度為1280*768以上</p>
+          <p i18n="@@nb_footer_text3">建議瀏覽器版本：IE11以上、Chrome、Edge或Safari，解析度1024x768為佳</p>
       </div>
       <div class="cdic">
-          <a href="https://www.cdic.gov.tw/main_ch/chinese.html" target="_blank">
-              <img id="central-deposit" src="img/central-deposit-insurance-corporation.jpg" width="265" height="265" load="lazy">
-          </a>
+          <ng-container *ngIf="getCurrentLanguage()=='en'; else chineseInsurance">
+            <a href="https://www.cdic.gov.tw/main_en/english.html" target="_blank">
+                <img id="central-deposit" src="img/central-deposit-insurance-corporation.jpg" width="265" height="265" load="lazy">
+            </a>
+          </ng-container>
+          <ng-template #chineseInsurance>
+            <a href="https://www.cdic.gov.tw/main_ch/chinese.html" target="_blank">
+                <img id="central-deposit" src="img/central-deposit-insurance-corporation.jpg" width="265" height="265" load="lazy">
+            </a>
+          </ng-template>
       </div>
   </div>
 </footer>

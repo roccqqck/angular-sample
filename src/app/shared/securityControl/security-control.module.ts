@@ -8,7 +8,7 @@ import { OneTouchComponent } from './one-touch/one-touch.component';
 import { OtpComponent } from './otp/otp.component';
 import { CardComponent } from './card/card.component';
 import { SecurityControlComponent } from './security-control.component';
-import { DynamicPadService } from '../dynamic-pad/service/dynamic-pad.service';
+import { DynamicPadService } from '../component/dynamic-pad/service/dynamic-pad.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SecurityControlService } from './security-control.service';
 

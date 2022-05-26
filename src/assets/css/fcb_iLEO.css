@@ -351,3 +351,11 @@ display: none;
 .mobileView app-root > main .banneImg, .mobileView app-root > main .breadCrumb, .mobileView app-root > main .selectFont {
     display: none;
 }
+
+/* ---------------------------------------------------------- */
+/* angular footer  */
+app-footer > footer {
+    border-top: 3px solid #4DB369;
+    margin-top: 2rem;
+    padding: 2rem;
+}

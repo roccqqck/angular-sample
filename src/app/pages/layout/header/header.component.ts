@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   lang="";
-  constructor(private router: Router) {
-
-  }
+  constructor(
+    private router: Router
+  ) {}
 
 
   ngOnInit(): void {
@@ -24,7 +24,8 @@ export class HeaderComponent implements OnInit {
   changeLanguage() {
     const changelang=this.lang=="zh"?"en":"zh";
     console.log("redirect : 1."+ this.lang+ " 2."+changelang);
-    const redirectPathName = window.location.pathname.replace(`/`+this.lang+`/`,`/`+changelang+`/`)+window.location.hash;
+    // const redirectPathName = window.location.pathname.replace(`/`+this.lang+`/`,`/`+changelang+`/`)+window.location.hash;
+    const redirectPathName = encodeURI(window.location.pathname).replace(`/`+this.lang+`/`,`/`+changelang+`/`)+"#"+encodeURI(this.router.url).replaceAll(`%257B`,`{`).replaceAll(`%2522`,`"`).replaceAll(`%257D`,`}`);
     console.log(redirectPathName);
    // window.location.pathname = redirectPathName;
     window.location.href=redirectPathName;

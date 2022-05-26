@@ -19,7 +19,6 @@ export class AuthGuard implements CanActivate {
     const url: string = state.url;
     console.log("url:"+ url)
 
-    //網址中取token
     const urlchannel = route.queryParams['channel'];
     if(urlchannel){
       //有token存token到localstorage
@@ -65,20 +64,22 @@ export class AuthGuard implements CanActivate {
     // console.log("登入狀態"+this.authService.isLoggedIn)
     // console.log("登入中")
     // this.authService.login()
-    // console.log("登入成功："+this.authService.isLoggedIn)
+    // console.log("登入結果："+this.authService.isLoggedIn)
 
     // return this.checkLogin(url);
 
   }
 
   checkLogin(url: string): true | UrlTree {
-    if (this.authService.isLoggedIn) { return true; }
-    console.log(this.authService.isLoggedIn)
-    // Store the attempted URL for redirecting
-    this.authService.redirectUrl = url;
-
-    // Redirect to the login page
-    return this.router.parseUrl('/login');
-
+    if (this.authService.isLoggedIn) {
+       return true; 
+    }else{
+      console.log("checkLogin isLoggedIn:",this.authService.isLoggedIn)
+      // Store the attempted URL for redirecting
+      this.authService.redirectUrl = url;
+  
+      // Redirect to the login page
+      return this.router.parseUrl('/login');
+    }
   }
 }

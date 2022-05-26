@@ -51,13 +51,7 @@ export class F1021Service {
   // APIURL_F10005_QUERY= "https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/security/getssl"
   // APIURL_F10005_CHANGE="https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/security/modifyssl"
 
-  //POST HEADER OPTION
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': 'Bearer test'
-    })
-  };
+
 
     //TXN RESULT TIP(for success,count newSSL)
     countInt!: number;

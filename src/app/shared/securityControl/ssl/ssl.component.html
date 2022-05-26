@@ -10,7 +10,8 @@
             autocomplete="off" readonly i18n-placeholder="@@component_placeholder">
           <ng-container>
             <a #inpiutKeyboard>
-              <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" i18n-title="@@component_dykeybord"
+              <i class="far fa-keyboard verifyKeyboardIcon fontSize24 mar-r5" id="secruityKeyboard" i18n-title="@@component_dykeybord" 
+                (click)="this.dynamicPadService.dynamicPad('sslSecurity',12)" 
                 title="動態鍵盤"></i>
             </a>
           </ng-container>

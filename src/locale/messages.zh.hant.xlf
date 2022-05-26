@@ -1571,19 +1571,11 @@
         </context-group>
       </trans-unit>
       <trans-unit id="nb_footer_text3" datatype="html">
-        <source>建議瀏覽器版本：IE9或更新版本。解析度1024x768</source>
-        <target>建議瀏覽器版本：IE9或更新版本。解析度1024x768</target>
+        <source>建議瀏覽器版本：IE11以上、Chrome、Edge或Safari，解析度1024x768為佳</source>
+        <target>建議瀏覽器版本：IE11以上、Chrome、Edge或Safari，解析度1024x768為佳</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/pages/layout/footer/footer.component.html</context>
           <context context-type="linenumber">14</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="nb_footer_text4" datatype="html">
-        <source>建議最佳解析度為1280*768以上</source>
-        <target>建議最佳解析度為1280*768以上</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/pages/layout/footer/footer.component.html</context>
-          <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
       <trans-unit id="nb_header_link1" datatype="html">

@@ -38,6 +38,29 @@ export class CryptoService {
     return decryptedStr.toString();
   }
 
+  public aes128Encrypt(text: string) {
+    const key = CryptoJS.enc.Utf8.parse(environment.AES_KEY_128);
+    const iv = CryptoJS.enc.Utf8.parse(environment.AES_IV_128);
+    const cipher = CryptoJS.AES.encrypt(text, key, {
+      iv: iv,
+      padding: CryptoJS.pad.Pkcs7,
+      mode: CryptoJS.mode.CBC
+    })
+    return cipher.toString();
+  }
+
+  public aes128Decrypt(text: string){
+    const key = CryptoJS.enc.Utf8.parse(environment.AES_KEY_128);
+    const iv = CryptoJS.enc.Utf8.parse(environment.AES_IV_128);
+    const decrypt = CryptoJS.AES.decrypt(text, key, {
+      iv: iv,
+      padding: CryptoJS.pad.Pkcs7,
+      mode: CryptoJS.mode.CBC
+    })
+    let decryptedStr = decrypt.toString(CryptoJS.enc.Utf8);
+    return decryptedStr.toString();
+  }
+
   // **************************************************************
   //  資料加密標準(Data Encryption Standard):對稱密鑰加密
   //  DES(des、triple des)

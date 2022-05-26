@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { CaptchaService } from 'src/app/service/captcha/captcha.service';
-import { DynamicPadComponent } from '../../dynamic-pad/dynamic-pad.component';
-import { DynamicPadService } from '../../dynamic-pad/service/dynamic-pad.service';
+import { DynamicPadComponent } from '../../component/dynamic-pad/dynamic-pad.component';
+import { DynamicPadService } from '../../component/dynamic-pad/service/dynamic-pad.service';
 import { SecurityControlService } from '../security-control.service';
 
 @Component({

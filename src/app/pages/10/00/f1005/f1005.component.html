@@ -8,19 +8,25 @@
   stepItem4=""
   stepItem5=""
   stepItem6=""
-  [currentStep]="getStep()" [txnError]="txnError">
+  [currentStep]="getStep()" [txnError]="isTxnError">
 </app-fn-step>
 <!-- 引導頁 -->
-<app-fn-guide-page *ngIf="0==getStep()"
+<app-fn-guide-page *ngIf=" getStep() == STEP0 && !isTxnError " 
   title="您無法執行此交易" i18n-title="@@nb_f1005_guidepage_title"
   content="您尚未申請SSL交易密碼，如需申請，請您攜帶身分證明文件及本行任一存款帳戶留存印鑑前往分行辦理；僅具數位帳戶者，請攜帶身分證及第二證件(如：健保卡、駕照或護照)"
   i18n-content="@@nb_f1005_guidepage_content"
 >
 </app-fn-guide-page>
+<!-- 錯誤頁(交易結果之外的錯誤) -->
+<app-fn-error-page  *ngIf=" getStep() == STEP0 && isTxnError "   
+  [code]="errorCode" i18n-code=""
+  [message]="errorMessage" i18n
+  >
+</app-fn-error-page>
 <!-- 變更頁 -->
-<app-form1 *ngIf="1==getStep()"  (nextEvent)="goStep2($event)"></app-form1>
+<app-form1 *ngIf=" getStep() == STEP1 "  (nextEvent)="goStep2($event)"></app-form1>
 <!-- 完成頁 -->
-<app-form2 *ngIf="2==getStep()" ></app-form2>
+<app-form2 *ngIf=" getStep() == STEP2 " ></app-form2>
 
 
 <!-- loading -->

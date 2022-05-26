@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-alert-modal',
@@ -12,15 +12,20 @@ export class AlertModalComponent implements OnInit {
   @Input()isOpen!:boolean;
   @Output() btnEvent = new EventEmitter<{state:string,isOpen:boolean}>();
 
-  constructor() { }
+  constructor(
+    private renderer:Renderer2 
+  ) { }
 
   ngOnInit(): void {
+    this.renderer.setStyle(document.documentElement,'overflow','hidden');
+    this.renderer.setStyle(document.body,'overflow','hidden');
   }
 
   handleOk(){
     this.isOpen=false;
     this.btnEvent.emit({state:'Y',isOpen:false})
-    
+    this.renderer.setStyle(document.documentElement,'overflow','auto');
+    this.renderer.setStyle(document.body,'overflow','auto');
   }
   
 

@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ChangeDetectorRef, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { captcha } from 'src/app/shared/model/captcha.model';
+import { API_COMMON_CREATECAPTCHA, API_SETTING_HTTPOPTIONS } from 'src/app/shared/constants/api.constants'
 
 
 @Injectable({
@@ -10,14 +10,8 @@ import { captcha } from 'src/app/shared/model/captcha.model';
 })
 export class CaptchaService {
 
-  APIURL: string = "https://common-shared-ibank.apps.devocp.firstbank.com.tw/api/common/shared/v1/shared/createcaptcha";
+  APIURL: string = "/api/common/shared/v1/shared/createcaptcha";
 
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
 
   APIBODY = {
     "header": {
@@ -39,7 +33,7 @@ export class CaptchaService {
 
   //取得圖形驗證碼
   getCaptcha(): Observable<captcha> {
-    return this.http.post<captcha>(this.APIURL, this.APIBODY, this.httpOptions).pipe(
+    return this.http.post<captcha>(API_COMMON_CREATECAPTCHA, this.APIBODY, API_SETTING_HTTPOPTIONS).pipe(
       tap((response) => {
         console.log("getCaptcha", response);
         return response;

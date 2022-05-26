@@ -5,11 +5,21 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class MaskNamePipe implements PipeTransform {
 
-  transform(text: string, mask: string, ...args: unknown[]): string {
-    if(text.length > 2){
-      return text.slice(0,1) + mask + text.slice(2);
-    } else{
-      return text;
+  transform(text: string, masksign: string, ...args: unknown[]): string {
+
+    let inputText = text;
+    let inputMaskSign = masksign;
+
+    if(inputMaskSign == ""){
+      inputMaskSign = "〇";
+    }
+
+    if(inputText.length > 2){
+      return inputText.slice(0,1) + inputMaskSign + inputText.slice(2);
+    }else if(inputText.length == 2){
+      return inputText.slice(0,1) + inputMaskSign;
+    }else{
+      return inputText;
     } 
   }
 

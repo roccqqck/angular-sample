@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { F1004Service } from 'src/app/service/10/f1004.service';
+import { FUNC_TXNSTATUS_ERROR, FUNC_TXNSTATUS_SUCCESS } from 'src/app/shared/constants/function.constants';
 
 @Component({
   selector: 'app-form2',
@@ -11,7 +12,8 @@ export class Form2Component implements OnInit {
     F1004登入密碼變更-結果頁 component-form2
     declare variable
   ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
-
+  TXNSUCCESS=FUNC_TXNSTATUS_SUCCESS;
+  TXNERROR=FUNC_TXNSTATUS_ERROR;
 
 
   /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊

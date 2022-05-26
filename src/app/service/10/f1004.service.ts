@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { f1004_change, f1004_query } from 'src/app/shared/model/f1004.model';
-import { environment } from 'src/environments/environment';
+import { API_F1004_GETUSRPD, API_F1004_MODIFYUSRPD, API_SETTING_HTTPOPTIONS } from 'src/app/shared/constants/api.constants'
 
 
 @Injectable({
@@ -35,17 +35,6 @@ export class F1004Service {
   usrId!: string;
   transDttm!: string;
 
-  //API URL
-  APIURL: string =  "https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/security/getusrpd";
-  APIURL2: string = "https:/customer-common-ibank.apps.devocp.firstbank.com.tw/api/customer/personal/v1/security/modifyusrpd";
-
-  //POST HEADER OPTION
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'authorization': 'Bearer test'
-    })
-  };
 
   //TXN RESULT TIP(for success,count newPd)
   countInt!: number;
@@ -78,10 +67,10 @@ export class F1004Service {
         "additionalProp3": "test"
       },
       "body": {
-        "custId": "A1231231230"
+        "custId": this.getCustId()
       }
     }
-    return this.http.post<f1004_query>(this.APIURL,APIBODY,this.httpOptions).pipe(
+    return this.http.post<f1004_query>( API_F1004_GETUSRPD, APIBODY, API_SETTING_HTTPOPTIONS ).pipe(
       tap((response) => {
         console.log("queryf1004", response);
         return response;
@@ -105,7 +94,7 @@ export class F1004Service {
         "loginWay": "w"
       }
     }
-    return this.http.post<f1004_change>(this.APIURL2, APIBODY2, this.httpOptions).pipe(
+    return this.http.post<f1004_change>( API_F1004_MODIFYUSRPD, APIBODY2, API_SETTING_HTTPOPTIONS ).pipe(
       tap((response) => {
         console.log("changef1003", response);
         return response;

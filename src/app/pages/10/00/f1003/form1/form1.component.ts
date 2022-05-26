@@ -1,9 +1,8 @@
-import { getLocaleDateTimeFormat } from '@angular/common';
-import { Component, Input, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { F1003Service } from 'src/app/service/10/f1003.service';
+import { FUNC_TWO_STEP_2 } from 'src/app/shared/constants/function.constants';
 import { userValidator } from 'src/app/shared/util/check/user-validator.directive';
-import { convertStrToDate, convertStrToDateString } from 'src/app/shared/util/convertString';
 
 @Component({
   selector: 'app-form1',
@@ -16,7 +15,6 @@ export class Form1Component implements OnInit {
     declare variable
   ＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊*/
   @Output() nextEvent = new EventEmitter<number>();
-
   f1003Form!: FormGroup;
   isSubmit: boolean = false;
 
@@ -27,9 +25,8 @@ export class Form1Component implements OnInit {
   constructor(
     private form: FormBuilder,//使用 FormBuilder 服務產生控制元件
     private f1003Service: F1003Service,
-    private changeDectorRef: ChangeDetectorRef) {
+  ) { }
 
-  }
 
   /*＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊＊
     init
@@ -106,7 +103,7 @@ export class Form1Component implements OnInit {
     const isValidate = this.onValidate();
 
     if (isValidate) {
-      this.nextEvent.emit(2);
+      this.nextEvent.emit(FUNC_TWO_STEP_2);
     }
   }
 

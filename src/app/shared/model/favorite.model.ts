@@ -12,3 +12,10 @@ export interface favorite {
   responseId:string;
   statusCode:string;
 }
+
+export interface editStarFavorite {
+  success: boolean;
+  clientResponse: boolean;
+  responseId:string;
+  statusCode:string;
+}
