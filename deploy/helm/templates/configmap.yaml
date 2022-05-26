@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: ileobank
+  name: ileobank
+data:
+{{- range $key, $val := .Values.configurationFiles }}
+  {{ $key }}: |-
+{{ $val | indent 4 }}
+{{- end }}

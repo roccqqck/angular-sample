@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ileobank
+spec:
+  selector:
+    matchLabels:
+      app: ileobank
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: ileobank
+    spec:
+      containers:
+        - name: ileobank
+          imagePullPolicy: {{ .Values.image.pull.policy }}
+          resources:
+            requests:
+              cpu: '{{ .Values.resources.requests.cpu }}'
+              memory: '{{ .Values.resources.requests.memory }}'
+            limits:
+              cpu: '{{ .Values.resources.limits.cpu }}'
+              memory: '{{ .Values.resources.limits.memory }}'
+          image: '{{ .Values.image.repository }}:{{ .Values.image.tag }}'
+          ports:
+            - containerPort: 8081
+          readinessProbe:
+            httpGet:
+              path: /c1/ileobank/zh/index.html
+              port: 8081
+              scheme: HTTP
+            initialDelaySeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /c1/ileobank/zh/index.html
+              port: 8081
+              scheme: HTTP
+            initialDelaySeconds: 10
+          env:
+            {{- range .Values.env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}
+          volumeMounts:
+          - mountPath: /opt/bitnami/nginx/conf/server_blocks/    
+            name: bitnami-nginx-conf-serverblocks # mount bitnami-nginx-conf-serverblocks volume to /opt/bitnami/nginx/conf/server_blocks/
+      volumes:
+      - name: bitnami-nginx-conf-serverblocks  # volume name
+        configMap:
+          name: ileobank  # configMap name
+          items:
+          - key: bitnami-nginx-server-blocks.conf    
+            path: bitnami-nginx-server-blocks.conf  # rename bitnami-nginx-server-blocks.conf mount file 
+      imagePullSecrets:
+        - name: {{ .Values.image.pull.secret }}
